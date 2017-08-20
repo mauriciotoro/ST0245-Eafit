@@ -1,4 +1,4 @@
-*****************RECURSION 1**********************
+//*****************RECURSION 1**********************
 //Factorial.
 public int factorial(int n) { 
 if(n==1){  
@@ -39,7 +39,7 @@ return n; 
 }  return fibonacci (n-2)+ fibonacci(n-1);
 }
 
-******************************RECURSION 2***************************
+//******************************RECURSION 2***************************
 //GroupSum5
 public boolean groupSum5(int start, int[] nums, int target) { 
 if (start >= nums.length) return target == 0;  
