@@ -36,8 +36,8 @@ public class TestTaller3 {
 		Taller3.combinations("Hola");
 
 		System.out.println("Para la cadena 'Hi' las combinacioens deben ser similar a:");
-		System.out.println("H, Hi, i");
-		Taller3.combinations("Hi");
+		System.out.println("a, ab, abc, ac, b, bc, c");
+		Taller3.combinations("H, Hi, i");
 	}
 	
 	
@@ -61,7 +61,7 @@ public class TestTaller3 {
 	
 	public static void main(String[] args){	
         //Ejercicio1
-	System.out.println("");
+		System.out.println("");
         System.out.println("Ejercicio 1");
         ejercicio1();
         
