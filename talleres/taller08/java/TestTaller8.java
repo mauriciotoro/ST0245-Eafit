@@ -16,17 +16,17 @@ public class TestTaller8 {
         b = toStack(new int[] {2,34,3,5,4,6,4,56,5});
         b1 = new int[] {5,56,4,6,4,5,3,34,2};
         b = Taller8.inversa(b);
-        temp2 = a.stream().mapToInt(Integer::intValue).toArray();
+        temp2 = b.stream().mapToInt(Integer::intValue).toArray();
         
         c = toStack(new int[] {33,4,54,2,34,436,5,4,43,2,342,234});
         c1 = new int[] {234,342,2,43,4,5,436,34,2,54,4,33};
         c = Taller8.inversa(c);
-        temp3 = a.stream().mapToInt(Integer::intValue).toArray();
+        temp3 = c.stream().mapToInt(Integer::intValue).toArray();
         
         d = toStack(new int[] {6,5,6,4,3,643,63,23,5,57,56,3,3,5,4});
         d1 = new int[] {4,5,3,3,56,57,5,23,63,643,3,4,6,5,6};
         d = Taller8.inversa(d);
-        temp4 = a.stream().mapToInt(Integer::intValue).toArray();
+        temp4 = d.stream().mapToInt(Integer::intValue).toArray();
         
         if(Arrays.equals(temp1,a1) && Arrays.equals(temp2,b1) && Arrays.equals(temp3,c1) && Arrays.equals(temp4,d1))
             return true;
