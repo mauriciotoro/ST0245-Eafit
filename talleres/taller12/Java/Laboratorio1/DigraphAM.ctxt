@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.params=size
+comment0.target=DigraphAM(int)
+comment1.params=source\ destination
+comment1.target=int\ getWeight(int,\ int)
+comment2.params=source\ destination\ weight
+comment2.target=void\ addArc(int,\ int,\ int)
+comment3.params=vertex
+comment3.target=java.util.ArrayList\ getSuccessors(int)
+numComments=4
