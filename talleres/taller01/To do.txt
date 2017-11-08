@@ -1,3 +1,0 @@
-Agregar que se entregue el código en .zip y no en word ni pdf.
-
-Explicar que en vez de la librería std draw pueden usar graphics.
