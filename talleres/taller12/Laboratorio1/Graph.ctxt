@@ -1,0 +1,12 @@
+#BlueJ class context
+comment0.params=vertices
+comment0.target=Graph(int)
+comment1.params=source\ destination\ weight
+comment1.target=void\ addArc(int,\ int,\ int)
+comment2.params=vertice
+comment2.target=java.util.ArrayList\ getSuccessors(int)
+comment3.params=source\ destination
+comment3.target=int\ getWeight(int,\ int)
+comment4.params=
+comment4.target=int\ size()
+numComments=5
