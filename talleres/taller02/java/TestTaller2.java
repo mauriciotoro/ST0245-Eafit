@@ -14,20 +14,8 @@ public class TestTaller2 {
 		return false;
 	}
 	
+
 	public static boolean ejercicio2(){
-		LinkedListMauricio list = new LinkedListMauricio();
-		list.insert(2, 0);
-		list.insert(5, 0);
-		list.insert(23, 0);
-		list.insert(7, 0);
-		list.insert(34, 0);
-		list.insert(12, 0);
-		if(Taller2.maximo(list)==34)
-			return true;
-		return false;
-	}
-	
-	public static boolean ejercicio3(){
 		boolean a, b, c, d;
 		a=Taller2.SumaGrupo(0, new int[] {2, 4, 8}, 9);
 		b=Taller2.SumaGrupo(0, new int[] {2, 4, 8}, 8);
@@ -39,7 +27,7 @@ public class TestTaller2 {
 	}
 	
 	
-	public static void ejercicio4(){
+	public static void ejercicio3(){
 		System.out.println("Para la cadena 'abc' el resultado debe ser similar a:");
 		System.out.println("a, ab, abc, ac, b, bc, c");
 		Taller2.combinations("abc");
@@ -68,9 +56,9 @@ public class TestTaller2 {
         
         //Ejercicio2
         if(ejercicio2())
-            System.out.println("Ejercicio 1 Correcto");
+            System.out.println("Ejercicio 2 Correcto");
         else
-        System.out.println("Ejercicio 1 Incorrecto");
+        System.out.println("Ejercicio 2 Incorrecto");
         
         
         //Ejercicio3
@@ -79,8 +67,6 @@ public class TestTaller2 {
         else
         System.out.println("Ejercicio 3 Incorrecto");
         
-        System.out.println("");
-        System.out.println("Ejercicio 4");
-        ejercicio4();
+
     }
 }
