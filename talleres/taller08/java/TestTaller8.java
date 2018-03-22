@@ -63,11 +63,11 @@ public class TestTaller8 {
     	int a,b,c,d,a1,b1,c1,d1;
         String s1,s2,s3,s4;
         
-        a=-14;
+        a=14;
         s1 = "3 5 * 12 + 13 -";
         a1 = Taller8.polaca(s1);
         
-        b=172;
+        b=-172;
         s2 = "12 5 * 232 -";
         b1 = Taller8.polaca(s2);
         
@@ -75,8 +75,8 @@ public class TestTaller8 {
         s3 = "34 2 * 13 *";
         c1 = Taller8.polaca(s3);
         
-        d=12;
-        s4 = "67 3 * 21 - 7 * 12";
+        d=1260;
+        s4 = "67 3 * 21 - 7 *";
         d1 = Taller8.polaca(s4);
         
         if(a==a1 && c==c1 && b==b1 && d==d1)
