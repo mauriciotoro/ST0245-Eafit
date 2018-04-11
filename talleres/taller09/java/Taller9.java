@@ -14,11 +14,11 @@ public class Taller9{
     }
     
     //pedrito 3
-    public static void buscar(HashMap empresas,String key){
+    public static boolean buscar(HashMap empresas,String key){
         //...
     }
     //pedrito 4
-    public static boolean contienekey(HashMap empresas,String value){
+    public static boolean contieneValue(HashMap empresas,String value){
         //...
     } 
 }
