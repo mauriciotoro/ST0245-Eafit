@@ -8,7 +8,7 @@ import java.lang.Math;
 /**
  * Algoritmo para prevenir Colisiones
  * Estructura de datos utilizada: Arreglos
- * Complejidad: Peor Caso y Mejor caso = O(n al cubo)
+ * Complejidad: Peor Caso O(n al cubo) y Mejor caso O(n al cuadrado)
  *
  * @author Mauricio Toro
  * @version 1
