@@ -17,6 +17,7 @@ public class PrevencionColisiones
 {
     /**
     * Metodo para aproximar la distancia entre dos abejas roboticas
+    * Complejidad: Mejor y peor caso es O(1)
     *
     * @param  abeja1  la primera abeja
     * @param  abeja2  la segunda abeja
@@ -31,6 +32,7 @@ public class PrevencionColisiones
 
     /**
     * Metodo para leer un archivo de abejas y almacenarlas en un arreglo de puntos en 3D
+    * Complejidad: Mejor y peor caso es O(n)
     *
     * @param  numeroDeAbejas  El numero de abejas a leer
     * @return un arreglo de puntos 3D donde cada elemento representa las coordenadas de una abeja
@@ -60,6 +62,8 @@ public class PrevencionColisiones
     
     /**
     * Algoritmo para prevenir colisiones (genera muchas respuestas repetidas)
+    * Complejidad: Mejor caso es O(n^2) cuando ninguna abeja esta a 100 metros de otra. 
+    *              Peor  caso es O(n^3) cuando todas estan a menos de 100 metros de otra
     *
     * @param  arregloDeAbejas  Un arreglo con coordenadas de las abejas
     * @return una lista definida con arreglos con las abejas que tienen riesgo de colision
@@ -69,14 +73,15 @@ public class PrevencionColisiones
           for (int i = 0; i < arregloDeAbejas.length ; ++i)
               for(int j = i+1; j < arregloDeAbejas.length; ++j)
                 if (distancia(arregloDeAbejas[i], arregloDeAbejas[j]) <= 100){
-                   abejasConRiesgoDeColision.add(arregloDeAbejas[i]);
-                   abejasConRiesgoDeColision.add(arregloDeAbejas[j]);
+                   abejasConRiesgoDeColision.add(arregloDeAbejas[i]); // Insertar en ArrayList es O(n)
+                   abejasConRiesgoDeColision.add(arregloDeAbejas[j]); // Insertar en ArrayList es O(n)
                 }
           return abejasConRiesgoDeColision;
     }
         
     /**
     * Metodo para escribir un archivo con la respuesta
+    * Complejidad: Mejor y peor caso es O(n)
     *
     * @param  abejasConRiesgoDeColision  Lista definida con arreglos con las abejas con riesgo de colision
     * @param  numeroDeAbejas  Numero de abejas del conjunto de datos original
@@ -95,7 +100,7 @@ public class PrevencionColisiones
     }
     
     public static void main(String[] args){
-          // Recibir el numero de abejas como parametro
+          // Recibir el numero de abejas como parametro del main
           final int numeroDeAbejas = args.length == 0 ? 10 : Integer.parseInt(args[0]);
           // Leer el archivo con las coordenadas de las abejas
           Point3D[] arregloDeAbejas = leerArchivo(numeroDeAbejas);
