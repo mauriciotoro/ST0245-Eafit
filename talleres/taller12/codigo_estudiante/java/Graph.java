@@ -1,10 +1,5 @@
 import java.util.ArrayList;
-/**
- * Abstract class for implementations of Digraphs
- * 
- * @author Mauricio Toro
- * @version 1
- */
+//CODIGO BASE DADO POR EL PROFESOR
 public abstract class Graph
 {
    protected int size;
@@ -15,5 +10,7 @@ public abstract class Graph
    public  abstract void addArc(int source, int destination, int weight);
    public abstract ArrayList<Integer> getSuccessors(int vertice);
    public abstract int getWeight(int source, int destination);
-   public  int size() {return size;}
+   public  int size() {
+       return size;
+    }
 }
