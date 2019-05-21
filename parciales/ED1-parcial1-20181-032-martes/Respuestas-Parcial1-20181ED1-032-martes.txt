@@ -1,0 +1,14 @@
+1. Recursión
+ (a) return 1;
+ (b) return 2;
+2. Complejidad
+ (a) (ii) raiz de n por n 
+ (b) (iv) más de nm pasos
+ (c) (iii) menos de n log n pasos
+ (d) (iii) T(n) = T(n-1) + T(n-2) + c
+3. Notación O
+ (a) (ii) m por raiz de n
+ (b) (i) n cubo
+4. Listas
+ (a) (iii) es n cubo
+ (b) (iii) es O(n)

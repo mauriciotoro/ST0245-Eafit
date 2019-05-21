@@ -1,0 +1,197 @@
+\documentclass[10 pt]{article}
+\usepackage{tikz}
+\usetikzlibrary{arrows}
+\usepackage[margin=0.5 in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{tabu}
+\usepackage{color}
+\usepackage{xcolor}
+\usepackage{listings}
+\usepackage{enumitem}
+\usepackage{multicol}
+\setlength{\columnsep}{1cm} 
+\title{\textbf {Estructuras de Datos 1 - ST0245\\Examen Parcial 1
+}}
+\author{Nombre ..............................\\
+		Departamento de Informática y Sistemas\\
+		Universidad EAFIT\\}
+\date{Septiembre 4 de 2018}
+\begin{document}
+\lstdefinestyle{customc}{
+	language=Java, 
+	numbers=left, 
+	showspaces=false,
+    showstringspaces=false, 
+    tabsize=2, 
+    breaklines=true,
+    xleftmargin=5.0ex,
+}
+\lstset{escapechar=@,style=customc, numbers=left, stepnumber = 1} 
+\maketitle
+\begin{multicols}{2}
+\section{Recursión 20\%}
+\begin{enumerate}[label=(\alph*)]
+	\item (10\%) Considere el siguiente programa. ¿Cuál es la salida generada por $fun(11, 5)$? Como un ejemplo: $fun(10, 3) = 20$.
+	\begin{lstlisting}
+	int fun(int n, int m){
+	  if(n % m == 2) return n;
+	  return fun(n + m, n - m);
+	}
+	\end{lstlisting}
+	\begin{enumerate}[label=(\roman*)]
+		%Respuesta: 22
+		\item 11
+		\item 5
+		\item 22
+		\item 2
+	\end{enumerate}
+	\item Considere el siguiente programa. ¿Cuál es la salida para $fun(1, 4)$? Como un ejemplo: $fun(1,2)=4$.
+	\begin{lstlisting}
+	int fun(int m,int n){
+	  if(m==0){
+	    return (n+1);  
+	  }
+	  if(m>0 && n==0){
+	    return fun(m-1,1);  
+	  }
+	  int a=fun(m,n-1);
+	  return fun(m-1,a);
+	}
+	\end{lstlisting}	
+	\begin{enumerate}[label=(\roman*)]
+		%Respuesta: 6
+		\item 4
+		\item 6
+		\item 5
+		\item 12
+	\end{enumerate}
+\end{enumerate}
+\section{Complejidad 40\%}
+\begin{enumerate}[label=(\alph*)]
+\item (10\%) ¿Es $O(2^{k + 1})=O(2^k)$?
+\begin{enumerate}[label=(\roman*)]
+\item Sí
+\item No
+%Respuesta: Si
+\end{enumerate}
+\item (10\%) Considere el siguiente código escrito en Java. Encuentre la ecuación de recurrencia que mejor representa la complejidad asintótica en el peor de los casos.
+\begin{lstlisting}
+int f(int n){
+  if(n <= 0){
+    return 1;
+  }
+  int a = f(n / 2);
+  int b = f(n / 2);
+  int res = 0;
+  for(int i = 0; i < n; i++){
+    res += (a*b);
+  }
+  return res;
+}
+\end{lstlisting}
+\begin{enumerate}[label=(\roman*)]
+	%Respuesta: T(n) = 2T(n/2) + n
+	\item $T(n) = 2T(n-1) + n$
+	\item $T(n) = 2T(\frac{n}{2}) + n^2$
+	\item $T(n) = 2T(\frac{n}{2}) + n$
+	\item $T(n) = 2T(n-1) + (n-1)$
+\end{enumerate}
+\item (10\%) ¿Cuál de las siguientes afirmaciones es correcta para la función $func2(n, m)$?
+\begin{lstlisting}
+void func2(int n, int m){
+  for(int i = 0; i < n; i++){
+    for(int j = 0; j < m; j++){
+      print(i,j);   
+    }  
+  }
+}
+\end{lstlisting}
+\begin{enumerate}[label=(\roman*)]
+%Respuesta O(n. m) pasos
+\item Ejecuta $O(n + m)$ instrucciones
+\item Ejecuta $O(n . m)$ instrucciones
+\item Ejecuta $O(n^2 + m)$ instrucciones
+\item Ejecuta $O(m + n^2)$ instrucciones
+\end{enumerate}
+\pagebreak
+\item (10\%) Encuentre la ecuación de recurrencia que mejor representa la complejidad asintótica, para el peor de los casos, del siguiente código escrito en Java.
+\begin{lstlisting}
+int f(int n){
+  if(n <= 0){
+    return 1;
+  }
+  int new_n = n / 5;
+  int re1 = f(new_n);
+  int re2 = f(new_n);
+  for(int i = 0; i < 4; ++i){
+    re1 = re1 + f(n / 7);
+  }
+  return re1 + re2;
+}
+\end{lstlisting}
+\begin{enumerate}[label=(\roman*)]
+%Respuesta: a
+\item $T(n) = 2 \times T(\frac{n}{5}) + 4 \times T(\frac{n}{7}) + C$
+\item $T(n) = C \times T(\frac{n}{5}) + T(\frac{n}{7})$
+\item $T(n) = C + 4 \times T(\frac{n}{5})$
+\item $T(n) = C + 4 \times T(\frac{n}{7})$
+\end{enumerate}
+\end{enumerate}
+\section{Notación O 20\%}
+\begin{enumerate}[label=\alph*]
+\item (10\%) Si $f(n) = O(n^2)$ y $g(n) = O(2^n)$, deduzca cuál es el valor de $O(f(n) \times g(n))$.
+\begin{enumerate}[label=(\roman*)]
+% Respuesta c : 2^n por n^2
+\item $O(2^n)$
+\item $O(n^2)$
+\item $O(2^n \times n^2)$
+\item $O(2^n + n^2)$
+\end{enumerate}
+
+\item (10\%) Sea $T(n) = 0.003 \times \log_{2} n + \log_{2}(\log_{2} n)$. Calcule $O(T(n)).$
+\begin{enumerate}[label=(\roman*)]
+\item $O(\log_{2}(\log_{2} n))$
+\item $O(n ^ 2)$
+\item $O(\log_{2} n)$
+\item $O(n \log_{2} n)$
+%Respuesta: O(log2 n)
+\end{enumerate}
+\end{enumerate}
+\section{ArrayList 20\%}
+\textbf{Nota: } El método \textbf{add(n)} añade el elemento $n$ en la última posición de la lista. El método \textbf{contains(n)} retorna verdadero si $n$ está en la lista, sino retorna falso. El método \textbf{size()} retorna el tamaño de la lista. El método \textbf{get(i)} devuelve el elemento en la posición $i$ de la lista. 
+\begin{enumerate}[label=\alph*]
+\item (10\%)¿Cuál es la complejidad asintótica, en el peor de los casos, de la siguiente función?
+\begin{lstlisting}
+void fun1(ArrayList<Integer> list){
+  int a = -1, n=list.size();
+  for(int i=n; i >= 0;i--){
+  	a = Math.max(a, list.get(i));
+  }
+  for(int i = 0; i < n; i++){
+  	for(int j = 0; j < a; j++){
+  		list.add(i*j);
+  	}
+  }
+}
+\end{lstlisting}
+
+\begin{enumerate}[label=(\roman*)]
+\item $O(n^2)$
+\item $O(\max(list) \times n)$
+\item $O(\max(list) \times n^2)$
+\item $O(n)$
+% Respuesta: O(max{e} * n^2)
+\end{enumerate}
+\textbf{Nota}: La función $max(list)$ es el elemento mayor de la lista.
+\item (10\%) ¿Cuál es la complejidad asintóntica, en el peor de los casos, de insertar
+un elemento al principio de una lista hecha con arreglos (ArrayList)?
+\begin{enumerate}[label=(\roman*)]
+\item $O(n^2)$
+\item $O(n )$
+\item $O(log n)$
+\item $O(1)$
+%Respuesta: O(n)
+\end{enumerate}
+\end{enumerate}
+\end{multicols}
+\end{document}

@@ -1,0 +1,261 @@
+\documentclass[twocolumn]{article}
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{verbatim}
+\usepackage{algorithmic}
+\usepackage{enumitem}
+\setlist{nolistsep}
+
+
+\author{
+Nombre:....................................... \\
+    Departamento de Informática y Sistemas \\
+    Universidad EAFIT \\
+}
+\title{
+    Estructuras de Datos 1 - ST0245 \\
+    Examen Parcial 2
+}
+\date{
+    Mayo 9, 2017
+}
+
+\begin{document}
+\vspace{-5cm}
+\maketitle
+
+
+\section*{Criterios de calificación}
+
+\begin{itemize}
+\item Selección múltiple con única respuesta
+\begin{itemize}
+\item Respuesta correcta: 100\%
+\item Respuesta incorrecta: 0\%
+\end{itemize}
+
+\item Completar código
+\begin{itemize}
+\item Respuesta correcta 100\%
+\item Respuesta incorrecta o vacía 0\%
+\end{itemize}
+\end{itemize}
+
+\textbf{NOTAS IMPORTANTES:}
+\begin{itemize}
+	\item Responda en la hoja de PREGUNTAS
+	\item Marque la hoja de PREGUNTAS
+\end{itemize}
+
+
+
+\section{Árboles binarios 20\%}
+En este parcial, el nodo de un árbol binario se define así:
+
+{\small
+\begin{verbatim}
+class Nodo {
+     Nodo izq;
+     Nodo der;
+     int dato;
+}
+\end{verbatim}
+}
+
+Kefo ha dañado a Dayla su código para determinar \textbf{cuál es la altura máxima de un árbol binario}. Dayla no recuerda como lo había hecho y te pide ayuda para que lo completes.
+
+{\small
+\begin{verbatim}
+01 int altura(Nodo raiz){
+02   if(raiz == null)
+03      return 0;
+04   int izq =_______;
+05   int der =_______; 
+06   return Math.max(izq, der);}
+\end{verbatim}
+}
+
+\begin{enumerate}[label=\Alph*]
+	\item (10\%) Complete el espacio en línea 04
+
+	\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+
+	\item (10\%) Complete el espacio en ĺínea 05
+
+	\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+
+\end{enumerate}
+
+% int altura(Nodo raíz){
+% 	// Caso base
+% 	if(raíz == null)
+% 		return 0;
+% 	Int izq =altura(raiz.izq);
+% 	Int der =altura(raiz.der);
+% 	return max(izq, der);
+% }
+
+\section{Árbol bin. de búsqueda 10\%}
+
+A un árbol binario de búsqueda se le ingresan 9 elementos en este orden: 12, 3, 5, 8, 2, 1, 9, 17.  \textbf{¿Cuántos nodos hay que recorrer antes de encontrar el número 8?} Se cuenta la raíz, pero no se cuenta el nodo donde está el 8.
+
+\begin{enumerate}[label=\Alph*]
+	\item $2$
+	\item $1$
+	\item $3$
+	\item $5$
+\end{enumerate}
+
+% 			12
+% 		3		7
+% 	2		5
+% 1				8
+% 					9
+%
+%la C, 3
+
+\section{Recursión 30\%}
+
+Dayla y Kefo están aquí de nuevo. En esta vez han traído un juego muy interesante, en el cual Kefo, en primer lugar, escoge un numero $n$ $(1 \leq n \leq 20)$ y, en segundo lugar, escoge tres números $a, b$ y $c$ $(1 \leq a \leq 9, 1 \leq b \leq 9, 1 \leq c \leq 9)$. Después, Kefo le entrega estos números a Dayla y Dayla le tiene que \textbf{decir a Kefo la cantidad máxima de números tomados de  a, b y c (se puede tomar un número más de una vez)  que al sumarlos dan el valor $n$}. 
+
+Como un ejemplo, si Kefo escoge $n = 14$ y $a = 3, b = 2, c = 7$. ¿Qué posibilidades hay de obtener 14 con $a, b$ y $c$?\\
+
+\begin{tabular}{l l}
+$7 + 7 = 14$  &                  cantidad es 2 \\
+$7 + 3 + 2 + 2 = 14$ &          cantidad es 4 \\
+$3 + 3 + 3 + 3 + 2 = 14$  &  cantidad es 5 \\
+$\dots$ & \\
+$2 + 2 + 2 + 2 + 2 + 2 + 2 = 14$ & cantidad es 7 \\\\
+\end{tabular}
+
+La cantidad máxima de números es 7. Esta sería la respuesta que da Dayla a Kefo. 
+Como Dayla es muy astuto, ha diseñado un algoritmo para determinar la cantidad máxima de números y quiere que le ayudes a terminar su código. Asuma que hay al menos una forma de sumar $n$ usando los números $a$, $b$ y $c$ en diferentes cantidades, incluso
+si algunos de los números se suman $0$ veces como sucede en el ejemplo anterior.
+
+{\small
+\begin{verbatim}
+1 int solucionar (int n, int a, int b, int c) {
+2   if (n == 0 || (n < a && n < b && n < c))
+3      return 0;
+4   int res = solucionar(____________) + 1;
+5   res = Math.max(_______,__________);  
+6   res = Math.max(_______,__________);
+7   return res; }
+\end{verbatim}
+}
+
+\begin{enumerate}[label=\Alph*]
+
+
+	\item (10 \%) Complete el espacio de la línea 04
+
+	\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+
+	\item (10 \%) Complete los espacios de la línea 05
+
+	\_\_\_\_\_\_\_\_\_\_\_\_, \_\_\_\_\_\_\_\_\_\_\_\_
+
+	\item (10 \%) Complete los espacios de la línea 06	
+
+	\_\_\_\_\_\_\_\_\_\_\_\_, \_\_\_\_\_\_\_\_\_\_\_\_
+\end{enumerate} 
+
+
+% public int solucionar(int n, int a, int b, int c){
+% 	//Claramente si n es menor que los otros valores, no se puede obtener ninguna
+% 	//combinacion.
+% 	if(n == 0 || (n < a && n < b && n < c)){
+% 		return 0;
+% 	}
+% 	//Probemos restando el valor de "a" a n.
+% 	int res = solucionar(n - a, a, b, c) + 1;
+% 	//Maximicemos el resultado quitandole b a n.
+% 	res = max(res, solucionar(n - b, a, b, c) + 1);
+% 	//Maximicemos el resultado quitandole c a n.
+% 	res = max(res, solucionar(n -c, a, b, c) + 1);	
+% 	return res;
+% }
+
+\section{Árboles binarios 40\%}
+
+Definimos el camino desde la raíz hasta una hoja en un árbol binario como una sequencia de nodos empezando
+en el nodo raíz y bajando hasta una hoja. Una hoja es un nodo que no tiene hijos. Decimos que un árbol vacío no contiene
+caminos desde la raíz hasta una hoja. Como un ejemplo, el siguiente árbol tiene 4 caminos desde la raíz hasta una hoja:
+\vspace{2cm}
+{\small
+\begin{verbatim}
+              5
+             / \
+            4   8
+           /   / \
+          11  13  4
+         /  \      \
+        7    2      1
+\end{verbatim}
+}
+
+Caminos desde la raíz hasta una hoja:\\
+\begin{itemize}
+ \item  camino 1: 5 4 11 7
+   \item camino 2: 5 4 11 2
+   \item camino 3: 5 8 13
+   \item camino 4: 5 8 4 1\\
+ \end{itemize}
+
+Para este problema nos interesan las sumas de los elementos en los nodos de esos caminos, por ejemplo, la suma del camino $[5,4,11,7]$ es 27.
+Dada la raíz de un árbol binario \texttt{Nodo a} y un entero \texttt{int suma}, \textbf{decir si existe un camino desde la raíz hasta una hoja tal
+que al sumar los valores de los nodos de ese camino la suma sea igual al parámetro \texttt{suma}}. Retorne falso si no se puede encontrar
+un camino con esa condición. Utilice la definición de \texttt{Nodo} del punto 1.
+
+Desafortunadamente, al código que hizo Dayla le faltan unas líneas y Kefo está de vacaciones.
+
+{\small
+\begin{verbatim}
+1 boolean sumaElCamino(Nodo a, int suma) {
+2  if (a == null)
+3    return __________;
+4  if (a.izq == null && a.der == null)
+5    return suma == __________;
+6  else
+7    return sumaElCamino(_______, _________) 
+8        || sumaElCamino(_______, _________); }
+\end{verbatim}
+}
+
+
+\begin{enumerate}[label=\Alph*]
+
+
+	\item (10 \%) Complete el espacio de la línea 03
+
+	\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+
+	\item (10 \%) Complete el espacio de la línea 05
+
+	\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+
+	\item (10 \%) Complete los espacios de la línea 07	
+
+	\_\_\_\_\_\_\_\_\_\_\_\_, \_\_\_\_\_\_\_\_\_\_\_\_
+
+	\item (10 \%) Complete los espacios de la línea 08	
+
+	\_\_\_\_\_\_\_\_\_\_\_\_, \_\_\_\_\_\_\_\_\_\_\_\_
+\end{enumerate} 
+
+
+% \begin{verbatim}
+% 1 boolean sumaElCamino(Nodo a, int suma)
+% 2  if (a == null)
+% 3    return false;
+% 4  if (a.izq == null && a.der == null)
+% 5    return suma == a.dato;
+% 6   else
+% 7    return sumaElCamino(a.izq, suma - a.dato) 
+% 8        || sumaElCamino(a.der, suma - a.dato);
+% \end{verbatim}
+
+
+\end{document}

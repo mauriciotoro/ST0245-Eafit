@@ -1,0 +1,22 @@
+1. A) T, S, R
+
+2. 
+  2.1 A) T(n) = T(n-1) + C
+  2.2 A) n a la n
+
+3. B) es n cubo
+
+4. 
+% public int suma(String numero, int i){
+%     if(i >= numero.length()){
+%       return 0;
+%     }
+%     if(i + 1 < numero.length() && numero.charAt(i) == numero.charAt(i + 1)){
+%       return suma(numero, i + 2);
+%     }
+%     return (numero.charAt(i) - '0') + suma(numero, i + 1);
+%   }
+
+5.
+A  Linea 9: $S, i + 1, t - S[i], x$ 
+B  Linea 10: $S, i + 1, t, x$

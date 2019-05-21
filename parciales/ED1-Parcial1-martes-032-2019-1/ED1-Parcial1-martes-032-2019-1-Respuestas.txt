@@ -1,0 +1,14 @@
+1.
+ a. n - 1 + lucas(n - 2);
+ b. O(2^n)
+2.
+ a. iii, O(n²)
+ b. iii, O(n²) o iv O(n^3)
+3.
+a. i o la iii
+b. ii
+c. i
+4. 
+ a. sat
+ b. Math.max(fi + fj)
+ c. sat

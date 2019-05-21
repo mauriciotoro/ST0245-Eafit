@@ -1,0 +1,17 @@
+1. Recursión. Polka
+  a) return 0
+  b) ni + nj
+
+2. Complejidad
+  a) (iv) Raíz de n por (n-1)^2
+  b) (iii) O(n) pasos
+  c) (ii) O(n m)
+  d) (i) T(n) = c + T(n-1)
+
+3. Notación O
+  a) (i) O(m^2)
+  b) (iii) O(2^n n^2)
+
+4. Listas
+  a) (i) O(n^2)
+  b) (i) O(n^2)

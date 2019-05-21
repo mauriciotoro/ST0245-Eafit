@@ -1,0 +1,152 @@
+\documentclass[10 pt]{article}
+\usepackage{tikz}
+\usetikzlibrary{arrows}
+\usepackage[margin=0.5 in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{tabu}
+\usepackage{color}
+\usepackage{xcolor}
+\usepackage{listings}
+\usepackage{enumitem}
+\usepackage{multicol}
+\setlength{\columnsep}{1cm} 
+\title{\textbf {Estructuras de Datos 1 - ST0245\\Primer Parcial Grupo 032 (Martes)}}
+\author{Nombre ..............................\\
+		Departamento de Informática y Sistemas\\
+		Universidad EAFIT\\}
+\date{Marzo 12 de 2019}
+\begin{document}
+\lstdefinestyle{customc}{
+	language=Java, 
+	numbers=left, 
+	showspaces=false,
+    showstringspaces=false, 
+    tabsize=2, 
+    breaklines=true,
+    xleftmargin=5.0ex,
+}
+\lstset{escapechar=@,style=customc, numbers=left, stepnumber = 1} 
+\maketitle
+\begin{multicols}{2}
+\textbf{En las preguntas de selección múltiple, una respuesta incorrecta tendrá
+una deducción de 0.2 puntos en la nota final. Si dejas la pregunta sin
+responder, la nota será de 0.0. Si no conoces la respuesta, no adivines.}
+
+
+\section{Recursión 20\%}
+Lika y Kefo están estudiando para el examen de matemáticas en su colegio. Hoy, ellos encontraron muchas secuencias de números interesantes, una de ellas los números Fibonacci. Para Lika --que ya conocía estos números-- se le hace aburrido escribirlos todos; sin embargo, ellos encontraron otra secuencia de números llamados los números de Lucas. En el libro donde ellos encontraron ésta secuencia de números, sólo hay 7 números pertenecientes a la secuencia y al final de la hoja dice: “¿Podrás definir una relación de recurrencia que nos permita deducir el n-ésimo número de Lucas?” 
+“Por supuesto” --dijeron ambos. Ahora, ellos quieren escribir un algoritmo que nos permita retornar el n-ésimo número de Lucas. ¿Puedes ayudarlos a escribir el algoritmo? La secuencia encontrada fue la siguiente:
+2, 1, 3, 4, 7, 11, 18, …. 
+Se sabe que el número 2 y el número 1 son el primer y segundo término, respectivamente, de la secuencia de los números de Lucas.
+\begin{lstlisting}
+int lucas(int n){
+  if(n == 0) return 2;
+  if(n == 1) return 1;
+  return lucas(........) + ........;
+}
+\end{lstlisting}
+\begin{enumerate}[label=(\alph*)]
+	% Respuesta: n - 1, f(n - 2)
+	\item (10\%) Completa la línea 4 .........., ..........
+	\item (10\%) La complejidad asintótica del algoritmo anterior, para el peor de los casos, en términos de $n$, es:	
+	\begin{enumerate}[label=(\roman*)]
+		%Respuesta: O(2^n)
+		\item $T(n) = T(n-1) + c$, que es $O(n)$
+		\item $T(n) = 4T(n/2) + c$, que es $O(n^2)$
+		\item $T(n) = T(n-1) + T(n-2) + c$, que es $O(2^n)$
+		\item $T(n) = c$, que es $O(1)$
+	\end{enumerate}
+\end{enumerate}
+\section{Listas Enlazadas 20\%}
+Sean $L_1$ y $L_2$ dos listas simplemente enlazadas, y sea $x$ un número entero aleatorio tomado del rango $[1, n]$ . Vamos a realizar las siguientes dos operaciones en las dos listas:
+\begin{enumerate}
+	\item 	Si $x$ NO se encuentra en la lista $L_1$, entonces lo insertamos al inicio de $L_1$ y, además, si $x$ se encuentra en $L_2$, tomamos $x$ números aleatorios del rango $[1, n]$ y los insertamos al inicio de $L_2$.
+	\item 	Si el número $x$ se encuentra $x$ veces en  $L_2$, lo insertamos al inicio de $L_1$.
+\end{enumerate}
+Puedes asumir que encontrar un número aleatorio en el rango $[1, n]$ se hace en $O(1)$. También, puedes asumir que buscar un número en una lista simplemente enlazada se hace en $O(n)$.
+\begin{enumerate}[label=(\alph*)]
+\item (10\%) La primera operación se ejecuta $n$ veces. ¿Cuál es la complejidad asintótica, en el peor de los casos, del algoritmo que ejecuta la primera operación $n$ veces?
+\begin{enumerate}[label=(\roman*)]
+\item $O(n)$
+\item $O(2^n)$
+\item $O(n^2)$
+\item $O(n^3)$
+\end{enumerate}
+\item (10\%) La segunda operación se ejecuta $n$ veces. ¿Cuál es la complejidad asintótica, en el peor de los casos, del algoritmo que ejecuta la segunda operación $n$ veces? 
+\begin{enumerate}[label=(\roman*)]
+	\item $O(n)$
+	\item $O(2^n)$
+	\item $O(n^2)$
+	\item $O(n^3)$
+\end{enumerate}
+\section{Complejidad 30\%}
+\begin{enumerate}[label=\alph*]
+\item (10\%) Sea $f(n, m) = n^2 + n \times \log(\log(m))$ y $ g(n, m) = n^3+m\times \sqrt{m}$. Calcule $O(f(n, m) + g(n, m))$. Ten en 
+cuenta que no se sabe cuál es más grande entre $n$ y $m$.
+\begin{enumerate}[label=(\roman*)]
+\item $O(n^3 + n(\log(\log(m)) + m \times \sqrt{m})$
+\item $O(n^3)$
+\item $O(m \times \sqrt(m) + n^3)$
+\item $O(m \times \sqrt{m})$
+\end{enumerate}
+\item (10\%) Sea $f(n, m) = n \times \log(n) + m ^ 2$ y $g(n, m) = n + m$. Calcule $O(f(n, m) \times g(n, m))$. Ten en cuenta que si la
+regla del producto fuera válida para el producto de dos variables, entonces $O(n \times n)$ sería $O(n)$, lo cual no es cierto. Ten en 
+cuenta que no se sabe cuál es más grande entre $n$ y $m$.
+\begin{enumerate}[label=(\roman*)]
+\item $O(n \times \log (n) + m^2)$
+\item $O(m\times n \times \log(n) + n\times m^2 + n^2\times \log(n) + m^3)$
+\item $O(m^3)$
+\item $O(n^3 + m^3)$
+\end{enumerate}
+\item (10\%) ¿Cuál de las siguientes afirmaciones es correcta con respecto a $func3(n)$?
+\begin{lstlisting}
+void func3(int n){
+  if(n < 1) return;
+  else {
+   System.out.println(n);
+   func3(n - 1);
+  }
+}
+\end{lstlisting}
+\begin{enumerate}[label=(\roman*)]
+\item Esta ejecuta $T(n) = c + T(n-1)$ pasos, que es $O(n)$.
+\item Esta ejecuta $T(n) = n + T(n-1)$ pasos, que es $O(n!)$.
+\item Esta ejecuta $T(n) = c n + T(n-1)$ pasos, que es $O(n!)$.
+\item Esta ejecuta $T(n) = c + 2.T(n-1)$ pasos, , que es $O(2^n)$.
+\end{enumerate}
+\end{enumerate}
+\end{enumerate}
+\section{Recursión 30\%}
+	Un conejo está ubicado en la celda $(0, 0)$ de un tablero $A$  de $n \times m$. Si el conejo está en la casilla $(i, j)$, el conejo puede avanzar --únicamente-- horizontalmente a la casilla $(i + 1, j)$ o verticalmente a la casilla $(i, j + 1)$. En algunas celdas $(ik, jk)$, hay manzanas que le darán un grado de satisfacción $d$ al conejo y, en otras celdas $(ih, jh)$, hay zanahorias que le darán satisfacción $k$ al conejo. Donde hay manzanas estará el carácter '*' y donde hay zanahoras estará el carácter '\#'.  Donde no hay ni zanahorias ni manzanas, está el carácter '.' ¿Cuál es la mayor satisfacción que puede tener el conejo, si el conejo recorre el tablero de la manera anteriormente mencionada y tiene que llegar a la posición $(n - 1, m - 1)$ del tablero? Hemos escrito el siguiente algoritmo para ayudar al conejo, pero faltan algunas líneas, por favor complétalas. Puedes usar \texttt{Math.max(a, b)}, de la librería de Java.
+	\begin{lstlisting}
+	int conejo(char[][] A, int n, int m, int i, int j, int d, int k){
+	  if(i >= n || j >= m){
+	    return 0;
+	  }
+	  int sat = 0;
+	  if(A[i][j] == '*'){
+	    sat = d; 
+	  }
+      if(A[i][j] == '#'){
+	    sat = k; 
+	  }
+	  if(i == n - 1 && j == m - 1){
+	    return ..............;
+	  }
+	  int fi = conejo(A, n, m, i + 1, j, d, k);
+	  int fj = conejo(A, n, m, i, j + 1, d, k);
+	  sat +=..................;
+	  return .................;
+	}
+	
+	\end{lstlisting}
+	\begin{enumerate}[label=\alph*)]
+		\item (10\%) Completa la línea 13 .............
+		\item (10\%) Completa la línea 17 .............
+		\item (10\%) Completa la línea 18 .............
+	\end{enumerate}
+
+
+
+\end{multicols}
+\end{document}

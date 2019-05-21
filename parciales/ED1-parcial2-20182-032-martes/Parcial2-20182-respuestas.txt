@@ -1,0 +1,13 @@
+1a Respuesta: !s1.isEmpty()
+1b Respuesta: s1.pop()
+1c Respuesta: s2.pop()
+
+2a Respuesta: 2, 3, 4, 0, 5, 7, 6
+2b Respuesta: 5
+2c Respuesta: No
+
+3a Respuesta: O(|b-a|*log10 b)
+3b Respuesta: 7
+3c Respuesta: O(n)
+
+4a Respuesta: grafoAM[vertex][i] != 0

@@ -1,0 +1,14 @@
+1. %O(2^n)
+2. %O(n*m*logn)
+3. %Todas son iguales O(n)
+4. %Es O(n^2)
+5. 
+   A T(n) = C + T(n-1) o C.n + c1
+   B Es O(n)
+6. 
+
+\item Linea 5: $n$
+\item Linea 6: $n - 1$
+\item Linea 7: $n - 2$
+\item T(n) = T(n-1) + T(n-2)
+

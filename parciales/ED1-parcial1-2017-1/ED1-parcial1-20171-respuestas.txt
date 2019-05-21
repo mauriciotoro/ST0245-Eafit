@@ -1,0 +1,13 @@
+1. %la C, O(n+m)
+2. % la D, O(m * n)
+3. %la C, tienen la misma, es O(n)
+4. %B, es n cubo
+5. %C es O(n^2)
+6. % start + 1, nums, target
+7. 
+% 1 public String hotPotato(Queue q, int num)
+% 2   while (q.size() > 1)
+% 3      for (int i = 1; i <= num; i++)
+% 4         q.add(q.remove());
+% 5      q.remove();
+% 6   return q.remove();

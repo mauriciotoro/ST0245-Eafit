@@ -1,0 +1,178 @@
+\documentclass[10 pt]{article}
+\usepackage{tikz}
+\usetikzlibrary{arrows}
+\usepackage[margin=0.5 in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{tabu}
+\usepackage{color}
+\usepackage{xcolor}
+\usepackage{listings}
+\usepackage{enumitem}
+\usepackage{multicol}
+\setlength{\columnsep}{1cm} 
+\title{\textbf {Estructuras de Datos 1 - ST0245\\Primer Parcial Grupo 032 (Martes)}}
+\author{Nombre ..............................\\
+		Departamento de Informática y Sistemas\\
+		Universidad EAFIT\\}
+\date{13 de marzo de 2018}
+\begin{document}
+\lstdefinestyle{customc}{
+	language=Java, 
+	numbers=left, 
+	showspaces=false,
+    showstringspaces=false, 
+    tabsize=2, 
+    breaklines=true,
+    xleftmargin=5.0ex,
+}
+\lstset{escapechar=@,style=customc, numbers=left, stepnumber = 1} 
+\maketitle
+\begin{multicols}{2}
+\section{Recursión 20\%}
+El pequeño Polka es un fanático de las matemáticas y ha traído un problema interesante. Considere un tablero de $4 \times n$ donde se ubicaran fichas de dominó, cada una de $1 \times 4$. Ubicar las fichas en este tablero es una cosa muy sencilla para Polka, sin embargo, el quiere saber de cuantas formas puede ubicar tales fichas en el tablero. El ha escrito el siguiente código para solucionarlo, pero faltan algunas líneas, por favor ayúdalo.
+\\
+\textbf{Nota: } Dos ubicaciones de fichas se consideran diferentes si en al menos una de ellas una ficha está ubicada horizontalmente y en la otra está ubicada verticalmente.
+\begin{lstlisting}
+int maneras(int n){
+  if(n == 0){
+	return 0;  
+  }
+  if(n >= 1 && n <= 3){
+    ....................  
+  }
+  if(n == 4){
+    ....................  
+  }
+  int ni = maneras(n - 1);
+  int nj = maneras(n - 4);
+  int suma = ni + nj;
+  return suma;
+}
+\end{lstlisting}
+\begin{enumerate}[label=\alph*]
+\item (10\%) Línea 6 .....................
+\item (10\%) Línea 9 .....................
+\end{enumerate}
+\section{Complejidad 40\%}
+\begin{enumerate}[label=(\alph*)]
+\item (10\%) Asuma que $func(n)$ ejecuta exactamente $T(n) = \sqrt{n}$ pasos. ¿Cuál de las siguientes afirmaciones es correcta?
+\begin{lstlisting}
+void misterio(int n){
+  for(int i=1;i+i<=n;i=i+1){
+    int k = func(i);  
+  }
+}
+\end{lstlisting}
+\begin{enumerate}[label=(\roman*)]
+\item La función $misterio(n)$ ejecuta $O(n^3)$ pasos.
+\item La función $misterio(n)$ ejecuta $O(n \sqrt{n})$ pasos.
+\item La función $misterio(n)$ ejecuta $O(n^2)$ pasos.
+\item La función $misterio(n)$ ejecuta $O(n)$ pasos.
+\end{enumerate}
+\item (10\%) ¿Cuál de las siguientes afirmaciones es correcta con respecto a la función $func1(n, m)$?
+\begin{lstlisting}
+void func1(int n, int m){
+  for(int i = 0; i < n; i++){
+    for(int j = 0; j < n + m; j++){
+      print(j);
+    }  
+  }
+}
+\end{lstlisting}
+\begin{enumerate}[label=(\roman*)]
+\item Ejecuta menos de $n + m$ pasos.
+\item Ejecuta exactamente $n + m$ pasos.
+\item Ejecuta $n \times m$ pasos.
+\item Ejecuta mas de $n \times m$ pasos.
+\end{enumerate}
+\item (10\%) ¿Cuál de las siguientes afirmaciones es correcta con respecto a la función $func2(n)$?
+\begin{lstlisting}
+void func2(int n){
+  for(int i = 2; i * i <= n; i++){
+    for(int k = 2; k * k <= n; k++){
+      print(j);
+    }  
+  }
+}
+\end{lstlisting}
+\begin{enumerate}[label=(\roman*)]
+\item Ejecuta mas de $n ^ 2$ pasos.
+\item Ejecuta mas de $n ^ 3$ pasos.
+\item Ejecuta menos de $n \log n$ pasos.
+\item Ejecuta exactamente $n ^ 2$ pasos.
+\end{enumerate}
+\item (10\%) ¿Cuál de las siguientes afirmaciones es correcta con respecto a $func3(n)$?
+\begin{lstlisting}
+int func3(int n){
+  if(n == 1 || n == 2){
+    return n;  
+  }
+  int ni = func3(n - 1);
+  int nj = func3(n - 2);
+  int suma = ni + nj;
+  return suma;
+}
+\end{lstlisting}
+\begin{enumerate}[label=(\roman*)]
+\item Ejecuta $T(n) = T(n-1) + c$ pasos.
+\item Ejecuta $T(n) = T(n-1) + c n$ pasos.
+\item Ejecuta $T(n) = T(n-1) + T(n-2) + c$ pasos.
+\item Ejecuta $T(n) = T(n/2) + c$ pasos.
+\end{enumerate}
+\end{enumerate}
+\section{Notación O 20\%}
+\begin{enumerate}[label=\alph*]
+\item (10\%) Sea $f(n, m) = O(m \log n)$ y $g(n, m) = O(m\sqrt{n})$. Siempre se cumple que $m \geq n$. ¿Cuál es la complejidad asintótica de $h(n, m) = O(f(n, m) + g(n, m))$?
+\begin{enumerate}[label=(\roman*)]
+\item $O(m^2\log n \sqrt n)$
+\item $O(m\sqrt{n})$
+\item $O(m + n)$
+\item $O(n + m + \log n \sqrt{n})$
+\end{enumerate}
+\item (10\%) Sea $f(n, m) = O(n + m)$ y $g(n, m) = O(n^2 + m)$. Siempre se cumple que $n \geq m$. ¿Cuál es la solución de $h(n, m) = O(f(n, m) \times g(n, m))$?
+\begin{enumerate}[label=(\roman*)]
+\item $O(n ^ 3)$
+\item $O(n ^ 2 + m)$
+\item $O(n + m)$
+\item $O(nm + m^2)$
+\end{enumerate}
+\end{enumerate}
+\section{Listas enlazadas 20\%}
+\textbf{Nota: } El \textbf{add(n)} añade el elemento $n$ al final de la lista.
+\textbf{Nota: } El \textbf{get(i)} retorna el elemento en la posición $i$.
+\textbf{Nota: } El \textbf{size(i)} retorna el tamaño de la lista.
+\begin{enumerate}[label=\alph*]
+\item (10\%)¿Cuál es la complejidad asintótica, en el peor de los casos, de la siguiente función?
+\begin{lstlisting}
+void funcion1(LinkedList<Integer> lista){
+  for(int i = 0; i < n; i++){
+    for(int j = 0; j < n; ++j){
+      lista.add(i * j);    
+    }  
+  }
+  for(int i = 0; i < n; i++){
+    for(int j = 0; j < n; j++){    
+        print(lista.get(j));            
+    }  
+  }
+}
+\end{lstlisting}
+\begin{enumerate}[label=(\roman*)]
+\item $O(n^2)$
+\item $O(n^4)$
+\item $O(n^3)$
+\item $O(n)$
+\end{enumerate}
+\item (10\%) ¿Cuál es la complejidad asintótica, en el peor de los casos, de insertar un elemento en la posición $i, 0\leq i < |lista|$ de una lista enlazada?
+\\
+\textbf{Nota: } $|e|$ se usa para denotar el número de elementos de la lista $e$. 
+\begin{enumerate}[label=(\roman*)]
+\item $O(n^2)$
+\item $O(\log n)$
+\item $O(n)$
+\item $O(1)$ 
+\end{enumerate}
+\end{enumerate}
+\end{multicols}
+
+\end{document}

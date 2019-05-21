@@ -1,0 +1,49 @@
+1. 
+% int altura(Nodo raíz){
+% 	// Caso base
+% 	if(raíz == null)
+% 		return 0;
+% 	Int izq =altura(raiz.izq);
+% 	Int der =altura(raiz.der);
+% 	return max(izq, der);
+% }
+
+
+2.
+% 			12
+% 		3		7
+% 	2		5
+% 1				8
+% 					9
+%
+%la C, 3
+
+
+3.
+% public int solucionar(int n, int a, int b, int c){
+% 	//Claramente si n es menor que los otros valores, no se puede obtener ninguna
+% 	//combinacion.
+% 	if(n == 0 || (n < a && n < b && n < c)){
+% 		return 0;
+% 	}
+% 	//Probemos restando el valor de "a" a n.
+% 	int res = solucionar(n - a, a, b, c) + 1;
+% 	//Maximicemos el resultado quitandole b a n.
+% 	res = max(res, solucionar(n - b, a, b, c) + 1);
+% 	//Maximicemos el resultado quitandole c a n.
+% 	res = max(res, solucionar(n -c, a, b, c) + 1);	
+% 	return res;
+% }
+
+
+4.
+% \begin{verbatim}
+% 1 boolean sumaElCamino(Nodo a, int suma)
+% 2  if (a == null)
+% 3    return false;
+% 4  if (a.izq == null && a.der == null)
+% 5    return suma == a.dato;
+% 6   else
+% 7    return sumaElCamino(a.izq, suma - a.dato) 
+% 8        || sumaElCamino(a.der, suma - a.dato);
+% \end{verbatim}

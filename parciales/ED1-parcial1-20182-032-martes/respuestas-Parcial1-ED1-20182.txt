@@ -1,0 +1,15 @@
+1.
+ a. iii) 22
+ b. ii) 6
+2. 
+ a. i) Sí
+ b. iii) T(n) = 2T(n/2) + n 
+ c. ii) O(nm)
+ d. i) 2xT(n/5) + 4xT(n/7) + C
+3.
+ a. iii) 2^n por n^2
+ b. iii) O(log n)
+4.
+ a. iii) O(max(list)+n^2)
+ b. ii) O(n)
+ 

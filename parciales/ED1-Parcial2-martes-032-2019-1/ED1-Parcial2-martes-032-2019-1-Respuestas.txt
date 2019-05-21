@@ -1,0 +1,16 @@
+1 a i A = 1
+1 b i G,D,B...
+1 c i O(n) porque puede ser un árbol degenerado
+
+% (2) Pilas
+% (a) (iv) 0,2,4...
+% (b) (i) O(1)
+% (3) Colas
+% (a) (iii) 2,3,4,5
+
+4 a raiz.id
+4 b i
+
+5 a ii
+5 b i
+  

@@ -1,0 +1,189 @@
+\documentclass[10 pt]{article}
+\usepackage{tikz}
+\usetikzlibrary{arrows}
+\usepackage[margin=0.5 in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{tabu}
+\usepackage{color}
+\usepackage{xcolor}
+\usepackage{listings}
+\usepackage{enumitem}
+\usepackage{multicol}
+\setlength{\columnsep}{1cm} 
+\title{\textbf {Estructuras de Datos 1 - ST0247\\Primer Parcial Grupo 033 (Lunes)}}
+\author{Nombre ..............................\\
+		Departamento de Informática y Sistemas\\
+		Universidad EAFIT\\}
+\date{12 de marzo de 2018}
+\begin{document}
+\lstdefinestyle{customc}{
+	language=Java, 
+	numbers=left, 
+	showspaces=false,
+    showstringspaces=false, 
+    tabsize=2, 
+    breaklines=true,
+    xleftmargin=5.0ex,
+}
+\lstset{escapechar=@,style=customc, numbers=left, stepnumber = 1} 
+\maketitle
+\begin{multicols}{2}
+\section{Recursión 20\%}
+El pequeño Polka fue a la tienda a comprar algunas cosas para su madre. El pequeño Polka pagó cierta cantidad de dinero y el tendero debe devolverle exactamente $K$ pesos. El tendero tiene exactamente $n$ diferentes tipos de monedas en su tienda, cada una de ellas con un valor $v_i$. Como el tendero no es muy astuto en asuntos de matemáticas, te ha pedido el favor de decirle de cuantas maneras puede él devolverle tal cantidad a Polka. Por favor ayúdanos a completar el siguiente código. 
+
+\begin{itemize}
+\item \textbf{Ejemplo: } Sea $n = |v| = 3, v = \{3, 4, 1\}, K = 7$. Las formas posibles de devolver $7$ dólares serían 5:
+\begin{enumerate}
+\item 1 + 1 + 1 + 1 + 1 + 1 + 1
+\item 3 + 1 + 1 + 1
+\item 3 + 3 + 1
+\item 3 + 4
+\item 4 + 1 + 1 + 1
+\end{enumerate} 
+\end{itemize}
+\begin{lstlisting}
+int cuantas(int K, int[] v, int n){
+  if(K == 0){
+    return 1;
+  }
+  boolean imposible;
+  imposible = n <= 0 && K >= 1;
+  imposible = imposible || K < 0;  
+  if(imposible){
+    _______________  
+  }
+  int ni = cuantas(K, v, n - 1);
+  int nj = cuantas(K - v[n-1], v,  n);
+  int suma = _____________;
+  return suma;
+}
+\end{lstlisting}
+\begin{enumerate}[label=\alph*]
+\item (10\%) Línea 9  ....................
+\item (10\%) Línea 13 ....................
+\end{enumerate}
+\section{Complejidad 40\%}
+\begin{enumerate}[label=\alph*]
+\item (10\%) Asuma que $func(n)$ ejecuta $T(n) = (n - 1)^2$ pasos. ¿Cuál de las siguientes afirmaciones es correcta?
+\begin{lstlisting}
+void misterio(int n){
+  for(int i = 1; i * i <= n; i++){
+    int m = func(n);
+  }
+}
+\end{lstlisting}
+\begin{enumerate}[label=(\roman*)]
+\item $misterio(n)$ ejecuta  $(n - 1)^2$ pasos.
+\item $misterio(n)$ ejecuta  $(n - 1)^3$ pasos.
+\item $misterio(n)$ ejecuta  $(n - 1)^4$ pasos.
+\item $misterio(n)$ ejecuta  $\sqrt{n}(n - 1)^2$ pasos.
+\end{enumerate} 
+\item (10\%) ¿Cuál de las siguientes afirmaciones es correcta para la función $func1(n)?$
+\begin{lstlisting}
+void func1(int n){
+  for(int i = 0; i <= n; i++){
+    int ii = n / 5;
+    for(int j = 0; j <= n - ii * 5; j++){
+      print(j);
+    }    
+  }
+}
+\end{lstlisting}
+\begin{enumerate}[label=\roman*]
+\item $func1(n)$ ejecuta $O(\sqrt{n})$ pasos
+\item $func1(n)$ ejecuta $O(n^2)$ pasos
+\item $func1(n)$ ejecuta $O(n)$ pasos
+\item $func1(n)$ ejecuta $O(n^3)$ pasos
+\end{enumerate} 
+\item (10\%) ¿Cuál de las siguientes afirmaciones es correcta para la función $func2(n, m)$?
+\begin{lstlisting}
+void func2(int n, int m){
+  for(int i = 0; i < n; i++){
+    for(int j = 0; j < m; j++){
+      print(i,j);   
+    }  
+  }
+}
+\end{lstlisting}
+\begin{enumerate}[label=\roman*]
+\item Ejecuta $O(n + m)$ pasos.
+\item Ejecuta $O(n . m)$ pasos.
+\item Ejecuta $O(n^2 + m)$ pasos.
+\item Ejecuta $O(m + n^2)$ pasos.
+\end{enumerate}
+\item (10\%) ¿Cuál de las siguientes afirmaciones es correcta con respecto a $func3(n)$?
+\begin{lstlisting}
+void func3(int n){
+  if(n < 1) return;
+  else {
+   System.out.println(n);
+   func3(n - 1);
+  }
+}
+\end{lstlisting}
+\begin{enumerate}[label=\roman*]
+\item Esta ejecuta $T(n) = c + T(n-1)$ pasos.
+\item Esta ejecuta $T(n) = n + T(n-1)$ pasos.
+\item Esta ejecuta $T(n) = c n + T(n-1)$ pasos.
+\item Esta ejecuta $T(n) = c + 2.T(n-1)$ pasos.
+\end{enumerate}
+\end{enumerate}
+\section{Notación O 20\%}
+\begin{enumerate}[label=\alph*]
+\item (10\%) Si $f(m) = O(m^2)$ y $g(n) = O(n)$ y siempre se cumple que $m >> n$ ($m$ es mucho más grande que $n$), deduzca cuál es el valor de $O(f(m) + g(n))$.
+\begin{enumerate}[label=(\roman*)]
+\item $O(m^2)$
+\item $O(n + m)$
+\item $O(n ^ 2)$
+\item $O(n \times m)$
+\end{enumerate}
+\item (10\%) Si $f(n) = O(n^2)$ y $g(n) = O(2^n)$, deduzca cuál es el valor de $O(f(n) \times g(n))$.
+\begin{enumerate}[label=(\roman*)]
+\item $O(2^n)$
+\item $O(n^2)$
+\item $O(2^n \times n^2)$
+\item $O(2^n + n^2)$
+\end{enumerate}
+\end{enumerate}
+\section{Listas 20\%}
+\textbf{Nota: } El \textbf{add(n)} añade el elemento $n$ al final de la lista.
+\textbf{Nota: } El \textbf{get(i)} retorna el elemento en la posición $i$.
+\textbf{Nota: } El \textbf{size(i)} retorna el tamaño de la lista.
+\begin{enumerate}[label=\alph*]
+\item (10\%) ¿Cuál es la complejidad asintótica, en el peor de los casos, del siguiente algoritmo?
+\begin{lstlisting}
+void misterio(int n, LinkedList<Integer> lista){
+  for(int i = 0; i < n; i++){
+    for(int j = 0; j < n; j++){
+      lista.add(i + j);    
+    }  
+  }
+}
+\end{lstlisting}
+\begin{enumerate}[label=\roman*]
+\item $O(n^2)$
+\item $O(n \log n)$
+\item $O(n)$
+\item $O(n^3)$
+\end{enumerate}
+\item (10\%) ¿Cuál es la complejidad asintótica, en el peor de los casos, del siguiente método?
+\begin{lstlisting}
+void sumar(int n, LinkedList<Integer> lista){
+  int i = 0;
+  int suma = 0;
+  while(i < lista.size()){
+    int suma = suma + lista.get(i);
+    i++;
+  }
+}
+\end{lstlisting}
+\begin{enumerate}[label=\roman*]
+\item $O(n ^ 2)$
+\item $O(n \log n)$
+\item $O(n)$
+\item $O(n^3)$
+\end{enumerate}
+\end{enumerate}
+\end{multicols}
+
+\end{document}
