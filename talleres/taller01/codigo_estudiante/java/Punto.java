@@ -10,9 +10,9 @@ public class Punto {
     private double x, y;
 
     /**
-     * Se inicializan las variables globales en el constructor de manera que no posean valores nulos o 0s.
+     * Se inicializan los atributos de clase
      */
-    public Punto() {
+    public Punto(double x, double y) {
 
     }
 

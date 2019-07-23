@@ -29,20 +29,20 @@ public class TestTaller2 {
 	
 	public static void ejercicio3(){
 		System.out.println("Para la cadena 'abc' el resultado debe ser similar a:");
-		System.out.println("a, ab, abc, ac, b, bc, c");
+		System.out.println("a, ab, abc, ac, b, bc, c\n");
 		Taller2.combinations("abc");
 
 		System.out.println("Para la cadena 'Eafit' el resultado debe ser similar a:");
-		System.out.println("E, Ea, Eaf, Eafi, Eafit, Eaft, Eai, Eait, Eat, Ef, Efi, Efit, Eft, Ei, Eit, Et, a, af, afi, afit, aft, ai, ait, at, f, fi, fit, ft, i, it, t");
+		System.out.println("E, Ea, Eaf, Eafi, Eafit, Eaft, Eai, Eait, Eat, Ef, Efi, Efit, Eft, Ei, Eit, Et, a, af, afi, afit, aft, ai, ait, at, f, fi, fit, ft, i, it, t\n");
 		Taller2.combinations("Eafit");
 		
 		System.out.println("Para la cadena 'Hola' el resultado debe ser similar a:");
-		System.out.println("H, Ho, Hol, Hola, Hoa, Hl, Hla, Ha, o, ol, ola, oa, l, la, a");
+		System.out.println("H, Ho, Hol, Hola, Hoa, Hl, Hla, Ha, o, ol, ola, oa, l, la, a\n");
 		Taller2.combinations("Hola");
 
 		System.out.println("Para la cadena 'Hi' el resultado debe ser similar a:");
-		System.out.println("a, ab, abc, ac, b, bc, c");
-		Taller2.combinations("H, Hi, i");
+		System.out.println("H, i, Hi\n");
+		Taller2.combinations("Hi");
 	}
 	
 	
@@ -62,10 +62,8 @@ public class TestTaller2 {
         
         
         //Ejercicio3
-        if(ejercicio3())
-            System.out.println("Ejercicio 3 Correcto");
-        else
-        System.out.println("Ejercicio 3 Incorrecto");
+        ejercicio3()
+        
         
 
     }
