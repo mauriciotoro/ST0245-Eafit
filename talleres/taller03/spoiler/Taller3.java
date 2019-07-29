@@ -2,8 +2,8 @@
  *
  * La clase Taller3 tiene como objtivo dar solución a los puntos del taller 3
  *
- * @author Mauricio Toro, Andrés Páez
- * @version 1
+ * @author Mauricio Toro, Andrés Páez, Daniel Mesa
+ * @version 2
  */
 
 //Nota: Hacen falta algunas partes de las lineas de codigo, estas estan indicadas con una linea, ¡debes completarlas!
