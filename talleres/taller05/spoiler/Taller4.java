@@ -5,6 +5,7 @@
  * @version 2
  */
 
+//Nota: Hacen falta algunas partes de las lineas de codigo, estas estan indicadas con una linea, ¡debes completarlas!
 public class Taller4 {
 
 
@@ -17,7 +18,7 @@ public class Taller4 {
      */
     public static int suma (int[]array){
 	int sum=0;
-	for(int i=0;i<array.length;i++){
+	for(int i=0;i< __________ ;i++){
 	    sum+=array[i];
 	}
         return sum;
@@ -33,7 +34,7 @@ public class Taller4 {
      */
     public static void mul (int num){
 	for(int i=1;i<=10;i++){
-	    System.out.println(num+" x "+i+" = "+(num*i));
+	    System.out.println(num+" x "+i+" = "+( ____ ));
 	}
     }
 
@@ -50,11 +51,11 @@ public class Taller4 {
 	int j=0;
 	int temp=0;
 	for(int i=0;i<array.length;i++){
-	    j=i;
-	    temp=array[j];
-	    while(j > 0 && array[j-1] > temp){
+	    _____ = i;
+	    _____ = array[j];
+	    while(j > 0 _____ array[ ____ ] > temp){
 		array[j] = array[j-1];
-		j--;
+		j __ ;
 	    }
 	    array[j] = temp;
 	}
