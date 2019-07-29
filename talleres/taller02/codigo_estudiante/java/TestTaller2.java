@@ -17,10 +17,10 @@ public class TestTaller2 {
 
 	public static boolean ejercicio2(){
 		boolean a, b, c, d;
-		a=Taller2.SumaGrupo(0, new int[] {2, 4, 8}, 9);
-		b=Taller2.SumaGrupo(0, new int[] {2, 4, 8}, 8);
-		c=Taller2.SumaGrupo(0, new int[] {10, 2, 2, 5}, 9);
-		d=Taller2.SumaGrupo(0, new int[] {10, 2, 2, 5}, 17);
+		a=Taller2.SumaGrupo(new int[] {2, 4, 8}, 9);
+		b=Taller2.SumaGrupo(new int[] {2, 4, 8}, 8);
+		c=Taller2.SumaGrupo(new int[] {10, 2, 2, 5}, 9);
+		d=Taller2.SumaGrupo(new int[] {10, 2, 2, 5}, 17);
 		if(!a && b && c && d)
 			return true;
 		return false;
