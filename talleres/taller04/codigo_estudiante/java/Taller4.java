@@ -1,13 +1,13 @@
 
-package Taller__5;
+package Taller__4;
 
 /**
-*La clase Taller5 dos tiene como objetivo dar solución al taller5
+*La clase Taller4 dos tiene como objetivo dar solución al taller 4
 *
 *@autor Mauricio Toro, Camilo Paez
 *@version 1
 */
-public class Taller5 {
+public class Taller4 {
     
     
     /**

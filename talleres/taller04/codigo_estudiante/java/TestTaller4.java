@@ -1,14 +1,13 @@
-package Taller__5;
+package Taller__4;
 
-import Taller__2.Taller2;
-import Taller__5.Taller5;
+import Taller__4.Taller4;
 
 /**
 *
 * @author 
 */
 
-public class TestTaller5 {
+public class TestTaller4 {
 
 	    
 	    public static boolean ejercicio1(){
