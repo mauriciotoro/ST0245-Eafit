@@ -3,31 +3,31 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Taller__4;
+package Taller__5;
 
 
 /**
  *
  * @author 
  */
-public class TestTaller4 {
+public class TestTaller5 {
     
     public static boolean ejercicio1(){
         int a,b,c,d;
-        a = Taller4.suma(new int[] {1,2,3,4,5,5});
-        b = Taller4.suma(new int[] {12,324,43,2,3,43,2,3,43});
-        c = Taller4.suma(new int[] {3,2,343,2,43,55,67,68,86,3,4});
-        d = Taller4.suma(new int[] {56,7,6,45,8,4,34,8,7,5,34,7,78,9});
+        a = Taller5.suma(new int[] {1,2,3,4,5,5});
+        b = Taller5.suma(new int[] {12,324,43,2,3,43,2,3,43});
+        c = Taller5.suma(new int[] {3,2,343,2,43,55,67,68,86,3,4});
+        d = Taller5.suma(new int[] {56,7,6,45,8,4,34,8,7,5,34,7,78,9});
         if(a!=20 || b!=475 || c!=676 || d!=308)
             return false;
         return true;
     }
     
     public static void ejercicio2(){
-        Taller4.mul(2);
-        Taller4.mul(5);
-        Taller4.mul(7);
-        Taller4.mul(8);
+        Taller5.mul(2);
+        Taller5.mul(5);
+        Taller5.mul(7);
+        Taller5.mul(8);
     }
     
     public static boolean ejercicio3(){
@@ -35,28 +35,28 @@ public class TestTaller4 {
         String a,b,c,d;
         String temps = "";
         
-        temp = Taller4.insertionSort (new int[] {3,2,343,2,43,55,67,68,86,3,4});
+        temp = Taller5.insertionSort (new int[] {3,2,343,2,43,55,67,68,86,3,4});
         for(int i=0;i<temp.length;i++){
             temps += temp[i]+" ";
         }
         a = temps;
         
         temps = "";
-        temp = Taller4.insertionSort (new int[] {54,3,5,6,3,6,456,867,3,45,6,3,45,34,345});
+        temp = Taller5.insertionSort (new int[] {54,3,5,6,3,6,456,867,3,45,6,3,45,34,345});
         for(int i=0;i<temp.length;i++){
             temps += temp[i]+" ";
         }
         b = temps;
         
         temps = "";
-        temp = Taller4.insertionSort (new int[] {564,645,76,45,64,3,53,235,5,353,4645});
+        temp = Taller5.insertionSort (new int[] {564,645,76,45,64,3,53,235,5,353,4645});
         for(int i=0;i<temp.length;i++){
             temps += temp[i]+" ";
         }
         c = temps;
         
         temps = "";
-        temp = Taller4.insertionSort (new int[] {876,543,3463,345,46,34,52,235,46,7,34,235,64,345,3});
+        temp = Taller5.insertionSort (new int[] {876,543,3463,345,46,34,52,235,46,7,34,235,64,345,3});
         for(int i=0;i<temp.length;i++){
             temps += temp[i]+" ";
         }
