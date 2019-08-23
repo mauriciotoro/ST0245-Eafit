@@ -69,7 +69,7 @@ public class MiArrayList {
     } 
 
     /**
-    * @param index es la posicion en la cual se va agregar el elemento
+    * @param index es la posicion en la cual se va eliminar el elemento
     *
     * ELimina el elemento  en la posición index de la lista
     *
