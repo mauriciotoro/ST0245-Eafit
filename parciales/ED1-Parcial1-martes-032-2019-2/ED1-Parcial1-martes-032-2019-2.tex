@@ -1,0 +1,198 @@
+\documentclass[10 pt]{article}
+\usepackage{tikz}
+\usetikzlibrary{arrows}
+\usepackage[margin=0.5 in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{tabu}
+\usepackage{color}
+\usepackage{xcolor}
+\usepackage{listings}
+\usepackage{enumitem}
+\usepackage{siunitx}
+\usepackage{multicol}
+\usepackage{titlesec} 
+
+\setlength{\columnsep}{1cm} 
+\titleformat{\subsection}[runin]
+{\normalfont\large\bfseries}{\thesubsection}{1em}{}
+\titleformat{\subsubsection}[runin]
+{\normalfont\normalsize\bfseries}{\thesubsubsection}{1em}{}
+
+\title{\textbf {Estructuras de Datos 1 - ST0245\\Examen Parcial 1 - Martes (032)
+}}
+\author{Nombre ..............................\\
+		Departamento de Informática y Sistemas\\
+		Universidad EAFIT\\}
+\date{Septiembre 03 de 2019}
+\begin{document}
+\lstdefinestyle{customc}{
+	language=Java, 
+	numbers=left, 
+	showspaces=false,
+    showstringspaces=false, 
+    tabsize=2, 
+    breaklines=true,
+    xleftmargin=5.0ex,
+}
+\lstset{escapechar=@,style=customc, numbers=left, stepnumber = 1} 
+\maketitle
+
+\textbf{En las preguntas de selección múltiple, una respuesta incorrecta tendrá
+una deducción de 0.2 puntos en la nota final. Si dejas la pregunta sin
+responder, la nota será de 0.0. Si no conoces la respuesta, no adivines.}
+
+
+\begin{multicols}{2}
+
+
+
+\section{Recursión 20\%}
+\subsection{} En la vida real, la teoría de juegos ha demostrado ser muy útil en la inteligencia artificial moderna; por ejemplo, para hacer transferencia de estilo que permite generar obras de arte con el estilo de un pintor determinado. Para este parcial, considera un juego en el que un jugador puede ganar 3, 5 o 7 puntos en un solo turno. ¿De cuántas maneras puede el jugador obtener un total de $T$ puntos? A continuación algunos ejemplos:
+\begin{itemize}
+	\item Para $T = 10$. Respuesta: $3$ que son $5 + 5$, $7 + 3$, $3 + 7$.
+	\item Para $T = 2$. Respuesta: $0$.
+	\item Para $T = 15$. Respuesta: $8$. 
+\end{itemize}
+El algoritmo \texttt{ways} soluciona el problema, pero le faltan unas líneas. Complétalas, por favor. 
+\begin{lstlisting}
+int ways(int T){
+   //Caso(s) base(s).
+   ............
+   ............
+   int f1 = ways(T - 3);
+   int f2 = ways(T - 5);
+   int f3 = ways(T - 7);
+   return ...........;
+}
+\end{lstlisting}
+\begin{enumerate}[label=\alph*]
+	% Respuesta if(T < 0) return 0; if(T == 0) return 1;
+	\item (10\%) Completa las líneas 3, 4 ..............., ...............
+	% Respuesta: f1 + f2 + f3
+	\item (10\%) Completa la línea 8 ...................
+\end{enumerate}
+\section{Complejidad 20\%}
+\subsection{} (10\%) Juanito implementó un algoritmo para sumar 2 matrices cuadradas de dimensión $N$. Su algoritmo tiene complejidad $T(n) = c \times n^2$ y toma $T(n)$ segundos para procesar $n$ datos. ¿Cuánto tiempo tardará este algoritmo para para procesar $10000$ datos, si sabemos que, para $n = 100$, $T(n) = T(100) = \SI{1}{\milli\second}$? Recuerda que $\SI{1}{\second} = \SI{1000}{\milli\second}$. Así como en los parciales de Física 1, NO olvides indicar la unidad de medida del tiempo que calcules.\\ \\
+% Respuesta: 10000 ms = 10 s. Porque T(100) = 1ms = c*100*100, luego c = 1/10000. Entonces para n=10000 T(10000) = 10000*10000/10000 = 10000ms
+$\rule{7cm}{0.15mm}$
+\subsection{} (10\%) Un estudiante afirma que $O(\log n^2)$ es $O(\log n)$. Recuerda que $\log n^a = a \times \log n$. Determina si el estudiante tiene o no la razón y en ambos casos justifica tu respuesta.
+% Respuesta: El estudiante está equivocado. Es suficiente ver que 2 log n = log n^2.
+$\rule{8cm}{0.15mm}$
+$\rule{8cm}{0.15mm}$
+$\rule{8cm}{0.15mm}$
+
+\section{Complejidad 20\%}
+\subsection{} Considera el siguiente algoritmo:
+\begin{lstlisting}
+int doSomething(int n){
+  if(n < 0) return 0;
+  int res = 1;
+  for(int i = 1; i <= n; ++i){
+    res += doSomething(n - i);
+  }
+  return res;
+}
+\end{lstlisting}
+\begin{enumerate}[label=\alph*]
+	\item (10\%) ¿Cuál es la ecuación de recurrencia que mejor define la complejidad, para el peor caso, del algoritmo anterior?  Asume que $C$ es la suma de todas las operaciones que toman un tiempo constante en el algoritmo.
+	\begin{enumerate}[label=\roman*]
+		% Respuesta i) 
+		\item $T(n) = \sum\limits_{1}^{n} T(n - i) + C$
+		\item $T(n) = \sum\limits_{1}^{n - i} T(n - i) + C$
+		\item $T(n) = \sum\limits_{n}^{n} T(n + i) + C$
+		\item $T(n) = \sum\limits_{n}^{i} T(n - i) + C$
+	\end{enumerate}
+	\item (10\%) ¿El algoritmo anterior siempre termina? Si estás viendo Estructuras Discretas y quieres estar seguro de tu respuesta, realiza una demostración por inducción matemática (opcional).
+	\begin{enumerate}[label=\roman*]
+		% Respuesta: Sí
+		\item Sí
+		\item No
+	\end{enumerate}
+\end{enumerate}
+\section{Notación O 20\%}
+\subsection{} (10\%) Considera el siguiente algoritmo:
+\begin{lstlisting}
+void f(int n){
+  for(int i=1; i*i <= n; i++) {
+    for(int j=1; j*j<=n; j++) {
+      for(int k=0; k<n; k++) {
+        for(int h=0; h<=n; h++) {
+          System.out.println("hola");
+        }
+      }
+    }
+  }
+}
+\end{lstlisting}
+¿Cuál es la complejidad asintótica, para el peor de los casos, del algoritmo $f(n)$ para $ n > 1$?
+\begin{enumerate}[label=\roman*]
+	% Respuesta O(n^3)
+	\item $O(n^3)$
+	\item $O(n^2)$
+	\item $O(n ^ 3 \times \sqrt{n})$
+	\item $O(n ^ 4 \times \sqrt{n})$
+\end{enumerate}
+\subsection{} (10\%) Considera las siguientes proposiciones:
+\begin{enumerate}[label=\Alph*]
+	\item $O(f + g) = O(max(f,g))$
+	\item $O(f \times g) = O(f) \times O(g)$
+	\item Si $g = O(f)$ y $h = O(f)$, entonces $g = O(h)$
+	\item $O(c.f) = O(f)$, donde $c$ es una constante
+\end{enumerate}
+¿Cuál(es) de las anteriores proposiciones son verdaderas?  \\ \\
+% Respuesta A, B, C, D.
+$\rule{7cm}{0.15mm}$
+
+No es necesario 
+justificar tu respuesta, pero, si estás viendo Estructuras Discretas, puedes
+realizar una demostración directa o por reducción al absurdo (opcional)
+\section{ArrayList 20\%}
+En este punto utilizaremos una lista implementada con arreglos. 
+Esta lista se conoce en Java como ArrayList. Ten en cuenta los
+siguientes métodos:
+
+\begin{itemize}
+	\item La función \texttt{A.add(a)} agrega el elemento $a$ al final de la lista $A$
+	\item La función \texttt{Arrays.asList(a)} convierte el arreglo $a$ en una lista implementada con arreglos (ArrayList). 
+	\item La funcion \texttt{A.contains(value)} determina si en la lista $A$ existe el valor $value$. En caso de éxito devuelve $true$ y en caso contrario devuelve $false$.
+	\item La funcion \texttt{A.toString()} convierte la lista $A$ en una cadena de caracteres.  Como un ejemplo, convierte la lista $\{1,2,3\}$ en ``$\left[1, 2 ,3\right]$''
+\end{itemize}
+
+\subsection{} (10\%) ¿Cuál es la salida de \texttt{mistery()}?
+\begin{lstlisting}
+void mistery(){
+    Integer[] a = {7,8,3,1,2,1,3,8,9};
+	ArrayList<Integer> s = 
+	new ArrayList<>(Arrays.asList(a));
+	System.out.println(mistery1(s, a));
+}
+String mistery1(ArrayList<Integer> s, 
+                Integer[] a){
+	ArrayList<Integer> sol = new ArrayList<>();
+	mistery2(sol, s,  a);
+	return sol.toString();
+}
+void mistery2(ArrayList<Integer> sol, 
+     ArrayList<Integer> s, Integer[] a){
+	for(int ele: s){
+		if(!sol.contains(ele)){
+			sol.add(ele);
+		}
+	}
+}
+\end{lstlisting}
+\begin{enumerate}[label=\roman*]
+	\item $\left[7, 8, 3, 1, 2, 9\right]$
+	\item $\left[7, 8, 3, 1, 2, 1, 3, 8, 9\right]$
+	\item $\left[7, 8, 3, 1, 2, 1, 3\right]$
+	\item $\left[3, 1, 2, 1, 3\right]$
+\end{enumerate}
+\subsection{} (10\%) Imagina que se le entegra a \texttt{mistery2} un ArrayList $s$ de $n$ elementos y un ArrayList $sol$ de tamaño $0$, ¿cuál es su complejidad asintótica, en el peor de los casos, de \texttt{mistery2}?
+\begin{enumerate}[label=\roman*]
+	\item $O(n)$
+	\item $O(n^2)$
+	\item $O(n^3)$
+	\item $O(1)$
+\end{enumerate}
+\end{multicols}
+\end{document}

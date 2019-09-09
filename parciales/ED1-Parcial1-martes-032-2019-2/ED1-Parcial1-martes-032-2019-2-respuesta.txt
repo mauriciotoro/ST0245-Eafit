@@ -1,0 +1,37 @@
+1.1
+a) Respuesta if(T < 0) return 0; 
+             if(T == 0) return 1;
+b) Respuesta: f1 + f2 + f3
+
+2.1  Respuesta: 10000 ms = 10 s. 
+     Como T(100) = 1ms = c*100*100, 
+     luego c = 1/10000. 
+     Entonces para n=10000 T(10000) 
+     = 10000*10000/10000 = 10000ms = 1s
+
+2.2 Respuesta: El estudiante está en lo correcto 
+    Es suficiente ver que 2 log n = log n^2.
+
+3.1 a Respuesta i) T(n) suma de 1 a n
+
+3.2 b Respuesta: i) Sí
+
+4.1 Respuesta i) O(n^3)
+
+4.2 Respuesta A, B, C, D. (Todas son ciertas)
+
+La definición es O(f) = {g | Existe c y Existe n_0, tal que para todo n > n_0, n_0*g(n) <= c.f(n)}
+
+A) O(f+g) = O(max(f,g)) se cumple porque max(f,g)(n) <= f(n) + g(n) <= max(f,g)(n) + max(f,g)(n) <= 2max(f,g)(n)
+
+B) O(f x g) = O(f) x O(g) se cumple porque. Si f es O(f1) y g es O(g1), entonces f x g es O(f1 x g1) por la definición de O se cumple.
+
+C) Si h es O(g) y g es O(f) entonces h es O(f). Se cumple porque si h es O(g) entonces existe c_g y n_g tal que para todo n > n_g, n_g*g(n) <= c_g*h(n) y si g es O(f) entonces existe c_h y n_h tal que para todo n > n_h, n_h*f(n) <= c_h*g(n), entonces es cierto que existe una constante c y una n_0 tal que n_0*f(n) <= c*h(n).
+
+D) O(c.f) es O(f). Es cierto porque sea g = c.f, entonces si g es O(f) es porque existe c_0 y n_0 tal que para todo n>n_o, n_0*g(n) <= c_0.f(n), entonces reemplazando, g por c.f queda n_0*c*f(n) <= c_0.f(n) lo cual es cierto si el nuevo n_0' = n_0/c y se cumple la defición de O.
+
+Fuente: http://webdiis.unizar.es/asignaturas/TAP/material/eficiencia.pdf
+
+5.1 Respuesta i) 7,8,3,1,2,9
+
+5.2 Respuesta ii) $O(n^2)$
