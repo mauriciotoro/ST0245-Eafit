@@ -10,6 +10,24 @@ import java.util.*;
  * @author Mauricio Toro, Andrés Páez 
  */
 public class Taller8 {
+ 
+    /**
+    * @param string es una cadena de texto que viene de este modo 3 4 5 * + o de esta manera 2 3 * 5 +
+    * todo viene separado por espacios por lo que la funcion split.("") vendría muy bien para separarlos
+    * Se intenta hacer el calculo por medio del metodo polaco posfijo
+    * @return un entero resultado de la operación
+    */
+    public static int polaca  (String string){
+        //...
+    }
+
+    /**
+    * @param neveras es una estructura de datos para representar el almacen con las neveras
+    * @param solicitudes es una estructura de datos para representar las solicitudes
+    */
+    public static void asignarSolicitudes  (??? neveras, ??? solicitudes){
+        //...
+    }
 	
     /**
     * @param stack es una pila ya implementada que se crea en el test
@@ -34,14 +52,5 @@ public class Taller8 {
         //...
     }
     
-    
-    /**
-    * @param string es una cadena de texto que viene de este modo 3 4 5 * + o de esta manera 2 3 * 5 +
-    * todo viene separado por espacios por lo que la funcion split.("") vendría muy bien para separarlos
-    * Se intenta hacer el calculo por medio del metodo polaco posfijo
-    * @return un entero resultado de la operación
-    */
-    public static int polaca  (String string){
-        //...
-    }
+   
 }
