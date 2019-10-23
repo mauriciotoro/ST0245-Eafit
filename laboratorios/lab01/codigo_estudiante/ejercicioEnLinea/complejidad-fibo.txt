@@ -1,0 +1,30 @@
+Realizando la complejidad de algunos algoritmos me encontre la siguiente solucion en Wolfram: 
+
+T(n) = c_1 Fn + c_2 Ln - c_2
+
+Queria saber que signfica Fn y que función tiene!
+
+
+R\= Hola, muy buena pregunta. Esta es la solución de Wolfram de T(n) = T(n-1) + T(n-2) + c.
+
+Esta es una de las pocas ecuaciones que Wolfram no logra resolver. En este caso, Fn quiere
+
+decir el enésimo término de Fibonacci y Ln el enésimo término de la serie de Lucas, pero eso
+
+nos deja en las mismas, no nos lo da en término de n. Hay dos formas sencillas de resolver
+
+el problema. La primera, es recordar que nosotros queremos una cota superior para la complejidad
+
+de un algoritmo, entonces, uno dice, bueno un algoritmo T(n) = T(n-1) + T(n-1) + c trabaja más
+
+que el que yo quiero resolver, así que es una cota superior, se puede resolver en Wolfram,
+
+y, entonces, me queda O(2^n). Fácil!
+
+La segunda, es resolver de manera exacta la ecuación T(n) = T(n-1) + T(n-2). La solución exacta
+
+es O( ((1 + raiz(5)) / 2)^n ) que es aprox. O(1.618^n). Aquí está cómo se resuelve de manera
+
+analítica la ecuación https://mikespivey.wordpress.com/2016/03/11/an-explicit-solution-to-the-fibonacci-recurrence/
+
+Para efectos del curso, está bien decir que es O(2^n).
