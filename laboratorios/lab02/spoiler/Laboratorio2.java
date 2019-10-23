@@ -1,6 +1,6 @@
 
 /**
- * Laboratorio 1 de Estructuras de Datos 1
+ * Laboratorio 2 de Estructuras de Datos 1
  * 
  * @author Mauricio Toro 
  * @version 1
@@ -8,7 +8,7 @@
 
 import java.util.Arrays;
 
-public class Laboratory1
+public class Laboratorio2
 {
   // Computer the sum of an array
   public static int ArraySum(int[] A)
@@ -99,9 +99,8 @@ public class Laboratory1
       int[][] Arrays = {A,B,C};  
       for (int[] X : Arrays)
       {        
-      Laboratory1.mergeSort(X);
-      Laboratory1.InsertionSort(X);
-      System.out.println(Laboratory1.ArraySum(X) + " " + Laboratory1.ArrayMax(X) + "\n" );      
+        Laboratory1.mergeSort(X);
+        Laboratory1.InsertionSort(X);     
       }
   }
   
