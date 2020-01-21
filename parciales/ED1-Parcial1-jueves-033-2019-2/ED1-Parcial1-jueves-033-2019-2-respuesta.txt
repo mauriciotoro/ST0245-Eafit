@@ -1,0 +1,30 @@
+1.1 a) return true
+    b) if(s.charAt(0) == s.charAt(s.length()-1))
+
+2.1   Respuesta: 100 ms. 
+      Porque T(100) = 1ms = c*100*100, 
+      luego c = 1/10000. 
+      Entonces para n=1000 T(1000) = 1000*1000/10000 
+      = 1000000/10000 = 100
+
+2.2   Respuesta: El estudiante está equivocado. 
+      Hay que realizar mínimo O(2^n) operaciones
+
+3.1 
+   a) Respuesta O(log 10 n) 
+   b) Respuesta: No, falla cuando n < 0
+
+4.1 a) Respuesta O(log n)
+    b) Respuesta A, B, C.
+
+A) O(f+g) = O(max(f,g)) se cumple porque max(f,g)(n) <= f(n) + g(n) <= max(f,g)(n) + max(f,g)(n) <= 2max(f,g)(n)
+
+B) O(f x g) = O(f) x O(g) se cumple porque. Si f es O(f1) y g es O(g1), entonces f x g es O(f1 x g1) por la definición de O se cumple.
+
+C) Si h es O(g) y g es O(f) entonces h es O(f). Se cumple porque si h es O(g) entonces existe c_g y n_g tal que para todo n > n_g, n_g*g(n) <= c_g*h(n) y si g es O(f) entonces existe c_h y n_h tal que para todo n > n_h, n_h*f(n) <= c_h*g(n), entonces es cierto que existe una constante c y una n_0 tal que n_0*f(n) <= c*h(n).
+
+D) Es falsa. Para demostrarlo, un contraejemplo, es sea f(n) = n*n. Aplicando, la definición que nos dan, entonce sería f(n) es O(max(n,n) = O(n) lo cual es falso porque no es posible encontrar una constante y un n_0 tal que n_0*n*n <= c*n.
+
+5.1
+    a) Respuesta: [1, 1, 2, 1, 2, 3]
+    b) Respuesta O(n^2)

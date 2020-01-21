@@ -1,0 +1,19 @@
+1 
+  a)  Todas las cadenas que inician con la misma letra colisionan
+  b) O(1 )
+
+2.
+  a Respuesta: la lista con los elementos en orden inverso
+  b Respuesta: $O(n)$
+
+3.
+  a ii
+  b i
+
+4.
+  a Respuesta:  stack.push(t);
+  b Respuesta:  stack.pop()
+
+5. 
+  a) % Respuesta: iv) $[8, 6, 9, 4, 7, 10]$
+  b) % Respuesta: i) $O(n)$

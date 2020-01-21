@@ -1,0 +1,208 @@
+\documentclass[10 pt]{article}
+\usepackage{tikz}
+\usetikzlibrary{arrows}
+\usepackage[margin=0.5 in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{tabu}
+\usepackage{color}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{listings}
+\usepackage{enumitem}
+\usepackage{siunitx}
+\usepackage{multicol}
+\usepackage{titlesec} 
+
+\setlength{\columnsep}{1cm} 
+\titleformat{\subsection}[runin]
+{\normalfont\large\bfseries}{\thesubsection}{1em}{}
+\titleformat{\subsubsection}[runin]
+{\normalfont\normalsize\bfseries}{\thesubsubsection}{1em}{}
+
+\title{\textbf {Estructuras de Datos 1 - ST0245\\Examen Parcial 1 - Jueves (033)
+}}
+\author{Nombre ..............................\\
+		Departamento de Informática y Sistemas\\
+		Universidad EAFIT\\}
+\date{Septiembre 12 de 2019}
+\begin{document}
+\lstdefinestyle{customc}{
+	language=Java, 
+	numbers=left, 
+	showspaces=false,
+    showstringspaces=false, 
+    tabsize=2, 
+    breaklines=true,
+    xleftmargin=5.0ex,
+}
+\lstset{escapechar=@,style=customc, numbers=left, stepnumber = 1} 
+\maketitle
+
+\textbf{En las preguntas de selección múltiple, una respuesta incorrecta tendrá
+una deducción de 0.1 puntos en la nota final. Si dejas la pregunta sin
+responder, la nota será de 0.1. Si no conoces la respuesta, no adivines.}
+
+
+\begin{multicols}{2}
+
+
+
+\section{Recursión 20\%}
+\subsection{} En la vida real, los palíndromes se utilizan para desarrollar algoritmos de compresión de cadenas de ADN. Para este parcial, considera un algoritmo capaz de decir si una cadena de caracteres es un palíndrome o no. Un palíndrome es una cadena que se lee igual de izquierda a derecha que de derecha a izquierda. A continuación algunos ejemplos:
+\begin{itemize}
+	\item Para ``amor a roma'', la respuesta es \texttt{true}
+	\item Para ``mamita'', la respuesta es \texttt{false}
+	\item Para ``cocoococ'', la respuesta es \texttt{true}
+\end{itemize}
+El algoritmo \texttt{isPal} soluciona el problema, pero le faltan unas líneas. Complétalas, por favor.
+{\small
+\begin{lstlisting}
+static boolean isPal(String s) {   
+ if(s.length() == 0 || s.length() == 1)
+  return ........; 
+ if(.........)
+  return isPal(s.substring(1, s.length()-1));
+ //else
+ return false;
+}
+\end{lstlisting}
+}
+
+ En Java,
+el método \texttt{s.charAt(i)} permite saber qué caracter hay en la posición $i$ de la cadena $s$ y \texttt{s.substring(a,b)} retorna una subcadena de $s$ entre los índices $a$ y $b-1$.
+
+\begin{enumerate}[label=\alph*]
+% static boolean isPal(String s) {   
+%  if(s.length() == 0 || s.length() == 1)
+%   return true; 
+%  if(s.charAt(0) == s.charAt(s.length()-1))
+%   return isPal(s.substring(1, s.length()-1));
+%  //else
+%  return false;
+% }
+
+%   return true; 
+	\item (10\%) Completa la línea 3 ...................
+%  if(s.charAt(0) == s.charAt(s.length()-1))
+	\item (10\%) Completa la línea 4 ...................
+\end{enumerate}
+\section{Complejidad 20\%}
+\subsection{} (10\%) Helmuth implementó el algoritmo de burbuja para ordenar un arreglo de tamaño $n$. Su algoritmo tiene complejidad $T(n) = c \times n^2$ y toma $T(n)$ segundos para procesar $n$ datos. ¿Cuánto tiempo tardará este algoritmo para para procesar $1000$ datos, si sabemos que, para $n = 100$, $T(n) = T(100) = \SI{1}{\milli\second}$? Recuerda que $\SI{1}{\second} = \SI{1000}{\milli\second}$. Así como en los parciales de Física 1, NO olvides indicar la unidad de medida del tiempo que calcules.\\ \\
+% Respuesta: 100 ms. Porque T(100) = 1ms = c*100*100, luego c = 1/10000. Entonces para n=1000 T(1000) = 1000*1000/10000 = 1000000/10000 = 100
+$\rule{7cm}{0.15mm}$
+\subsection{} (10\%) Un estudiante afirma que encontró un algoritmo capaz de imprimir todos los subconjuntos de un conjunto de $n$ elementos con una complejidad asintótica, para el peor de los casos, de $O(n^2)$. Recuerda que un conjunto tiene $2^n$ subconjuntos. Determina si el estudiante tiene o no la razón y en ambos casos justifica tu respuesta.
+% Respuesta: El estudiante está equivocado. Hay que realizar mínimo O(2^n) operaciones
+$\rule{8cm}{0.15mm}$
+$\rule{8cm}{0.15mm}$
+$\rule{8cm}{0.15mm}$
+
+\section{Complejidad 20\%}
+\subsection{} Considera el siguiente algoritmo:
+\begin{lstlisting}
+static int count7(int n) {
+    if (n == 0) return 0;
+    if (n % 10 == 7) return 1 + count7(n / 10);
+    return count7(n / 10);
+}
+\end{lstlisting}
+\begin{enumerate}[label=\alph*]
+	\item (10\%) ¿Cuál es la ecuación de recurrencia que mejor define la complejidad, para el peor caso, del algoritmo anterior?  Asume que $c$ es la suma de todas las operaciones que toman un tiempo constante en el algoritmo.
+	\begin{enumerate}[label=\roman*]
+		% Respuesta O(log 10 n) 
+		\item $T(n) = T(n-1) + c$, que es $O(n)$
+		\item $T(n) = 4T(n/2) + c$, que es $O(n^2)$
+		\item $T(n) = T(n-1) + T(n-2) + c$, que es $O(2^n)$
+		\item $T(n) = T(n/10) + c$, que es $O(\log n)$
+	\end{enumerate}
+	\item (10\%) ¿El algoritmo anterior siempre termina para todo número entero $n \in \mathcal{Z}$? 
+	\begin{enumerate}[label=\roman*]
+		% Respuesta: No, falla cuando n < 0
+		\item Sí
+		\item No
+	\end{enumerate}
+\end{enumerate}
+\section{Notación O 20\%}
+\subsection{} (10\%) Considera el siguiente algoritmo:
+\begin{lstlisting}
+static void f(int n){
+  for (int i = 1; i <=n; i = i * 2) {
+      System.out.println("hola")
+   }
+}
+\end{lstlisting}
+¿Cuál es la complejidad asintótica, para el peor de los casos, del algoritmo $f(n)$, teniendo en cuenta que el código dice \texttt{i = i * 2} y NO dice \texttt{i = i + 2}?
+\begin{enumerate}[label=\alph*]
+	% Respuesta O(log n)
+	\item $O(n^3)$
+	\item $O(n^2)$
+	\item $O(\log n)$
+	\item $O(n ^ 4 \times \sqrt{n})$
+\end{enumerate}
+\subsection{} (10\%) Considera las siguientes proposiciones:
+\begin{enumerate}[label=\Alph*]
+	\item $O(f + g) = O(max(f,g))$
+	\item $O(f \times g) = O(f) \times O(g)$
+	\item Si $h = O(g)$ y $g = O(f)$, entonces $h = O(f)$.
+	\item $O(f \times g) = O(h)$, donde $h = max(f,g)$
+\end{enumerate}
+¿Cuál(es) de las anteriores proposiciones son verdaderas?  \\ \\
+% Respuesta A, B, C
+$\rule{7cm}{0.15mm}$
+
+No es necesario 
+justificar tu respuesta, pero, si estás viendo Estructuras Discretas, puedes
+realizar una demostración directa o por reducción al absurdo. Para 
+demostrar que una proposición es falsa, basta con encontrar un contraejemplo  (opcional).
+\section{Vectores dinámicos 20\%}
+En este punto utilizaremos una lista implementada con arreglos tambien llamada vector dinámico. 
+Esta lista se conoce, en Java, como ArrayList. Ten en cuenta los
+siguientes métodos:
+
+\begin{itemize}
+	\item La función \texttt{A.add(a)} agrega el elemento $a$ al final de la lista $A$
+	\item La funcion \texttt{A.toString()} convierte la lista $A$ en una cadena de caracteres.  Como un ejemplo, convierte la lista $\{1,2,3\}$ en ``$\left[1, 2 ,3\right]$''
+\end{itemize}
+
+\subsection{} (10\%) ¿Cuál es la salida de \texttt{opcional3(3)}, es decir, la salida del método \texttt{opcional3} con $n=3$?
+\begin{lstlisting}
+static void opcional3 (int n){
+ ArrayList<Integer> patron = new ArrayList();   
+ for(int i = 1; i <= n; i++)     { 
+   for(int j = 1; j <= i; j++)   {
+     patron.add(j);              
+    }
+ }
+ System.out.println(patron.toString());
+}
+\end{lstlisting}
+% Respuesta: [1, 1, 2, 1, 2, 3]
+\begin{enumerate}[label=\alph*]
+	\item $\left[1, 1, 2\right]$
+	\item $\left[1, 1, 2, 1, 2, 3\right]$ 
+	\item $\left[1, 1, 2, 1, 2, 3, 1, 2, 3, 4\right]$
+	\item $\left[1, 1, 2, 2, 1, 2, 3\right]$
+\end{enumerate}
+\subsection{} (10\%) ¿Cuál es su complejidad asintótica, en el peor de los casos, de \texttt{opcional3}? Ten en cuenta que la suma de los números del $1$ al $n$ es $n(n+1)/2$.
+% respuesta O(n^2)
+\begin{enumerate}[label=\alph*]
+	\item $O(n)$
+	\item $O(n^2)$
+	\item $O(n^3)$
+	\item $O(1)$
+\end{enumerate}
+
+\section{Complejidad (2\% extra)}
+\subsection{} (2 \%) Con base en los errores que has cometido durante el semestre,
+escribe un texto para el siguiente meme:\\
+................................................     ................................................\\
+................................................     ................................................\\
+................................................     ................................................\\
+................................................     ................................................\\
+................................................     ................................................\\
+................................................     ................................................\\
+................................................     ................................................\\
+ \includegraphics[width=0.5\textwidth]{womanyellingcat.jpg}
+Como un ejemplo, ten en cuenta la regla de la suma, regla del producto,
+notación O o ecuaciones de recurrencia.
+\end{multicols}
+\end{document}

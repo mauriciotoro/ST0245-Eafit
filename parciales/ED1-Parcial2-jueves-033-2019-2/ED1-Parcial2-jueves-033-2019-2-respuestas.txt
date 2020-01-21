@@ -1,0 +1,19 @@
+1. 
+  a) % Respuesta: Todas las cadenas que inician con la misma letra colisionan
+  b) % Respuesta: $O(1)$
+
+2.
+  a Respuesta:  una nueva lista con los elementos de ambas listas ordenados
+  b Respuesta: $O(n+m)$
+
+3.
+  a ii
+  b i
+
+4. 
+  a) % Respuesta: iv) $[8, 6, 9, 4, 7, 10]$
+  b) % Respuesta: i) $O(log n)$
+
+5.
+  a Respuesta:  token
+  b Respuesta:  O(1)
