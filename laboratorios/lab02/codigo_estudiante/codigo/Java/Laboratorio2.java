@@ -10,17 +10,7 @@ import java.util.Arrays;
 
 public class Laboratorio2
 {
-  // Computer the sum of an array
-  public static int ArraySum(int[] A)
-  {          
-      
-  }
-  
-  // Computes the maximum value of an array
-  public static int ArrayMax(int[] A)
-  {
-   
-  }
+
   
   // Sorts an array using Insertion Sort
   public static void InsertionSort(int[] A)
@@ -29,20 +19,19 @@ public class Laboratorio2
   }
 
       // Sorts an array using Merge Sort
-      // Taken from www.cs.cmu.edu/
 	public static void mergeSort(int [ ] a)
 	{
 		int[] tmp = new int[a.length];
 		mergeSort(a, tmp,  0,  a.length - 1);
 	}
 
-
+        // Sorts an array using Merge Sort
 	private static void mergeSort(int [ ] a, int [ ] tmp, int left, int right)
 	{
 
 	}
 
-
+    // Merges two sorted arrays
     private static void merge(int[ ] a, int[ ] tmp, int left, int right, int rightEnd )
     {
        

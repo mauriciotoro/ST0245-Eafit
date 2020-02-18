@@ -3,13 +3,7 @@
 
 using namespace std;
 
-int ArraySum(vector<int> A){
 
-}
-
-int ArrayMax(vector<int> A){
-
-}
 
 void InsertionSort(vector<int> A){
 
