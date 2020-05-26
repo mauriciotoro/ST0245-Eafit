@@ -27,6 +27,18 @@ public class Taller2 {
 	return gcd(q, _____);
     }
 
+    /**
+     * @param nums entrada 2 arreglo de enteros positivos, sobre el cual vamos a interar
+     * @param target entrada 3 entero positivo, determina el valor de referencia
+     * El método SumaGrupo tiene como objetivo darnos a conocer si hay
+     * algun subconjunto el cual su suma = target.
+     *
+     *
+     * @return verdadero si hay un subconjunto el cual su suma = target
+     */
+     public static boolean SumaGrupo(int[]nums,int target){
+	return SumaGrupoBasico(0,nums,target);
+     }
 
     /**
      * @param start entrada 1 entero positivo, determina un índice dentro del proceso
@@ -38,12 +50,44 @@ public class Taller2 {
      *
      * @return verdadero si hay un subconjunto el cual su suma = target
      */
-    public static boolean SumaGrupo(int start, int[] nums, int target) {
+     private static boolean SumaGrupoBasico(int start,int[]nums,int target){
+         System.out.println(start + " "+ target);
+         if (start >= nums.length) {
+             if (target == 0)
+                 return ____;
+             else
+                 return ____;
+         }else{ // start < nums.length
+            boolean universo1 = SumaGrupoBasico(start + ___,nums,target - ____);
+            if (universo1)
+                return ____;
+            else{
+                boolean universo2 = SumaGrupoBasico(start + ___,nums,target);
+                if (universo2 == ___)
+                     return ____;
+                else
+                    return ____;
+            }
+         }
+     }
+
+
+    /**
+     * @param start entrada 1 entero positivo, determina un índice dentro del proceso
+     * @param nums entrada 2 arreglo de enteros positivos, sobre el cual vamos a interar
+     * @param target entrada 3 entero positivo, determina el valor de referencia
+     * El método SumaGrupo tiene como objetivo darnos a conocer si hay
+     * algun subconjunto el cual su suma = target.
+     *
+     *
+     * @return verdadero si hay un subconjunto el cual su suma = target
+     */
+    private static boolean SumaGrupoAvanzado(int start, int[] nums, int target) {
 	if(start ___ nums.length){
 	    return target == 0;
 	}
         else
-            return sumaGrupo(start + __, nums, target) || sumaGrupo( start+1, nums, target ___ nums[start]);
+            return sumaGrupoAvanzado(start + __, nums, target) || sumaGrupoAvanzado( start+__, nums, target ___ nums[start]);
     }
 
     /**
