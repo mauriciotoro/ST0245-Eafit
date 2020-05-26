@@ -61,7 +61,7 @@ public class Fecha {
     }
 
     /**
-    * @param otra representa la fecha con la culase va a comparar.
+    * @param otra representa la fecha con la cual se va a comparar.
     *
     * El método comprar se encarga de devolvernos respuesta a tres posibilidades.
     * 1: si la fecha es menor que la otra retorna -1.
