@@ -1,0 +1,48 @@
+1. Pilas
+	% Respuesta: s1.push(p1.left)
+	\item (10\%) Completa la línea 17
+	................................\\
+	% Respuesta: s2.push(p2.left)
+	Y Completa la línea 18
+	................................
+	% Respuesta: s1.push(p1.right)
+	\item (10\%) Completa la línea 24 ................................\\
+	% Respuesta: s2.push(p2.right)
+	Y Completa la línea 25 ................................
+
+2. Colas
+	% Respuesta: O(n)
+	\item (10\%) ¿Cuál es la complejidad asíntótica, en el peor de los casos, del algoritmo anterior? ........................................
+	% Respuesta: res + 1
+	\item (10\%) Completa la línea 17 ........................................
+
+3. Tablas
+	% Respuesta: funcionHash(k)
+	\item (10\%) Completa la línea 23 ..........................
+	% Respuesta: O(1)
+	\item (10\%) ¿Cuál es la complejidad asintótica, en el peor de los casos, del método \texttt{put}? 
+	O(..........)
+
+4. Árboles
+\begin{enumerate}[label=\Alph*]
+	% Respuesta: Porque sino quedaría con un el último camino que encuentre en la búsqueda en el caso en que el nodo con dato n no está en el árbol
+	\item (10\%) ¿Por qué se elimina un elemento de la lista en la línea 19? Porque.................................
+	% Respuesta: Se puede mejorar la búsqueda agregando la condición de que si n es menor que el dato se va a la izquierda; sino, a la derecho; nunca hay que ir a los dos lados. Su complejidad mejoraría a O(log n)
+	\item (10\%) Supongamos que, en una entrevista de Google, nos dicen que el árbol es un \emph{árbol binario de búsqueda (BST)}. ¿Cómo se puede hacer más eficiente la búsqueda anterior sabiendo que el árbol es un BST? Se puede.................................
+	% Respuesta: O(n)
+	\item (10\%) ¿Cuál es la complejidad \textbf{asintótica}, en el peor de los casos, del algoritmo anterior? .................................
+\end{enumerate}
+
+5. Grafos
+\item (10\%) Al representar un grafo completo con matrices de adyacencia y con listas de adyacencia, en ambos casos, el consumo de memoria (NO tiempo, sino memoria) es $O(n^2)$
+	\begin{enumerate}
+		% Respuesta: Verdadero
+		\item Verdadero
+		\item Falso
+	\end{enumerate}
+	Cuando representamos un grafo con matrices de adyacencia, la complejidad asintótica, en el peor de los casos, de insertar un nuevo vértice es $O(n)$ donde $n$ es el número de vértices.
+	\begin{enumerate}
+		% Respuesta: Falso
+		\item Verdadero
+		\item Falso
+	\end{enumerate}

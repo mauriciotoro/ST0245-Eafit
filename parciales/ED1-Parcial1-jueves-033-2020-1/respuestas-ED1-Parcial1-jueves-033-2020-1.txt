@@ -1,0 +1,37 @@
+1.
+
+			% Respuesta: s.substring(0, i)
+			\item (10\%) Complete la línea 6 ................................
+			% Respuesta: true
+			\item (10\%) Complete la línea 9
+			.................................
+			\item (10\%) Complete la línea 11
+			% Respuesta: solve(t, s.substring(i),  n - i)
+			.................................
+
+2. 
+
+% Respuesta: Falso
+% Respuesta: (a), (b), (d)
+
+3.
+
+		% Respuesta: k % elements
+			\item (10\%) Completa la linea 11 ..........................
+			% Respuesta: head
+			\item (10\%) Completa la línea 19
+			..........................
+			% Respuesta: O(|elements|) ~ O(n)
+			\item (10\%) ¿Cuál es la complejidad asintótica, en el peor de los casos, del algoritmo anterior?
+			...........................
+4.
+
+		% Respuesta: next + 1
+			\item (10\%) Complete la línea 5 .........................
+			% Respuesta: a.size() - 1
+			Y \ \ \ \ Complete la línea 11
+			.........................
+
+5.
+
+Respuesta: T_2(n, m) = C \times n \times m^2

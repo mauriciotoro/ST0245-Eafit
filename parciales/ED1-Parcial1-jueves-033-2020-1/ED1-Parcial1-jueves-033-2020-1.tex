@@ -1,0 +1,214 @@
+\documentclass[10 pt]{article}
+\usepackage{tikz}
+\usetikzlibrary{arrows}
+\usepackage[margin=0.5 in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{tabu}
+\usepackage{color}
+\usepackage{mathtools}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{listings}
+\usepackage{enumitem}
+\usepackage{multicol}
+\setlength{\columnsep}{1cm} 
+\newtheorem{theorem}{Teorema}
+\usepackage{mathrsfs}
+\title{\textbf {Estructuras de Datos y Algoritmos 1 - ST0245\\Primer Parcial - Jueves (033)}}
+\author{Nombre ..............................\\
+	Departamento de Informática y Sistemas\\
+	Universidad EAFIT\\}
+\date{Marzo 19 de 2020}
+\begin{document}
+	\lstdefinestyle{customc}{
+		language=Java, 
+		numbers=left, 
+		showspaces=false,
+		showstringspaces=false, 
+		tabsize=2, 
+		breaklines=true,
+		xleftmargin=5.0ex,
+	}
+	\lstset{escapechar=@,style=customc, numbers=left, stepnumber = 1} 
+	\maketitle
+	\begin{multicols}{2}
+
+\section{Recursión 30\%}
+        Una de las tecnologías cruciales para que la Cuarta Revolución Industrial tenga éxito es la \textit{ciberseguridad.} 
+        Una de las áreas más importantes de la ciberseguridad es la \textit{criptografía}. Criptografía es el arte y técnica de escribir claves secretas de tal forma que lo escrito solamente sea inteligible para quien sepa descifrarlo.
+
+         Consideremos una aplicación de criptografía. Algunas palabras del alfabeto español se pueden escribir como la unión consecutiva de los símbolos de la tabla periódica universal. Por ejemplo, la palabra ``Población'' se puede escribir como la unión de los símbolos \{Po, B, La, C, I, O, N\}, PoBLaCION. Te entregan una cadena de caracteres $S$ y un conjunto de símbolos $T$. El objetivo es determinar si $S$ se puede escribir como la unión consecutiva de cero o más símbolos de $T$. Por ejemplo, sea $T = \{Ti, B, I, O, C\}$ y $S = $ ``Biótico'', la respuesta es verdadero; para $S = $ ``'', la respuesta es verdadero; y para $S = $``Titan'', la respuesta es falso. 
+		 El siguiente código resuelve el problema, pero le faltan algunas líneas; por favor, complétalas. ¡Gracias!
+		 {\small
+		\begin{lstlisting}
+	boolean solve(String s,List<String> t){
+	   return solve(t, s, s.length());
+	}
+	boolean solve(List<String> t, String s, int n){
+		  for(int i = 1; i <= n; ++i){
+		    String pfx = ..................;
+		    if(t.contains(pfx)){
+		      if(i == n){
+		        return .............;
+		      }
+		      return ......................;
+		    }
+		  }
+		 return false;
+	}
+		\end{lstlisting}
+		}
+		\begin{enumerate}[label=\Alph*]
+			% Respuesta: s.substring(0, i)
+			\item (10\%) Completa la línea 6 ................................
+			% Respuesta: true
+			\item (10\%) Completa la línea 9
+			.................................
+			\item (10\%) Completa la línea 11
+			% Respuesta: solve(t, s.substring(i),  n - i)
+			.................................
+		\end{enumerate}
+
+Puedes asumir que $T$ contiene todas las posibles combinaciones de acentos, mayúsculas y minúsculas de cada símbolo de la tabla periódica. En Java, el método \texttt{s.substring(a,b)} retorna la subcadena de $s$ entre los índices $a$ y $b-1$, incluídos. El método \texttt{t.contains(s)} retorna verdadero si la cadena $s$ se encuentra dentro de $t$; de lo contrario, falso.
+
+		\section{Notación O 20\%}
+En la vida real, empresas como \textit{Riot Games} hacen un uso extensivo de bases de datos. En muchas bases de datos, los tiempos de búsqueda son $O(log\ n)$. 
+
+		\begin{enumerate}[label=\Alph*]
+			% Respuesta: Falso
+			\item (10\%) Sea $c$ una constante, $f(n)$ es $O(g(n))$ si \\ $\lim\limits_{n \rightarrow \infty}\frac{f(n)}{g(n)} = c$, donde $0 < c < \infty$.
+			\begin{enumerate}
+				\item Verdadero
+				\item Falso
+			\end{enumerate}
+			\item (10\%) Determina cuales de las siguientes proposiciones son verdaderas. Varias pueden ser verdaderas.
+			% Respuesta: (a), (b), (d)
+			\begin{enumerate}
+				\item Si $f(n)$ es $O(g(n))$ y $g(n)$ es $O(h(n))$, entonces $f(n)$ es $O(h(n))$.
+				\item Para cualquier base $b > 0$, $\log_b(n)$ es $O(\ln(n))$.
+				\item Para cualquier constante $c$, $c$ es $O(c)$.
+				\item Sean $f_1(n) = O(g_1(n))$ y $f_2(n) = O(g_2(n))$. Entonces, $(f_1 + f_2)(n) = O(\max(|g_1(n)|, |g_2(n)|))$ 
+			\end{enumerate}
+		\end{enumerate}
+
+Recuerda la regla de cambio de base de los logaritmos: $log_a\ n = \frac{log_c\ n}{log_c\ a}$ y no olvides que $ln\ n = log_e\ n$
+
+		\section{Listas enlazadas 30\%}
+		En la vida real, las listas enlazadas se utilizan para implementar el mecanismo de deshacer y rehacer en \textit{Microsoft Word} y \textit{Adobe Photoshop}. Además, de acuerdo a \textit{InterviewBit}, el siguiente problema es frecuente en la primera entrevista técnica para práctica laboral  en \textit{Amazon}.  Dado una lista simplemente enlazada \texttt{head} y un entero $k \geq 0$, Amazon requiere rotar $k$ posiciones los nodos de \texttt{head}. Por ejemplo, si $head = 1 -> 2 -> 3 -> 4 -> 5 -> null$ y $k = 2$, la respuesta es $result = 4->5->1->2->3->null$. El siguiente código entrega la solución, pero faltan algunas líneas; por favor, complételas.
+
+		 {\small
+		\begin{lstlisting}
+		class Node {Node next; int data;}
+		Node solve(Node head, int k){
+		  Node slow = head, fast = head;
+		  if(head == null) return null;
+		  Node counter = head;
+		  int elements = 0;
+		  while(counter != null){
+		    elements ++;
+		    counter = counter.next;
+		  }
+		  k = ...............;
+		  for(int i = 0; i < k; ++i){
+		    fast = fast.next;
+		  }
+		  while(fast.next != null){
+		    slow = slow.next;
+		    fast = fast.next;
+		  }
+		  fast.next = ...............;
+		  Node result = slow.next;
+		  slow.next = null;
+		  return result;
+		}
+		\end{lstlisting}
+		}
+		\begin{enumerate}[label=\Alph*]
+			% Respuesta: k % elements
+			\item (10\%) Completa la linea 11 ..........................
+			% Respuesta: head
+			\item (10\%) Completa la línea 19
+			..........................
+			% Respuesta: O(|elements|) ~ O(n)
+			\item (10\%) ¿Cuál es la complejidad asintótica, en el peor de los casos, del algoritmo anterior?
+			...........................
+		\end{enumerate}
+
+
+		\section{Vectores dinámicos 20\%}
+		En la vida real, una variación de un \textit{vector dinámico} (en Java, \textit{ArrayList} y en Python, \textit{list}), llamado \textit{Gap Buffer}, se utilizó para implementar el editor \textit{Emacs}. 
+		Dado un \textit{vector dinámico} de enteros $a$ y un valor $q$, elimina todas las instancias de $q$ en $a$. Además, devuelve el tamaño del vector dinámico $a$ después de eliminar los elementos. Por ejemplo, si $a = [3, 4, 2, 2, 1, 2, 3, 4, 2]$ y $q = 2$, entonces la respuesta es $a = [3, 4, 1, 3, 4]$ y su tamaño es $5$; por consiguiente, \texttt{solve} devuelve $5$. El siguiente código ejecuta la operación, pero faltan algunas líneas; por favor, complételas.\\
+		
+		 {\small
+		\begin{lstlisting}
+	int solve(ArrayList<Integer> a, int q){
+	  int next = 0;
+	  for(int i = 0; i < a.size(); ++i){
+	    if(a.get(i) == q){
+	      next = ...............;
+	    }else{
+	      a.set(i - next, a.get(i));
+	    }
+	  }
+	  for(int i = 0; i < next; ++i){
+	    a.remove(.............);
+	  }
+	  return a.size();
+	}
+		\end{lstlisting}
+		}
+
+		\begin{enumerate}[label=\Alph*]
+			% Respuesta: next + 1
+			\item (10\%) Completa la línea 5 .........................\\
+			% Respuesta: a.size() - 1
+			Y \ \ \ \ \ Completa la línea 11
+			.........................
+		\end{enumerate}
+
+		En Java, el arreglo dinámico $a$ se pasa por referencia; siendo así, la idea es no devolver otro arreglo sino modificar el arreglo $a$ y retornar el tamaño del arreglo modificado. El método \texttt{a.get(i)} retorna el elemento en ĺa posición $i$ de $a$; \texttt{a.set(i,x)} asigna el valor $x$ al elemento en la posición $i$ de $a$ y \texttt{remove(i)} elimina el elemento en la posición $i$ de $a$.
+
+		\section{Complejidad 10\%}
+En la vida real, las grandes empresas de tecnología, solicitan calcular la complejidad de los algoritmos que preguntan en sus entrevistas técnicas; por ejemplo, \textit{Google}, \textit{Facebook} y \textit{Riot Games}. Estas entrevistas se realizan para acceder a una práctica laboral como lo hizo Santiago Zubieta, en 2015, y Juan M. Ciro, en 2019, para hacer sus prácticas en Google y Facebook, respectivamente. ¡Ambos eran estudiantes de la Universidad Eafit! Para prepararnos para esas entrevistas, para cada uno de los siguientes códigos, determina la ecuación que representa su complejidad para el peor caso.
+
+		 Para el siguiente código, determina la ecuación que representa su complejidad para el peor caso. Considera que $C$ es una constante.
+
+		  {\small
+		\begin{lstlisting}
+	void mistery(int n, int m){
+	  int res = 0;
+	  for(int i = 0; i < n; ++i){
+	    for(int j = 1; j < m; ++j){
+	      for(int k = 1; k < m; ++k){
+	        res = res + 1;
+	} } } }
+		\end{lstlisting}
+}
+
+		% Respuesta: T_4(n, m) = C \times n \times m^2
+		\begin{enumerate}[topsep=0pt,itemsep=-1ex,partopsep=1ex,parsep=1ex,label=\Alph*]
+			\item $T_1(n, m) = C \times n \times m$
+			\item $T_2(n, m) = C \times n \times m^2$
+			\item $T_3(n, m) = C \times n \times m \log m$
+			\item $T_4(n, m) = C \times n \times m^3$
+		\end{enumerate}
+
+\clearpage
+
+\section{Complejidad (2\% extra)}
+ (2 \%) En la vida real, los memes se utilizan en presentaciones orales como una estrategia para \textit{romper el hielo}. Con base en los errores que has cometido durante el semestre,
+escribe un texto para el siguiente meme:\\
+................................................     ................................................\\
+................................................     ................................................\\
+................................................     ................................................\\
+................................................     ................................................\\
+................................................     ................................................\\
+................................................     ................................................\\
+................................................     ................................................\\
+\includegraphics[width=0.5\textwidth]{AAHRBRo.jpeg}
+Como un ejemplo, ten en cuenta la regla de la suma, regla del producto,
+notación O o ecuaciones de recurrencia.
+
+
+	\end{multicols}
+\end{document}

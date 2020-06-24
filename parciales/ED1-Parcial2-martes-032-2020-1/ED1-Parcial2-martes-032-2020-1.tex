@@ -1,0 +1,215 @@
+\documentclass[10 pt]{article}
+\usepackage{tikz}
+\usetikzlibrary{arrows}
+\usepackage[margin=0.5 in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{tabu}
+\usepackage{color}
+\usepackage{mathtools}
+
+\usepackage{xcolor}
+\usepackage{listings}
+\usepackage{enumitem}
+\usepackage{multicol}
+\setlength{\columnsep}{1cm} 
+\newtheorem{theorem}{Teorema}
+\usepackage{mathrsfs}
+\title{\textbf {Estructuras de Datos y Algoritmos 1 - ST0245\\Segundo Parcial - Martes  (032) }}
+\author{Nombre ..............................\\
+		Departamento de Informática y Sistemas\\
+		Universidad EAFIT\\}
+\date{Mayo 12 de 2020}
+\begin{document}
+\lstdefinestyle{customc}{
+	language=Java, 
+	numbers=left, 
+	showspaces=false,
+    showstringspaces=false, 
+    tabsize=2, 
+    breaklines=true,
+    xleftmargin=5.0ex,
+}
+\lstset{escapechar=@,style=customc, numbers=left, stepnumber = 1} 
+\maketitle
+\begin{multicols}{2}
+\section{Pilas 20\%}
+En Lenguajes de Programación, se utilizan los árboles para representar la estructura que tiene un programa. Estos árboles se conocen como
+\textit{árboles sintácticos abstractos (\textsc{asc})}. Los \textsc{asc} se utilizan para detección de plagio en tareas de programación. 
+Dados dos árboles binarios $b_1$ y $b_2$, determine si ambos son idénticos. La siguiente implementación usa pilas y le faltan algunas líneas; por favor,  complételas. ¡Ayúdanos a detectar el plagio!
+
+{\small
+\begin{lstlisting}
+class Node{Node left,right; int data;}
+boolean identical(Node b1, Node b2){
+  if(b1 == null && b2 == null)
+    return true;
+  if(b1 == null || b2 == null)
+    return false;
+  Stack<Node> s1 = new Stack();
+  Stack<Node> s2 = new Stack();
+  s1.push(b1); s2.push(b2);
+  while(!s1.isEmpty()){
+    Node p1 = s1.pop();
+    Node p2 = s2.pop();
+    if(p1.data!=p2.data)
+      return false;
+    if(p1.left!=null&&p2.left!=null)
+    {
+      ....................;
+      ....................;
+    }
+    else if(p1.left!=null||p2.left!=null)
+      return false;
+    if(p1.right!=null&&p2.right!=null)
+    {
+      .....................;
+      .....................;
+    }else if(p1.right!=null||p2.right!=null)
+      return false;
+  }
+  return true;
+}
+\end{lstlisting}
+}
+\begin{enumerate}[label=\Alph*]
+	% Respuesta: s1.push(p1.left)
+	\item (10\%) Completa la línea 17
+	................................\\
+	% Respuesta: s2.push(p2.left)
+	Y Completa la línea 18
+	................................
+	% Respuesta: s1.push(p1.right)
+	\item (10\%) Completa la línea 24 ................................\\
+	% Respuesta: s2.push(p2.right)
+	Y Completa la línea 25 ................................
+\end{enumerate}
+\section{Colas 20\%}
+Existe un tipo de árbol binario llamado \textit{partición binaria del espacio (\textsc{bsp})}. Un \textsc{bsp} se utiliza para determinar qué objetos se deben renderizar en un videojuego 3D; especialmente, en los de acción de primera persona. El primero que lo utilizó fue Doom, desarrollado en 1993. 
+Dado un árbol binario $B$ de $n$ nodos, calcule su altura usando una cola. El siguiente código resuelve el problema, pero faltan algunas líneas; por favor, complételas. ¡Ayuda a ID Software!
+
+\begin{lstlisting}
+class Node{Node left;Node right;int data;}
+int solve(Node root){
+  if(root == null) return 0;
+  Queue<Node> q = new ArrayDeque();
+  q.add(root);
+  Node front = null;
+  int res = 0;
+  while(!q.isEmpty()){
+    int sz = q.size();
+    for(int i = 0; i < sz; ++i){
+      front = q.poll();
+      if(front.left != null)
+        q.add(front.left);
+      if(front.right != null)
+        q.add(front.right);
+    }
+    res = ...............;
+  }
+  return res;
+}
+\end{lstlisting}
+\begin{enumerate}[label=\Alph*]
+	% Respuesta: O(n)
+	\item (10\%) ¿Cuál es la complejidad asíntótica, en el peor de los casos, del algoritmo anterior? ........................................
+	% Respuesta: res + 1
+	\item (10\%) Completa la línea 17 ........................................
+\end{enumerate}
+\section{Tablas de Hash 20\%}
+Cuando un sitio web te solicita tu login y password para autenticarte, el password que se almacena en el servidor es el el hash del password. De esa manera, si un atacante accede a los passwords almacenados en el servidor, estos no le serán útiles para autenticarse en el sitio web. Para manejar esos passwords, necesitamos implementar una tabla de hash. El siguiente código resuelve el problema, pero es necesario completar algunas líneas; por favor complétalas. 
+{\small
+\begin{lstlisting}
+class Pair {
+    String name;
+    int phone;
+    public Pair(String name, int phone) {
+        this.name = name;
+        this.phone = dato;
+    }
+}
+public class HashTable {
+    private ArrayList<LinkedList<Pair>> tabla;
+
+    public HashTable(){
+        tabla = new ArrayList(11);
+        for (int i = 0; i < 10; i++) {
+            tabla.add(new LinkedList());
+        }
+    }
+    private int funcionHash(String k){
+        return ((int) k.charAt(0)) % 10;
+    }
+    public void put(String k, int v){
+        Pair nueva = new Pair(k,v);
+        tabla.get(........).add(nueva);
+}   }
+\end{lstlisting}
+}
+\begin{enumerate}[label=\Alph*]
+	% Respuesta: funcionHash(k)
+	\item (10\%) Completa la línea 23 ..........................
+	% Respuesta: O(1)
+	\item (10\%) ¿Cuál es la complejidad asintótica, en el peor de los casos, del método insertar (\texttt{put})? Donde $n$ es el número de elementos que hay en tabla. \\
+	O(..........)
+\end{enumerate}
+
+
+\section{Árboles 30\%}
+En la vida real, el árbol de codificación de Huffman es un tipo de árbol binario que se utiliza para compresión de datos sin pérdidas en formatos como mp3 y jpg. Volviendo a los temas del curso, en este problema, se te entrega un árbol binario y te preguntan encontrar si existe o no un camino desde la raíz hasta un nodo con valor (\emph{value}) de $n$ y, además, si el camino existe, almacenarlo en la lista \texttt{path}; si no existe, la lista \texttt{path} debe quedar vacía. 
+{\small
+\begin{lstlisting}
+class Node { 
+    int data; 
+    Node left, right; 
+    Node(int value) { 
+        data = value; 
+        left = right = null; 
+}   } 
+class Tree{    
+    private boolean findPath(Node root, int n, List<Integer> path) { 
+        if (root == null) { 
+            return false; }  
+        path.add(root.data); 
+        if (root.data == n) { 
+            return true; } 
+        if (root.left != null && findPath(root.left, n, path)) { 
+            return true; } 
+        if (root.right != null && findPath(root.right, n, path)) { 
+            return true; } 
+        path.remove(path.size()-1); 
+        return false; 
+}     }
+\end{lstlisting}
+}
+
+
+\begin{enumerate}[label=\Alph*]
+	% Respuesta: Porque sino quedaría con un el último camino que encuentre en la búsqueda en el caso en que el nodo con dato n no está en el árbol
+	\item (10\%) ¿Por qué se elimina un elemento de la lista en la línea 19? Porque.................................
+	% Respuesta: Se puede mejorar la búsqueda agregando la condición de que si n es menor que el dato se va a la izquierda; sino, a la derecho; nunca hay que ir a los dos lados. Su complejidad mejoraría a O(log n)
+	\item (10\%) Supongamos que, en una entrevista de Google, nos dicen que el árbol es un \emph{árbol binario de búsqueda (BST)}. ¿Cómo se puede hacer más eficiente la búsqueda anterior sabiendo que el árbol es un BST? Se puede.................................
+	% Respuesta: O(n)
+	\item (10\%) ¿Cuál es la complejidad \textbf{asintótica}, en el peor de los casos, del algoritmo anterior? .................................
+\end{enumerate}
+
+\section{Grafos 10\%}
+En la vida real, un grafo se utiliza para representar los mapas de Google Maps. 
+Para cada una de las siguiente proposiciones, determine si son verdaderas o falsas.
+\begin{enumerate}[label=\Alph*]
+	\item (10\%) Al representar un grafo completo con matrices de adyacencia y con listas de adyacencia, en ambos casos, el consumo de memoria (NO tiempo, sino memoria) es $O(n^2)$
+	\begin{enumerate}
+		% Respuesta: Verdadero
+		\item Verdadero
+		\item Falso
+	\end{enumerate}
+	Cuando representamos un grafo con matrices de adyacencia, la complejidad asintótica, en el peor de los casos, de insertar un nuevo vértice es $O(n)$,  donde $n$ es el número de vértices.
+	\begin{enumerate}
+		% Respuesta: Falso
+		\item Verdadero
+		\item Falso
+	\end{enumerate}
+\end{enumerate}
+
+Un grafo completo es áquel donde existe una arista entre cada par de vértices del grafo. 
+\end{multicols}
+\end{document}

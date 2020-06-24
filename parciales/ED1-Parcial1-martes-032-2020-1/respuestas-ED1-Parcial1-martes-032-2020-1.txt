@@ -1,0 +1,38 @@
+1.
+	% Respuesta: res + 1
+	\item (10\%) Complete la línea 12 ..........................
+	% Respuesta: arr[i] - 1
+	\item (10\%) Complete la línea 13 ..........................
+	\item (10\%) Complete la línea 14
+	% Respuesta: dfs(arr)
+	..........................
+
+2.
+A Respuesta: (a), (c)
+\item Sí $1<a<b$, entonces $x^a$ es $O(x^b)$ pero $x^b$ no es $O(x^b)$.
+\item Sí $b>1$ y $a>0$, entonces $x^a$ es $O(b^x)$ pero $b^x$ no es $O(x^a)$.
+
+B % Respuesta: Falso
+
+3.
+	% Respuesta: O(n)
+	\item (10\%) ¿Cuál es la complejidad asintótica, en el peor de los casos, del algoritmo anterior?
+	.................................
+	% Respuesta: fast.next.next
+	\item (10\%) Completa la línea 7 .................................
+	% Respuesta: fast.next!=null  o slow != null
+	Completa la línea 5 .................................
+
+4. 
+
+	% Respuesta: temp + a.get(i)-i
+	\item (10\%) Complete la línea 5
+	 .........................
+	\item (10\%) ¿Cuál es la complejidad asintótica, en el peor de los casos, del algoritmo anterior?
+	% Respuesta: O(n)
+	.........................
+
+5.
+
+% Respuesta: T1(n) = n^4 * C
+% Respuesta: T1(n) = n^2 * C

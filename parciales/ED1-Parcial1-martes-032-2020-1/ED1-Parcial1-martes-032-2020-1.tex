@@ -1,0 +1,207 @@
+\documentclass[10 pt]{article}
+\usepackage{tikz}
+\usetikzlibrary{arrows}
+\usepackage[margin=0.5 in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{tabu}
+\usepackage{color}
+\usepackage{mathtools}
+
+\usepackage{xcolor}
+\usepackage{listings}
+\usepackage{enumitem}
+\usepackage{multicol}
+\setlength{\columnsep}{1cm} 
+\newtheorem{theorem}{Teorema}
+\usepackage{mathrsfs}
+\title{\textbf {Estructuras de Datos y Algoritmos 1 - ST0245\\Primer Parcial - Martes (032)}}
+\author{Nombre ..............................\\
+		Departamento de Informática y Sistemas\\
+		Universidad EAFIT\\}
+\date{Marzo 10 de 2020}
+\begin{document}
+\lstdefinestyle{customc}{
+	language=Java, 
+	numbers=left, 
+	showspaces=false,
+    showstringspaces=false, 
+    tabsize=2, 
+    breaklines=true,
+    xleftmargin=5.0ex,
+}
+\lstset{escapechar=@,style=customc, numbers=left, stepnumber = 1} 
+\maketitle
+\begin{multicols}{2}
+
+\section{Recursión 30\%}
+En ciberseguridad, cuando se realiza un ataque por fuerza bruta para encontrar una contraseña, se debe tener en cuenta que los caracteres de una contraseña se pueden repetir y, además, que el número de caracteres de la contraseña es variable. 
+Dado una cadena de caracteres $S$ --compuesta por letras mayúsculas en inglés-- puedes intercambiar cualesquiera dos caracteres de $S$ o remover cualquier número de caracteres de $S$.  La pregunta que debes resolver es: ¿Cuál es el número de nuevas cadenas de caracteres que se pueden formar al aplicar esas operaciones? Por ejemplo, si $S = AAB$, entonces la respuesta es 8 (A, B, AA, BA, AAB, ABA, BAA). El siguiente código resuelve el problema, pero le faltan algunas líneas; por favor, complétalas. Gracias.
+{\small
+\begin{lstlisting}
+public int solve(String tiles) {
+  int[] chars = new int[26];
+  for (char ch: tiles.toCharArray()){
+    chars[ch - 'A']++;
+  }
+  return dfs(chars);
+}
+int dfs(int[] arr) {
+  int res = 0;
+  for (int i = 0; i < 26; i++) {
+    if(arr[i] == 0) continue;
+    res = ..............;
+    arr[i] = ...............;
+    res = res + ...............;
+    arr[i]++;
+  }
+  return res;
+}
+\end{lstlisting}
+}
+\begin{enumerate}[label=\Alph*]
+	% Respuesta: res + 1
+	\item (10\%) Completa la línea 12 ..........................
+	% Respuesta: arr[i] - 1
+	\item (10\%) Completa la línea 13 ..........................
+	\item (10\%) Completa la línea 14
+	% Respuesta: dfs(arr)
+	..........................
+\end{enumerate}
+
+El ciclo en la función \texttt{solve} calcula cuantas veces aparece la letra 'A' en \texttt{tiles} y lo coloca en la posición 0 del arreglo \texttt{chars},
+luego cuantas veces aparece la letra 'B' en \texttt{tiles} y lo coloca en la posición 1 del arreglo \texttt{chars}, y así, sucesivamente, hasta la letra 'Z' en la posición 25. La instrucción \texttt{continue} omite las líneas 12 a la 15 y salta a la siguiente iteración del ciclo; es decir, continúa a una nueva iteración del ciclo donde $i=i+1$.
+
+\section{Notación O 20\%}
+Una de las promesas de la biología computacional es la cura el cancer. Los algoritmos exactos para muchos
+de los problemas de biología computacional tienen una complejidad asintótica, para el peor de los casos, exponencial. 
+Si un algoritmo permite detectar el cancer en un ADN, pero dura 1 trillón de años en ejecutarse, no sirve para el problema. 
+\begin{enumerate}[label=\Alph*]
+\item (10\%) Dadas las siguientes proposiciones, selecciona la(s) correcta(s). Pueden haber varias correctas.
+% Respuesta: (a), (c)
+\begin{enumerate}
+\item Si $1<c_1<c_2$, entonces $n^{c_1}$ es $O(n^{c_2})$.
+\item Si $c_1>1$, entonces $\log_{c_1}(n)$ es $O(n)$ y $n$ es $O(\log_{c_1}(n))$.
+\item Si $c_2>1$ y $c_1>0$, entonces $n^{c_1}$ es $O({c_2}^n)$, pero ${c_1}^n$ NO es $O(n^{c_1})$.
+\item Si $1<c_1< c_2$, entonces ${c_1}^n$ es $O({c_2}^n)$ y ${c_2}^n$ es $O(n^{c_1})$.
+\end{enumerate}
+ Considera que $c_1$ y $c_2$ son constantes.
+
+\item (10\%) ¿Es cierto que $\frac{1}{1000}n^3$ es $O(1000n^2)$?
+\begin{enumerate}
+\item Verdadero
+% Respuesta: Falso
+\item Falso
+\end{enumerate}
+\end{enumerate}
+
+
+\section{Listas enlazadas 20\%}
+En la vida real, las listas enlazadas se utilizan para implementar el mecanismo de deshacer y rehacer en \textit{Microsoft Word} y \textit{Adobe Photoshop}. Dada una lista simplemente enlazada (lista) de $n$ nodos, \texttt{head}, se requiere determinar si esta contiene algún ciclo de una forma particular. Una lista contiene un ciclo de esta forma si algún nodo $v$, contiene una referencia a otro nodo $u$ y a través de $u$ es posible llegar a $v$, usando  un nodo intermedio $p$. Por ejemplo, la lista $head = A->B->C->B->E->C$ contiene un ciclo de esa forma. El siguiente código determina si una lista tiene un ciclo de esa forma, pero faltan algunas líneas; por favor, complétalas. ¡Muchas gracias! Eres muy amable.
+{\small
+\begin{lstlisting}
+class Node {Node next; int data;}
+boolean solve(Node head){
+  Node slow = head;
+  Node fast = head;
+  while(fast!=null||..........){
+    slow = slow.next;
+    fast = ................;
+    if(slow == fast){
+      return true;
+  } }
+  return false;
+}
+\end{lstlisting}
+}
+\begin{enumerate}[label=\Alph*]
+	% Respuesta: O(n)
+	\item (10\%) ¿Cuál es la complejidad asintótica, en el peor de los casos, del algoritmo anterior?
+	.................................
+	% Respuesta: fast.next.next
+	\item (10\%) Completa la línea 7 .................................\\
+	% Respuesta: fast.next!=null  o slow != null
+	Y \ \ \ \ \ Completa la línea 5 .................................
+\end{enumerate}
+
+\section{Vectores dinámicos 10\%}
+En la vida real, una variación de un \textit{vector dinámico} (en Java, \textit{ArrayList} y en Python, \textit{list}), llamado \textit{Gap Buffer}, se utilizó para implementar el editor \textit{Emacs}. 
+Dado un vector dinámico $a$ de $n$ enteros, un par de índices $(i, j)$ donde $1 \leq i, j \leq n$ e $i < j$, encuentra un $z = a_i + a_j + i - j$ tan grande como sea posible. Por ejemplo, si $a = [8, 1, 5, 2, 6]$, la respuesta es $z = 8 + 5 + 1 - 3 = 11$, donde $a_i = 8, a_j = 5, i = 1, j =3$. El siguiente código encuentra el valor de $z$, pero le faltan algunas líneas; 
+por favor, complétalas. 
+\begin{lstlisting}
+int solve(ArrayList<Integer> a){
+  int temp = 0;
+  int res = 0;
+  for(int i = 1; i < a.size(); ++i){
+    res = Math.max(res, ..........);
+    temp = Math.max(temp, a.get(i)+i);
+  }
+  return res;
+}
+
+\end{lstlisting}
+\begin{enumerate}[label=\Alph*]
+	% Respuesta: temp + a.get(i)-i
+	\item (10\%) Completa la línea 5
+	 .........................\\
+	Y \ \ \ \  ¿Cuál es la complejidad asintótica, en el peor de los casos, del algoritmo anterior?
+	% Respuesta: O(n)
+	.........................
+\end{enumerate}
+
+Ten en cuenta que, para el cálculo de $z$, los índices $i,j$ empiezan su valor en $1$ y no en $0$. En Java, el método 
+\texttt{a.get(i)} retorna el elemento en la posición $i$ del vector $a$.
+
+\section{Complejidad 20\%}
+En la vida real, las grandes empresas de tecnología, solicitan calcular la complejidad de los algoritmos que preguntan en sus entrevistas técnicas; por ejemplo, \textit{Google}, \textit{Facebook} y \textit{Riot Games}. Estas entrevistas se realizan para acceder a una práctica laboral como lo hizo Santiago Zubieta, en 2015, y Juan M. Ciro, en 2019, para hacer sus prácticas en Google y Facebook, respectivamente. ¡Ambos eran estudiantes de la Universidad Eafit! Para prepararnos para esas entrevistas, para cada uno de los siguientes códigos, determina la ecuación que representa su complejidad para el peor caso. Considera que $C$ es una constante.
+
+\begin{enumerate}[label=\Alph*]
+	\item (10\%) Primer misterio
+	\begin{lstlisting}
+	void mistery1(int n){
+	  int res = 0;
+	  for(int i = 0; i < n; ++i){
+	    for(int j=0;j<n*n*n; ++j){
+	      res = res * 2;
+	} } }
+	\end{lstlisting}
+	% Respuesta: T1(n) = n^4 * C
+	\begin{enumerate}
+		\item $T_1(n) = n^3 \times C$.
+		\item $T_2(n) = n^4 \times C$.
+		\item $T_3(n) = n^5 \times C$.
+		\item $T_4(n) = n^6 \times C$.
+	\end{enumerate}
+	\item (10\%) Segundo misterio
+	\begin{lstlisting}
+	void mistery2(int n){
+	  int res = 0;
+	  for(int i = 0; i < n; ++i){
+	    for(int j=0;j<2*n-1; ++j){
+	      res = res * 3;
+	} }	}
+	\end{lstlisting}
+	% Respuesta: T1(n) = n^2 * C
+	\begin{enumerate}
+		\item $T_1(n) = n \times C$.
+		\item $T_2(n) = n^2 \times C$.
+		\item $T_3(n) = n^3 \times C$.
+		\item $T_4(n) = n^4 \times C$.
+	\end{enumerate}
+\end{enumerate}
+
+\section{Complejidad (2\% extra)}
+ (2 \%) En la vida real, los memes se utilizan en presentaciones orales como una estrategia para \textit{romper el hielo}. Con base en los errores que has cometido durante el semestre,
+escribe un texto para el siguiente meme:\\
+................................................     ................................................\\
+................................................     ................................................\\
+................................................     ................................................\\
+................................................     ................................................\\
+................................................     ................................................\\
+................................................     ................................................\\
+................................................     ................................................\\
+\includegraphics[width=0.5\textwidth]{AAHRBRo.jpeg}
+Como un ejemplo, ten en cuenta la regla de la suma, regla del producto,
+notación O o ecuaciones de recurrencia.
+
+\end{multicols}
+\end{document}

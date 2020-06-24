@@ -1,0 +1,63 @@
+1. Pilas
+
+	% Respuesta: s.pop()
+	\item (10\%) Completa la línea 5 ............................... \\
+	% Respuesta: continue
+	\ \ \ \ \ \ \ \ \ \ \ \ Completa la línea 7 ...............................
+	% Respuesta: g[v].get(i)
+	\item (10\%) Completa la línea 10 ............................... \\
+	% Respuesta: s.push(u)
+	\ \ \ \ \ \ \ \ \ \ \ \ Completa la línea 12 ...............................
+
+2. Colas
+	% Respuesta: O(n) o O(N)
+	\item (10\%) ¿Cuál es la complejidad asíntotica, en el peor de los casos, del algoritmo anterior? ........................................
+	% Respuesta: q.peek()
+	\item (10\%) Completa la línea 6 ........................................
+	% Respuesta: q.peek()
+  \ \ \ \ \ \ \ \ \ \ \ \ \ \ Completa la línea 7 ........................................
+
+3. Tablas
+
+	% Respuesta: O(nm + n log n)
+	\item (10\%) En términos de $n$ y de $m$, ¿cuál es la complejidad asintótica, en el peor de los casos, del algoritmo anterior? .................................
+	% Respuesta: i == 0 || h[i] != h[i - 1]
+	% Otra Respuesta: i == length || h[i] != h[i + 1]
+	\item (10\%) Completa la línea 9 .................................
+
+
+4. Árboles
+
+	% Respuesta: d[i] > d[u] (B)
+	\item (10\%) Completa la línea 25 ..........................
+  \begin{enumerate}
+    \item $d[u] > d[i]$
+    \item $d[i] > d[u]$
+    \item $f[w] > f[i]$
+    \item $f[i] > f[w]$
+  \end{enumerate}  
+	% Respuesta: f[i] > f[w] (D)
+ \item (10\%) Completa la línea 28 ..........................
+ \begin{enumerate}
+    \item $d[u] > d[i]$
+    \item $d[i] > d[u]$
+    \item $f[w] > f[i]$
+    \item $f[i] > f[w]$
+  \end{enumerate}  
+
+	% Respuesta: O(n)
+	\item (10\%) ¿Cuál es la complejidad asintótica, en el peor de los casos, del algoritmo anterior? .................................
+
+5. Grafos
+
+  \begin{enumerate}
+    % Respuesta: Falso
+    \item Verdadero
+    \item Falso
+  \end{enumerate}
+  Cuando representamos un grafo con matrices de adyacencia, la complejidad asintótica, en el peor de los casos, de insertar un nuevo vértice es $O(n^2)$,  donde $n$ es el número de vértices.
+  \begin{enumerate}
+    % Respuesta: Verdadero
+    \item Verdadero
+    \item Falso
+  \end{enumerate}
