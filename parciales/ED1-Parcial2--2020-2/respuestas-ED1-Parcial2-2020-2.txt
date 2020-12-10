@@ -1,0 +1,59 @@
+1. árboles
+
+\begin{enumerate}[label=\Alph*]
+  % Respuesta: Retorna el nodo ancestro (padre, antecesor) común más cercano a los nodos n1 y n2, inglés, lowest common ancestor (LCA)
+  \item (10\%) ¿Qué retorna la función \texttt{mistery}? Retorna el nodo.................................
+
+  % Respuesta: T(n) = T(n/2) + T(n/2) + C / T(n) = T(n-1) + c / O(n)
+  \item (10\%) ¿Cuál es la complejidad \textbf{asintótica}, en el peor de los casos, del algoritmo anterior o la ecuación de recurrencia para el peor caso? .................................
+
+  % Respuesta: Se puede mejorar el algoritmo que busca mistery usando la condición de que si n es menor que el dato se va a la izquierda; sino, a la derecho; nunca hay que ir a los dos lados. Opcional de decir: Su complejidad mejoraría a O(log2 n)
+  \item (10\%) En una entrevista de Oracle, nos dicen que es un \emph{árbol binario de búsqueda (BST)}. ¿Cómo se puede hacer más eficiente el algoritmo \texttt{mistery} sabiendo que el árbol es un BST? Se puede.................................
+\end{enumerate}
+
+2. pilas
+
+\begin{enumerate}[label=\Alph*]
+  % JAVA: while (stack.size()>1) {	 PYTHON: while stack.size()>1:
+	\item (10\%) Completa la línea 8 ................................\\
+
+  % JAVA: return stack.isEmpty() ? stack2.pop() : stack.pop();    PYTHON: stack2.pop() if stack.isEmpty() else stack.pop()   
+	\item (10\%) Completa la línea 22 ................................\\
+
+
+3. colas
+
+
+\begin{enumerate}[label=\Alph*]
+	% Respuesta: En Java int[] merged=merge(l, r); y en Python merged=merge(l, r)
+	\item (10\%) Completa la línea 10 ........................................
+	% Respuesta: En Java, queue.poll(); y en Python queue.pop()
+	\item (10\%) Completa la línea 13 ........................................
+\end{enumerate}
+
+
+4. Tablas
+
+\begin{enumerate}[label=\Alph*]
+	% Respuesta: Java: return true;   y en Python: return True
+	\item (10\%) Completa la última línea..........................
+	% Respuesta: O(n) pero, bueno, también podrían decir O(n+m) sino que como n = m, entonces O(n+m) = O(n)
+	\item (10\%) ¿Cuál es la complejidad asintótica, en el peor de los casos, de \texttt{areEqual}? Donde $n$ es el número de elementos del primer arreglo y $m$ el número de elementos del segundo arreglo. Es O(..........)
+\end{enumerate}
+
+5. Grafos
+
+\begin{enumerate}[label=\Alph*]
+  % Respuesta: En Java: DFS(M, row + rowNbr[k], col + colNbr[k], visited);   En Python: self.DFS(i + rowNbr[k], j + colNbr[k], visited) o sin el sefl está bien
+  \item (10\%) Completa la línea 18 en Java o la 22 en Python ..........................
+
+\end{enumerate}
+
+
+6. Tablas de hash (opcional)
+
+  % Respuesta: El primero es O(n) y el segundo es O(n log n). Por esa razón, eligiría el primero, el de las tablas de hash. Y no el ingenuo, segundo, que es ordenando.
+  \item (10\% Extra) ¿Cuál es la complejidad \textbf{asintótica}, en el peor de los casos, del los algoritmos anteriores? El primero es O(.................................) y el segundo es O(.................................). Por esta razón, yo elejiría la ................................. solución.
+
+
+

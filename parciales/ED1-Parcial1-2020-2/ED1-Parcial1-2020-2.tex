@@ -1,0 +1,472 @@
+\documentclass[10 pt]{article}
+\usepackage{tikz}
+\usetikzlibrary{arrows}
+\usepackage[margin=0.5 in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{tabu}
+\usepackage{color}
+\usepackage{mathtools}
+\usepackage{amsfonts}
+\usepackage{xcolor}
+\usepackage{listings}
+\usepackage{enumitem}
+\usepackage{multicol}
+\setlength{\columnsep}{1cm} 
+\newtheorem{theorem}{Teorema}
+\usepackage{mathrsfs}
+\title{\textbf {Estructuras de Datos y Algoritmos 1 - ST0245\\Primer Parcial (001, 002 y 003)}}
+\author{Nombre ..............................\\
+		Departamento de Informática y Sistemas\\
+		Universidad EAFIT\\}
+\date{Septiembre 22 de 2020}
+\begin{document}
+% \lstdefinestyle{customc}{
+% 	language=Java, 
+% 	numbers=left, 
+% 	showspaces=false,
+%     showstringspaces=false, 
+%     tabsize=2, 
+%     breaklines=true,
+%     xleftmargin=5.0ex,
+% }
+%\lstset{escapechar=@,style=customc, numbers=left, stepnumber = 1} 
+\lstset{language=Java,frame=none, breaklines=true, numbers = left, stepnumber = 1, xleftmargin=5.0ex, showstringspaces=false, showspaces=false }
+\lstset{language=Python,frame=none, breaklines=true, numbers = left, stepnumber = 1, xleftmargin=5.0ex, showstringspaces=false,showspaces=false }
+\maketitle
+\begin{multicols}{2}
+
+\section{Mujeres en Ingeniería de Sistemas (2\% extra)}
+ (2 \%) Varios estudios argumentan que muchas mujeres deciden NO estudiar ingeniería de sistemas porque creen en los estereotipos sobre el tipo de personas que trabajan en el campo, y no se ven a sí mismas encajando en esos estereotipos. De esta manera, incorrectas percepciones pueden dar forma a las trayectorias profesionales. Una forma de desmentir dichos estereotipos es reconociendo mujeres exitosas en ingeniería de sistemas --tanto a nivel nacional como mundial. Para lograr esto, relaciona las siguientes mujeres con su contribución:
+
+{\footnotesize
+\begin{tabular}{l l}
+1. Marrisa Meyer &  a. Primera de Eafit en pasar a Google\\
+2. María C. Choucair &  b. Primera gerente general de Yahoo \\
+3. Ana Echavarría &  c. Primera de Eafit en pasar a Facebook \\
+4. Kathie Bouman &  d. Código para el Apolo 11\\
+5. Margaret Hamilton  & e. Primera foto de un agujero negro\\
+6. Luisa M. Vásquez  &  f. Dueña de la empresa de \emph{testing} \\
+& más grande de Colombia
+ \end{tabular}
+ }
+
+%Respuesta: 1 b, 2 f, 3 a, 4 e, 5 d, 6 c.
+1..., 2..., 3..., 4..., 5..., 6...
+
+\section{Complejidad (2\% extra)}
+%Respuesta: Antes: Para calcular los caminos desde (0,0) hasta (n,m) lo hacía en O(n*m). Ahora: Amá, por qué calcular los caminos me queda O(2^(n+m))
+ (2 \%) En la vida real, los memes se utilizan en presentaciones orales como una estrategia para \textit{romper el hielo}. Con base en los errores --sobre complejidad-- que has cometido durante el semestre,
+escribe un texto para el siguiente meme. Como un ejemplo, ten en cuenta la regla de la suma, regla del producto,
+notación O o ecuaciones de recurrencia.\\
+................................................     ................................................\\
+................................................     ................................................\\
+................................................     ................................................\\
+................................................     ................................................\\
+................................................     ................................................\\
+................................................     ................................................\\
+................................................     ................................................\\
+\includegraphics[width=0.5\textwidth]{perritos.png}
+
+
+
+
+\section{Recursión 30\%}
+Rellenar por difusión se utiliza para implementar el tarrito de \textit{Microsoft Paint}. Además, según el portal \textit{Geeks for Geeks}, es un problema --muy frecuente-- en 
+entrevistas de Amazon, Microsoft y  Adobe. El problema es el siguiente. Dado una matriz de dimensión $N\times M$ (\texttt{screen}), la ubicación de un pixel en la matriz ($x,y$) y un color (\texttt{newC} $\in \mathbb{N}$ ),
+nuestra tarea es reemplazar el color (\texttt{prevC} $\in \mathbb{N}$) del pixel ($x,y$) --y el de todos sus vecinos que tengan el color \texttt{prevC}-- con el color \texttt{newC}. \textbf{¡Incluyamos los vecinos diagonales!}   
+Como un ejemplo, si tenemos $x=4, y=4, prevC=2, newC=3$ y la matriz (\texttt{screen}) en el lado izquierdo, después de aplicar el algoritmo, debe lucir como la del lado derecho. Faltan unas líneas, complétalas, por favor.
+
+{\footnotesize
+\begin{center}
+\begin{verbatim}
+{{1, 1, 1, 1, 1, 1, 1, 1},   {{1, 1, 1, 1, 1, 1, 1, 1},
+{1, 1, 1, 1, 1, 1, 0, 0},    {1, 1, 1, 1, 1, 1, 0, 0},
+{1, 0, 0, 1, 1, 0, 1, 1},    {1, 0, 0, 1, 1, 0, 1, 1}, 
+{1, 2, 2, 2, 2, 0, 1, 0},    {1, 3, 3, 3, 3, 0, 1, 0},
+{1, 1, 1, 2, 2, 0, 1, 0},    {1, 1, 1, 3, 3, 0, 1, 0},
+{1, 1, 1, 2, 2, 2, 2, 0},    {1, 1, 1, 3, 3, 3, 3, 0},
+{1, 1, 1, 1, 1, 2, 1, 1},    {1, 1, 1, 1, 1, 3, 1, 1},
+{1, 1, 1, 1, 1, 2, 2, 1},};  {1, 1, 1, 1, 1, 3, 3, 1},};
+
+\end{verbatim}
+\end{center}
+} 
+
+
+\newpage
+\textbf{Si trabajas en Java}, revisa este código:
+
+{\footnotesize
+\begin{lstlisting}[language=Java]
+void floodFillUtil(int screen[][], int x, int y, int prevC, int newC, int N, int M) { 
+ if (x < 0 || x >= M || y < 0 || y >= N) 
+       return; 
+ if (screen[x][y] != prevC) 
+       return; 
+  
+ screen[x][y] = newC; 
+ 
+ ....
+ ....
+ ....
+ ....
+ floodFillUtil(screen, x+1, y, prevC, newC, N, M); 
+ floodFillUtil(screen, x-1, y, prevC, newC, N, M); 
+ floodFillUtil(screen, x, y+1, prevC, newC, N, M); 
+ floodFillUtil(screen, x, y-1, prevC, newC, N, M); } 
+
+void floodFill(int screen[][], int x, int y, int newC, int N, int M) { 
+ int prevC = screen[x][y]; 
+ floodFillUtil(screen, x, y, prevC, newC, N, M); } 
+\end{lstlisting}
+}
+
+
+\textbf{Si trabajas en Python}, revisa este código:
+
+{\footnotesize
+\begin{lstlisting}[language=Python]
+def floodFillUtil(screen, x, y, prevC, newC, N, M): 
+ if x < 0 or x >= M or y < 0 or y >= N or screen[x][y] != prevC: 
+        return
+ if screen[x][y] == newC:
+    	return
+
+ screen[x][y] = newC 
+
+ ....
+ ....
+ ....
+ ....
+ floodFillUtil(screen, x + 1, y, prevC, newC, N, M) 
+ floodFillUtil(screen, x - 1, y, prevC, newC, N, M) 
+ floodFillUtil(screen, x, y + 1, prevC, newC, N, M) 
+ floodFillUtil(screen, x, y - 1, prevC, newC, N, M) 
+  
+def floodFill(screen, x, y, newC, N, M): 
+ prevC = screen[x][y] 
+ floodFillUtil(screen, x, y, prevC, newC, N, M) 
+\end{lstlisting}
+}
+
+\begin{enumerate}[label=\Alph*]
+	% 
+    %floodFillUtil(screen, x+1, y+1, prevC, newC) 
+    %floodFillUtil(screen, x-1, y-1, prevC, newC) 
+    %
+	\item (10\%) Completa la línea 9 ..........................\\
+	\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \  Y Completa la línea 10 ..........................
+    %
+    % floodFillUtil(screen, x-1, y+1, prevC, newC) 
+    % floodFillUtil(screen, x+1, y-1, prevC, newC) 
+    %   
+	\item (10\%) Completa la línea 11 ..........................\\
+	\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \  Y Completa la línea 12 ..........................
+	
+	% T(p) = C + 4T(p-2) + 4T(p-1), que es O(8^n)
+	\item (10\%) ¿Cuál es la ecuación de recurrencia que representa la complejidad, en el tiempo, para el peor de los casos, en términos de $p = n + m$?
+	
+	T(p) = ..........................
+\end{enumerate}
+
+
+\section{Notación O 20\%}
+La \emph{lógistica de última milla} es el proceso de entregar un pedido de comercio electrónico (por ejemplo, en Amazon o Rappi) desde que sale de la tienda hasta que llega al cliente final. La logística de última milla representa hasta un 50\% de los costos logísticos. Contar el número de caminos se utiliza en logística de última milla.  Además, según el portal \textit{Geeks for Geeks}, este es un problema --muy frecuente-- en entrevistas de Amazon, Microsoft y y Adobe. El problema es contar todos los posibles caminos, desde la esquina superior izquierda $(0,0)$ hasta la esquina inferior derecha $(n-1, m-1)$, de una matriz de $n \times m$, con la restricción de que desde cada celda sólo nos podemos mover hacia la derecha $(i,j+1)$ o hacia abajo $(i+1,j)$. Este problema es similar al problema del conejo, ¿cierto? Como un ejemplo, si $n = 3$ y $m=2$, la salida es $3$ porque hay estos $3$ caminos:
+\begin{itemize}
+\item $(0, 0) -> (0, 1) -> (0, 2) -> (1, 2)$
+\item $(0, 0) -> (0, 1) -> (1, 1) -> (1, 2)$
+\item $(0, 0) -> (1, 0) -> (1, 1) -> (1, 2)$
+\end{itemize}
+ 
+
+\textbf{Si trabajas en Java}, considera este código:
+{\footnotesize
+\begin{lstlisting}[language=Java]
+int numberOfPaths(int m, int n) { 
+ int count[][] = new int[m][n]; 
+ 
+ for (int i = 0; i < m; i++) 
+      count[i][0] = 1; 
+
+ for (int j = 0; j < n; j++) 
+      count[0][j] = 1; 
+  
+ for (int i = 1; i < m; i++) { 
+  for (int j = 1; j < n; j++)   
+   count[i][j]=count[i-1][j]+count[i][j-1]; 
+ } 
+ return count[m - 1][n - 1]; 
+} 
+
+\end{lstlisting}
+}
+
+\textbf{Si trabajas en Python}, considera este código:
+{\footnotesize
+\begin{lstlisting}[language=Python]
+def numberOfPaths(m, n): 
+ count = [[0 for y in range(n)] for x in range(m)] 
+
+ for i in range(m): 
+  count[i][0] = 1 
+
+ for j in range(n): 
+  count[0][j] = 1 
+
+ for i in range(1, m): 
+  for j in range(1, n):              
+   count[i][j] = count[i-1][j] + count[i][j-1] 
+ return count[m-1][n-1]
+\end{lstlisting}
+}
+ 
+
+\begin{enumerate}[label=\Alph*]
+	% Respuesta: Tiempo es O(n*m) por el doble ciclo
+	\item (10\%) ¿Cuál es la complejidad asintótica, en \textbf{tiempo}, en el peor de los casos, en términos de $n$ y de $m$? O(..........................)
+	% Respuesta: Memoria es O(n*m) por la creación de una matriz de n*m
+	\item (10\%) ¿Cuál es la complejidad asintótica, en \textbf{memoria}, en el peor de los casos, en términos de $n$ y de $m$? O(..........................)
+\end{enumerate}
+
+La complejidad en memoria quiere decir cuántos enteros nuevos crea el algoritmo, fuera de los que ya existían.
+
+
+\section{Listas enlazadas 20\%}
+Vamos a encontrar la mediana de dos listas ordenadas. Según el portal \textit{Leet Code}, este un problema --muy frecuente-- en entrevistas de Google, Facebook y Apple. Dadas dos listas ordenadas, $ar_1$ de tamaño $N$ y $ar_2$ de tamaño $M$, la tarea es encontrar la mediana de estas dos listas juntas. La mediana se define como el valor que queda en la mitad cuando se juntan ambas listas en una nueva lista ordenada. Si el número de elementos es par, la mediana se calcula sumando los dos valores de la mitad y dividiéndolo en dos. La mediana tiene amplias aplicaciones en Estadística y \emph{Machine Learning}\footnote{Velasco, H.; Laniado, H.; Toro, M.; Leiva, V.; Lio, Y. Robust Three-Step Regression Based on Comedian and Its Performance in Cell-Wise and Case-Wise Outliers. Mathematics 2020, 8, 1259. }, pues se ha encontrado que es un estimador robusto de la media poblacional; es decir, que no se afecta tanto por datos atítpicos como la media. 
+
+Como un ejemplo, si la primera lista enlazada $ar_1$ es $15->10->5$ y la otra lista enlazada $ar_2$ es $20->3->2$, entonces ambas listas unidas son $20->15->10->5->3->2$ y la mediana es $(5+10)/2 = 7.5$.\\
+
+%\newpage
+\textbf{Si trabajas en Java}, considera este código:
+
+{\footnotesize
+\begin{lstlisting}[language=Java]
+int i, j = 0;
+int aux(LinkedList<Integer> ar1, LinkedList<Integer> ar2, int n, int m){
+ int m1 = 0;
+ if(i != n && j != m)   
+  ....
+ else if(i < n) 
+  m1 = ar1.get(i++);  
+ else
+  m1 = ar2.get(j++);  
+ return m1;
+}
+
+float med(LinkedList<Integer> ar1, LinkedList<Integer> ar2){     
+ int count;  
+ i = 0; j = 0;
+ int m1 = -1, m2 = -1, n = ar1.size(), m = ar2.size();  
+ 
+ if((m + n) % 2 == 1)  {
+  for (count = 0; count <= (n + m)/2; count++) 
+    m1 = aux(ar1, ar2, n, m);
+  return m1;  
+ }
+ else {
+  for(count = 0; count <= (n + m)/2; count++){  
+    m2 = m1;  
+    m1 = aux(ar1, ar2, n, m);
+  }  
+  return (m1 + m2)/2f;  
+ }  
+}  
+
+\end{lstlisting}
+}
+
+En Java, la asignación \texttt{variable = pregunta ? verdadero : falso;} funciona de la siguiente forma:
+si la pregunta es verdadera, asigna verdadero a la variable, de lo contrario asigna falso. Como un ejemplo
+\texttt{maximo = a > b ? a : b;}\\ 
+
+\textbf{Si trabajas en Python}, considera este código:
+{\footnotesize
+\begin{lstlisting}[language=Python]
+class Node: 
+    def __init__(self, data): 
+        self.data = data 
+        self.next = None
+  
+class LinkedList: 
+    def __init__(self, h): 
+        self.head = h
+    def get(self, i):
+        temp = self.head
+        for i in range(0,i):
+          temp = temp.next
+        return temp.data
+
+def aux(ar1, ar2,  n,  m, i, j):
+ m1 = 0
+ if i != n and j != m:
+   if ....:
+        ....
+        ....
+   else:
+        ....
+        ....
+ elif i < n:
+  m1 = ar1.get(i)
+  i = i+1
+ else:
+  m1 = ar2.get(j)  
+  j = j+1
+ return m1, i, j;
+
+def med(ar1,  ar2, n, m):    
+ i, j, m1, m2 = 0, 0, -1, -1
+ if (m + n) % 2 == 1:
+  for count in range(0, int((n+m)/2+1)):
+    m1,i,j = aux(ar1, ar2, n, m, i, j)
+  return m1
+ else:
+  for count in range(0, int((n+m)/2)+1):
+    m2 = m1  
+    m1,i,j = aux(ar1, ar2, n, m, i, j)  
+ return (m1 + m2)/2  
+
+\end{lstlisting}
+}
+
+
+\begin{enumerate}[label=\Alph*]
+	% Respuesta: O(p^2)
+	\item (10\%) ¿Cuál es la complejidad asintótica, en el peor de los casos, del algoritmo anterior, en términos de $p = n+m$?
+	O(.................................)
+	% Respuesta: Java: m1 = (ar1.get(i) < ar2.get(j)) ? ar2.get(j++) : ar1.get(i++);  
+	% Respuesta: Python: 
+   %   if ar1.get(i) < ar2.get(j):
+   %      m1 = ar2.get(j)
+   %      j = j+1
+   % else:
+   %      m1 = ar1.get(i)
+   %      i = i+1
+	\item (10\%) Completa la línea 5 en Java ................................. o las líneas 18, 19, 20, 22 y 23 en Python ......;.......;......;......;.......\\
+\end{enumerate}
+
+El método \texttt{a.get(i)} retorna el elemento en la posición $i$ de una lista enlazada $a$. ¿Recuerdas qué complejidad tiene el método \texttt{get} en listas
+enlazadas?
+
+\section{Vectores dinámicos 10\%}
+Cuando enviamos información a través de internet, por ejemplo, del videojuego \textit{Valorant} al servidor servidor de \textit{Riot Games}, lo normal es enviar la información en forma de
+cadenas de caracteres. Una vez llega al servidor, tenemos que convertir esa información en números. Convertir una cadena de caracteres en un
+número es un problema --frecuente-- en entrevistas de Snapchat, Oracle y Uber, según el portal \textit{Leet Code}. Para este ejercicio, implementa un algoritmo que
+permita convertir un vector dinámico de caracteres (que contiene un número binario) en un entero decimal. Supongamos que no hay espacios en blanco, el número es positivo,
+el número es entero y que el vector sólo contiene los caracteres '0' y '1'. Como un ejemplo, para el vector $[1,0,1,1]$ su equivalente en decimal es $1\times 2^0 + 1\times 2^1 + 0\times 2^2 + 1\times 2^3 = 11$.\\ 
+
+\textbf{Si trabajas en Java}, considera este código:
+
+{\footnotesize
+\begin{lstlisting}[language=Java]
+int convertir(ArrayList<Character> str){ 
+ int res = 0; 
+ for (int i = 0; i < str.size(); ++i) 
+  ....
+ return res; 
+}  
+\end{lstlisting}
+}
+
+En Java, el método \texttt{a.get(i)} retorna el elemento en la posición $i$ del vector $a$. Para
+convertir un caracter numérico $c$ en su equivalente en entero se hace la resta $c$ - '0', donde $c$ es el caracter
+que queremos convertir y '0' es el caracter que representa el entero 0.\\ 
+
+\textbf{Si trabajas en Python}, considera este código:
+{\footnotesize
+\begin{lstlisting}[language=Python]
+def convertir(vector): 
+    res = 0
+    for i in range(len(vector)): 
+        .... 
+    return res 
+\end{lstlisting}
+}
+
+En Python, la función \texttt{int(c)} convierte el caracter $c$ en su valor entero; por ejemplo, convierte '2' en 2.
+Y el operador \texttt{a[i]} retorna el elemento en la posición $i$ del vector dinámico $a$.
+
+\begin{enumerate}[label=\Alph*]
+  % En JAVA: res = res * 2 + str.get(i) - '0'; 
+  % EN Python: res = res * 2 + (ord(vector[i]) - ord('0'))  
+  % EN Python: res = res * 2 + int(vector[i])
+  \item (10\%) Completa la línea 4
+   .........................\\
+  Y \ \ \ \  ¿Cuál es la complejidad asintótica, en el peor de los casos, del algoritmo anterior?
+  % Respuesta: O(n)
+  O(.........................)
+\end{enumerate}
+
+%\newpage
+\section{Complejidad 20\%}
+Las listas enlazadas se utilizan para implementar colas. Las colas se utilizan en simulación por colas. La simulación por colas la podrías utilizar para modelar la llegada
+de los carros a Eafit, y cómo una tarifa diferenciada --dependiendo la hora de llegada y el número de pasajeros en vehículo-- afectaría el tiempo promedio de espera. Para este
+ejercicio, vamos a juntar dos listas enlazadas ordenadas ($A$ y $B$), de menor a mayor, en una nueva lista enlazada que también será de menor a mayor. La nueva lista enlazada se construye juntando los nodos de las dos listas originales. Este problema es común en entrevistas de Riot Games, Snapchat y Dropbox, según el portal \textit{Geeks for Geeks.} Como un ejemplo, si la primera lista enlazada $A$ es $5->10->15$ y la otra lista enlazada $B$ es $2->3->20$, entonces \texttt{sortedMerge(A,B)} debe retornar una nueva lista $2->3->5->10->15->20$.\\ 
+
+\textbf{Si trabajas en Java}, considera este código:
+
+{\footnotesize
+\begin{lstlisting}[language=Java]
+class Node{
+  public int data;
+  public Node next;
+  public Node(int d){
+    data = d; next = null;
+  }
+}
+
+Node sortedMerge(Node A, Node B) {       
+  if(A == null) return B; 
+  if(B == null) return A;           
+  if(A.data < B.data) { 
+    A.next = sortedMerge(A.next, B); 
+    return A; 
+  } 
+  else { 
+    B.next = sortedMerge(A, B.next); 
+    return B; 
+  }         
+}
+ 
+\end{lstlisting}
+} 
+
+\textbf{Si trabajas en Python}, considera este código:
+
+{\footnotesize
+\begin{lstlisting}[language=Python]
+class Node: 
+    def __init__(self, data): 
+        self.data = data 
+        self.next = None
+
+def sortedMerge(A, B):
+  if A == None:
+   return B
+  if B == None:
+   return A           
+  if A.data < B.data: 
+    A.next = sortedMerge(A.next, B) 
+    return A 
+  else:  
+    B.next = sortedMerge(A, B.next); 
+    return B;       
+\end{lstlisting}
+}
+
+
+
+\begin{enumerate}[label=\Alph*]
+	% T(p) = C + T(p-1)
+	\item (10\%) ¿Cuál es la complejidad, en \textbf{tiempo}, en el peor de los casos, en términos de $p=n+m$? T(p) = ..........................
+	
+  % T(p) es O(p) = O(n+m)
+	\item (10\%) Si sabemos que $T(p) = c + T(p-1)$ es $O(p)$, $T(p) = c + 2T(p-1)$ es $O(2^p)$, $T(p) = c + T(p/2)$ es $O(\log_2 p)$ y $T(p) = c$ es $O(1)$, ¿cuál
+  es la complejidad asintótica, en \textbf{tiempo}, en el peor de los casos, en términos de $p = n+m$? O( ..........................)
+\end{enumerate}
+
+
+
+
+\end{multicols}
+
+\end{document}

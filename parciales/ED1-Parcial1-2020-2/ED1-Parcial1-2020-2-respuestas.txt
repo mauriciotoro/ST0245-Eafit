@@ -1,0 +1,55 @@
+1.
+ % Respuesta: 1 b, 2 f, 3 a, 4 e, 5 d, 6 c.
+
+2.
+ % Respuesta: Antes: Para calcular los caminos desde (0,0) hasta (n,m) lo hacía en O(n*m). Ahora: Amá, ¿por qué calcular los caminos me queda O(2^(n+m))?
+
+3. 
+ A
+ % floodFillUtil(screen, x+1, y+1, prevC, newC) 
+ % floodFillUtil(screen, x-1, y-1, prevC, newC) 
+
+ B
+ % floodFillUtil(screen, x-1, y+1, prevC, newC) 
+ % floodFillUtil(screen, x+1, y-1, prevC, newC) 
+
+ C
+ % T(p) = C + 4T(p-2) + 4T(p-1), que es O(8^n)
+
+4. 
+ A
+ % Respuesta: Tiempo es O(n*m) por el doble ciclo
+
+ B
+ % Respuesta: Memoria es O(n*m) por la creación de una matriz de n*m
+
+5.
+ A
+ % Respuesta: O(p^2)
+
+ B
+ % Respuesta: Java: m1 = (ar1.get(i) < ar2.get(j)) ? ar2.get(j++) : ar1.get(i++);  
+ % Respuesta: Python: 
+ %   if ar1.get(i) < ar2.get(j):
+ %      m1 = ar2.get(j)
+ %      j = j+1
+ % else:
+ %      m1 = ar1.get(i)
+ %      i = i+1
+
+6.
+ A
+ % En JAVA: res = res * 2 + str.get(i) - '0'; 
+ % EN Python: res = res * 2 + (ord(vector[i]) - ord('0'))  
+ % EN Python: res = res * 2 + int(vector[i])
+
+ B
+ % Respuesta: O(n)
+
+7.
+ A
+ % T(p) = C + T(p-1)
+ 
+ B
+ % T(p) es O(p) = O(n+m)
+

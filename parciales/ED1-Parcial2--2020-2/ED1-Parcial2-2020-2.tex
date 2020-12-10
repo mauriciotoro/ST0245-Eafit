@@ -1,0 +1,572 @@
+\documentclass[10 pt]{article}
+\usepackage{tikz}
+\usetikzlibrary{arrows}
+\usepackage[margin=0.5 in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{tabu}
+\usepackage{color}
+\usepackage{mathtools}
+ \usepackage[spanish]{babel}
+\usepackage{xcolor}
+\usepackage{listings}
+\usepackage{enumitem}
+\usepackage{multicol}
+\setlength{\columnsep}{1cm} 
+\newtheorem{theorem}{Teorema}
+\usepackage{mathrsfs}
+\title{\textbf {Estructuras de Datos y Algoritmos 1 - ST0245\\Segundo Parcial (001, 002 y 003) }}
+\author{Nombre ..............................\\
+		Departamento de Informática y Sistemas\\
+		Universidad EAFIT\\}
+\date{Noviembre 10 de 2020}
+\begin{document}
+% \lstdefinestyle{customc}{
+% 	language=Java, 
+% 	numbers=left, 
+% 	showspaces=false,
+%     showstringspaces=false, 
+%     tabsize=2, 
+%     breaklines=true,
+%     xleftmargin=5.0ex,
+% }
+% \lstset{escapechar=@,style=customc, numbers=left, stepnumber = 1} 
+\lstset{language=Java,frame=none, breaklines=true, numbers = left, stepnumber = 1, xleftmargin=5.0ex, showstringspaces=false, showspaces=false }
+\lstset{language=Python,frame=none, breaklines=true, numbers = left, stepnumber = 1, xleftmargin=5.0ex, showstringspaces=false,showspaces=false }
+\maketitle
+\begin{multicols}{2}
+
+
+
+
+\section{Árboles binarios 30\%}
+Según Andrés Mejía --egresado de Eafit; reconocido por haber trabajo en Google y Facebook; y, actualmente, ingeniero de software en Riot Games--, el principal
+reto que uno afronta al entrar a trabajar a una gran compañía --como Riot Games-- es cómo entender el código que han hecho otras personas, entender su
+complejidad asintótica para el peor de los casos y poder realizar mejoras. El siguiente algoritmo es de vital importancia para empresas --como Oracle y
+Microsoft-- porque se utiliza dentro de los compiladores de lenguajes orientados a objetos como Java y C\#. Por si fuera poco, este ejercicio es común en
+entrevistas para grandes empresas, según el portal \textit{LeetCode}. Imagina que llegas nuevo a una de estas empresas, 
+y debes entender y modificar este código. Lo único que sabemos es que \texttt{left\_mis} es el resultado de \texttt{mistery} del árbol izquierdo y  
+\texttt{right\_mis} es el resultado de \texttt{mistery} del árbol derecho.
+
+\textbf{Si trabajas en Java}, revisa este código:
+
+{\footnotesize
+\begin{lstlisting}[language=Java]
+class Node { 
+ int data; 
+ Node left, right; 
+ public Node(int item) { 
+  data = item; 
+  left = right = null; 
+}} 
+  
+public class BinaryTree { 
+ private Node root;  
+ Node mistery(int n1, int n2) { 
+  return mistery(root, n1, n2); 
+ } 
+  
+ Node mistery(Node node, int n1, int n2) {     
+  if (node == null) return null; 
+  
+  if (node.data == n1 || node.data == n2) 
+   return node; 
+
+  Node left_mis = mistery(node.left, n1, n2); 
+  Node right_mis =mistery(node.right, n1, n2); 
+ 
+  if (left_mis!=null && right_mis!=null) 
+   return node; 
+  
+  return (left_mis != null) ? left_mis : right_mis; 
+}} 
+\end{lstlisting}
+}
+
+\textbf{Si trabajas en Python}, revisa este código:
+
+{\footnotesize
+\begin{lstlisting}[language=Python]
+class Node:   
+ def __init__(self, key): 
+  self.key = key  
+  self.left = None
+  self.right = None
+      
+def mistery(root, n1, n2): 
+ if root is None: 
+  return None
+
+ if root.key == n1 or root.key == n2: 
+  return root  
+
+ left_mis = mistery(root.left, n1, n2)  
+ right_mis = mistery(root.right, n1, n2) 
+ 
+ if left_mis and right_mis: 
+  return root  
+  
+ return left_mis if left_mis is not None else right_mis 
+\end{lstlisting}
+}
+
+
+\begin{enumerate}[label=\Alph*]
+  % Respuesta: Retorna el nodo ancestro (padre, antecesor) común más cercano a los nodos n1 y n2, inglés, lowest common ancestor (LCA)
+  \item (10\%) ¿Qué retorna la función \texttt{mistery}? Retorna el nodo.................................
+
+  % Respuesta: T(n) = T(n/2) + T(n/2) + C / T(n) = T(n-1) + c / O(n)
+  \item (10\%) ¿Cuál es la complejidad \textbf{asintótica}, en el peor de los casos, del algoritmo anterior o la ecuación de recurrencia para el peor caso? .................................
+
+  % Respuesta: Se puede mejorar el algoritmo que busca mistery usando la condición de que si n es menor que el dato se va a la izquierda; sino, a la derecho; nunca hay que ir a los dos lados. Opcional de decir: Su complejidad mejoraría a O(log2 n)
+  \item (10\%) En una entrevista de Oracle, nos dicen que es un \emph{árbol binario de búsqueda (BST)}. ¿Cómo se puede hacer más eficiente el algoritmo \texttt{mistery} sabiendo que el árbol es un BST? Se puede.................................
+\end{enumerate}
+
+
+
+\section{Pilas 20\%}
+El Internet de las cosas (en inglés, IoT) se refiere a una red de objetos físicos que están conectados con el propósito de intercambiar datos con otros objetos a través de Internet. La definición de la IoT ha evolucionado debido a la convergencia de análisis de datos en tiempo real, aprendizaje automático y sensores. IoT incluye objetos (como lámparas y cámaras de seguridad)  que pueden controlarse mediante dispositivos como teléfonos y altavoces inteligentes. 
+
+Una de las empresas más importantes en el desarrollo de estas tecnologías es Cisco. Cisco tiene un problema y es que, en la programación de muchos de sus microcontroladores, no se permite el uso de recursión. Cisco necesita ordenar un arreglo de números enteros usando el algoritmo de Merge Sort. Ayuda, por favor, a Cisco a escribir el algoritmo de Merge Sort utilizando dos pilas. Sólo le faltan algunas líneas a su algoritmo. ¡Ayúdanos a completarlas! 
+
+Si no lo recuerdas, el algoritmo de Merge Sort, escrito de forma recursiva, es el siguiente:
+{\footnotesize
+\begin{lstlisting}[language=Java]
+public void mergeSort(int [] a) {
+  mergeSort(a, 0, a.length);
+}
+void mergeSort(int a[], int beg, int end) {  
+ int mid;  
+ if(beg<end) {  
+        mid = (beg+end)/2;  
+        mergeSort(a,beg,mid);  
+        mergeSort(a,mid+1,end);  
+        merge(a,beg,mid,end);  
+}}  
+\end{lstlisting}
+}
+
+El algoritmo \texttt{merge(a, beg, mid, end)} recibe un arreglo ordenado entre la posición \texttt{beg} y \texttt{mid} y otro arreglo ordenado entre la posición \texttt{mid+1} y \texttt{end}, 
+y lo organiza de tal forma que quede un arreglo ordenado entre la posición \texttt{beg} y \texttt{end}. Escrito de otra forma, 
+el algoritmo \texttt{merge(arr1, arr2)} recibe dos arreglos ordenados y retorna un nuevo arreglo ordenado con los elementos de ambos arreglos. 
+
+\textbf{Si trabajas en Java}, revisa este código:
+
+{\footnotesize
+\begin{lstlisting}[language=Java]
+import java.util.Stack;
+static int[] mergeSortStacks(int[] A) {
+ Stack<int[]> stack = new Stack<int[]>();
+ Stack<int[]> stack2 = new Stack<int[]>();
+ for (int i = 0; i < A.length; i++) {
+  stack.push(new int[]{A[i]});
+ }
+ .................
+  while (stack.size()>1) {
+   int[] r = stack.pop();
+   int[] l = stack.pop();
+   int[] merged = merge(l, r);
+   stack2.push(merged);
+  }
+  while (stack2.size()>1) {
+   int[] r = stack2.pop();
+   int[] l = stack2.pop();
+   int[] merged = merge(l, r);
+   stack.push(merged);
+  }
+ }
+ return ......... ? ........... : ............;
+}
+\end{lstlisting}
+}
+
+\textbf{Si trabajas en Python}, revisa este código:
+
+{\footnotesize
+\begin{lstlisting}[language=Python]
+from collections import deque
+def mergeSortStacks(A):
+ stack = deque()
+ stack2 = deque()
+ for element in A:
+  stack.append([element])
+
+ .................
+  while stack.size()>1:
+   r = stack.pop()
+   l = stack.pop()
+   merged = merge(l, r)
+   stack2.append(merged)
+
+  while stack2.size()>1:
+   r = stack2.pop()
+   l = stack2.pop()
+   merged = merge(l, r)
+   stack.push(merged)
+  
+
+ return .......... if ......... else .............. 
+
+\end{lstlisting}
+}
+
+
+\begin{enumerate}[label=\Alph*]
+  % JAVA: while (stack.size()>1) {	 PYTHON: while stack.size()>1:
+	\item (10\%) Completa la línea 8 ................................\\
+
+  % JAVA: return stack.isEmpty() ? stack2.pop() : stack.pop();    PYTHON: stack2.pop() if stack.isEmpty() else stack.pop()   
+	\item (10\%) Completa la línea 22 ................................\\
+
+\end{enumerate}
+\section{Colas 20\%}
+Ahora ayuda, por favor, a Cisco a escribir el algoritmo de Merge Sort --sin recursión-- utilizando una cola. Sólo le faltan algunas líneas a su algoritmo. 
+El algoritmo \texttt{merge(arr1, arr2)} está explicado en el punto anterior. 
+
+\textbf{Si trabajas en Java}, revisa este código:
+
+{\footnotesize
+\begin{lstlisting}
+import java.util.LinkedList; import java.util.Queue;
+static int[] mergeSortQueue(int[] A) {
+ Queue<int[]> queue = new LinkedList<int[]>();
+ for (int i = 0; i < A.length; i++) {
+  queue.add(new int[]{A[i]});
+ }
+ while (queue.size()>1) {
+  int[] r = queue.poll();
+  int[] l = queue.poll();
+  .............
+  queue.add(merged);  
+ }
+ return ...........
+\end{lstlisting}
+}
+
+
+\textbf{Si trabajas en Python}, revisa este código:
+
+{\footnotesize
+\begin{lstlisting}
+from collections import deque
+def mergeSortQueue(A):
+ queue = deque()
+ for element in A:
+  queue.appendLeft([element]);
+ 
+ while queue.size()>1:
+  r = queue.pop()
+  l = queue.pop()
+  ...........
+  queue.appendLeft(merged)  
+ 
+ return ..........
+
+\end{lstlisting}
+}
+
+\begin{enumerate}[label=\Alph*]
+	% Respuesta: En Java int[] merged=merge(l, r); y en Python merged=merge(l, r)
+	\item (10\%) Completa la línea 10 ........................................
+	% Respuesta: En Java, queue.poll(); y en Python queue.pop()
+	\item (10\%) Completa la línea 13 ........................................
+\end{enumerate}
+
+
+\section{Tablas de Hash 20\%}
+El siguiente problema es muy común en entrevistas de \textit{Goldman Sachs} según el portal \textit{Geeks for Geeks}. 
+Dados dos arreglos \textit{arr1} y \textit{arr2}, de igual tamaño, la tarea es encontrar si los dos arreglos son iguales o no. Se dice que dos arreglos son iguales si ambos contienen el mismo conjunto de elementos, aunque el orden (o permutación) de los elementos puede ser diferente. 
+Si hay repeticiones, entonces las ocurrencias de los elementos repetidos también deben ser iguales para que dos arreglos sean iguales. Las aplicaciones de este problema --en el sector bancario y financiero-- son muy amplias, por la gran cantidad de transacciones. 
+
+\textbf{Si trabajas en Java}, revisa este código:
+
+{\footnotesize
+\begin{lstlisting}
+import java.util.*;  
+static boolean areEqual(int arr1[], int arr2[]) { 
+ int n = arr1.length; 
+ int m = arr2.length; 
+ if (n != m) 
+  return false; 
+ Map<Integer, Integer> map = new HashMap<Integer, Integer>(); 
+ int count = 0;  
+ for (int i = 0; i < n; i++) { 
+  if (map.get(arr1[i]) == null) 
+   map.put(arr1[i], 1); 
+  else { 
+   count = map.get(arr1[i]); 
+   count++; 
+   map.put(arr1[i], count); 
+  } 
+ } 
+ for (int i = 0; i < n; i++) { 
+  if (!map.containsKey(arr2[i])) 
+   return false; 
+  if (map.get(arr2[i]) == 0) 
+   return false; 
+  count = map.get(arr2[i]); 
+  --count; 
+  map.put(arr2[i], count); 
+ } 
+ ...............
+} 
+\end{lstlisting}
+}
+
+\textbf{Si trabajas en Python}, revisa este código:
+
+{\footnotesize
+\begin{lstlisting}
+from collections import defaultdict 
+def areEqual(arr1, arr2, n, m): 
+ if (n != m):  
+  return False; 
+ count = defaultdict(int) 
+ for i in arr1: 
+  count[i] += 1
+ for i in arr2: 
+  if (count[i] == 0): 
+   return False
+  else: 
+   count[i] -= 1
+ .............
+\end{lstlisting}
+}
+
+\begin{enumerate}[label=\Alph*]
+	% Respuesta: Java: return true;   y en Python: return True
+	\item (10\%) Completa la última línea..........................
+	% Respuesta: O(n) pero, bueno, también podrían decir O(n+m) sino que como n = m, entonces O(n+m) = O(n)
+	\item (10\%) ¿Cuál es la complejidad asintótica, en el peor de los casos, de \texttt{areEqual}? Donde $n$ es el número de elementos del primer arreglo y $m$ el número de elementos del segundo arreglo. Es O(..........)
+\end{enumerate}
+
+
+
+\section{Grafos 10\%}
+\textit{Microsoft Game Studios} es, hoy en día, uno de las empresas que controlan la saga de videojuegos de \textit{Age of Empires}. Una de la peculiaridades que tienen los videojuegos
+de esta saga es que los participantes se pueden ubicar en islas, distribuídas sobre el mar, que deben controlar para poder lograr la victoria. Dada una matriz booleana 2D, encuentra el número de islas. Un grupo de 1s conectados forma una isla. Por ejemplo, la siguiente matriz contiene 5 islas.
+\begin{verbatim}
+Entrada : mat[][] = {{1, 1, 0, 0, 0},
+                     {0, 1, 0, 0, 1},
+                     {1, 0, 0, 1, 1},
+                     {0, 0, 0, 0, 0},
+                     {1, 0, 1, 0, 1} 
+Salida  : 5
+\end{verbatim}
+
+El problema se puede resolver fácilmente aplicando \textit{recorrido primero en profundidad (en inglés, DFS)} en cada punto. En cada llamado a DFS se visita una isla. Llamaremos a DFS en el siguiente nodo no visitado. El número de llamados a DFS da el número de islas.
+
+\textbf{Si trabajas en Java}, revisa este código:
+
+{\footnotesize
+\begin{lstlisting}
+class Islands { 
+ static final int ROW = 5, COL = 5; 
+  
+ // Verificar si una celda (fila, columna) 
+ // se le puede llamar un DFS
+ boolean isSafe(int M[][], int row, int col, boolean visited[][])  { 
+  return (row >= 0) && (row < ROW) && (col >= 0) && (col < COL) && (M[row][col] == 1 && !visited[row][col]); 
+ } 
+  
+ // Un DFS en una booleana matriz. Este
+ // considera como vecinos a los 8 adyacentes
+ void DFS(int M[][], int row, int col, boolean visited[][]) {         
+  int rowNbr[] = new int[] { -1, -1, -1, 0, 0, 1, 1, 1 }; 
+  int colNbr[] = new int[] { -1, 0, 1, -1, 1, -1, 0, 1 }; 
+  visited[row][col] = true; 
+  for (int k = 0; k < 8; ++k) 
+   if (isSafe(M, row + rowNbr[k], col + colNbr[k], visited)) 
+    ................ 
+ } 
+  
+ // Contar el numero de islas
+ int countIslands(int M[][]) { 
+  boolean visited[][] = new boolean[ROW][COL]; 
+  int count = 0; 
+  for (int i = 0; i < ROW; ++i) 
+   for (int j = 0; j < COL; ++j) 
+    if (M[i][j] == 1 && !visited[i][j]) { 
+     DFS(M, i, j, visited); 
+     ++count; 
+    } 
+  return count; 
+}} 
+\end{lstlisting}
+}
+
+\textbf{Si trabajas en Python}, revisa este código:
+
+
+{\footnotesize
+\begin{lstlisting}
+class Graph: 
+ def __init__(self, row, col, g): 
+  self.ROW = row 
+  self.COL = col 
+  self.graph = g 
+  
+ # Verificar si una celda (fila, columna)
+ # puede ser incluida en el llamado al DFS
+ def isSafe(self, i, j, visited): 
+  return (i >= 0 and i < self.ROW and 
+          j >= 0 and j < self.COL and 
+   not visited[i][j] and self.graph[i][j]) 
+              
+ # Hacer DFS en una matriz 2D. Este  
+ # considera como vecinos los 8 adyacentes
+ def DFS(self, i, j, visited): 
+  rowNbr = [-1, -1, -1,  0, 0,  1, 1, 1]; 
+  colNbr = [-1,  0,  1, -1, 1, -1, 0, 1]; 
+  visited[i][j] = True
+  for k in range(8): 
+   if self.isSafe(i + rowNbr[k], j + colNbr[k], visited): 
+    ..............
+  
+ # Retorna el
+ # numero de islas que hay en la matriz
+ def countIslands(self): 
+  visited = [[False for j in range(self.COL)] for i in range(self.ROW)] 
+  count = 0
+  for i in range(self.ROW): 
+   for j in range(self.COL): 
+    if visited[i][j] == False and self.graph[i][j] == 1: 
+     self.DFS(i, j, visited) 
+     count += 1
+  return count 
+\end{lstlisting}
+}
+
+\begin{enumerate}[label=\Alph*]
+  % Respuesta: En Java: DFS(M, row + rowNbr[k], col + colNbr[k], visited);   En Python: self.DFS(i + rowNbr[k], j + colNbr[k], visited) o sin el sefl está bien
+  \item (10\%) Completa la línea 18 en Java o la 22 en Python ..........................
+
+\end{enumerate}
+
+\section{(Opcional) Tablas de Hash 10\%}
+Según el portal de \textit{LeetCode}, este problema es común en entrevistas y es de alta dificultad. 
+Dada un arreglo de números enteros \texttt{arr} con longitud $n$, encuentre la longitud de la subsecuencia más larga de manera que los elementos de la subsecuencia sean números enteros consecutivos. Los números consecutivos pueden estar en cualquier orden en el arreglo. Existen al menos dos formas de hacer este problema. ¿Cuál es la complejidad asintótica, para el peor de los casos, de cada una de ellas?
+
+\subsection{Primera solución}
+
+\textbf{Si trabajas en Java}, revisa este código:
+
+{\footnotesize
+\begin{lstlisting}
+int findLongestConseqSubseq(int arr[], int n){
+ HashSet<Integer> S = new HashSet<Integer>();
+ int ans = 0;
+ // Agregar a la tabla cada elemento de arr
+ for (int i = 0; i < n; ++i)
+  S.add(arr[i]);
+ // Probar cada posible inicio de la secuencia
+ // y su longitud optima
+ for (int i = 0; i < n; ++i) {
+  // si el elemento actual es el inicio
+  if (!S.contains(arr[i] - 1)) {
+   // Probemos los siguientes elementos          
+   int j = arr[i];
+   while (S.contains(j))
+    j++;
+    // y actualizamos la longitud optima                
+    if (ans < j - arr[i])
+     ans = j - arr[i];
+   }
+  }
+  return ans;
+}
+\end{lstlisting}
+}
+
+\textbf{Si trabajas en Python}, revisa este código:
+
+{\footnotesize
+\begin{lstlisting}
+def findLongestConseqSubseq(arr, n):
+ s = Set() #Conjunto hecho con tablas de hash
+ ans = 0
+ # Agregar a la tabla cada elemento de arr
+ for ele in arr:
+  s.add(ele)
+ # Probar cada posible inicio de la secuencia
+ # y su longitud optima
+ for i in range(n):
+  # si el elemento actual es el inicio
+  if (arr[i]-1) not in s:
+   # Probemos los siguientes elementos 
+   j = arr[i]
+   while(j in s):
+    j+= 1
+    # y actualizamos la longitud optima  
+    ans = max(ans, j-arr[i])
+ return ans
+\end{lstlisting}
+}
+
+
+
+\subsection{Segunda solución}
+
+\textbf{Si trabajas en Java}, revisa este código: 
+
+
+
+{\footnotesize
+\begin{lstlisting}
+int findLongestConseqSubseq(int arr[], int n) {
+ Arrays.sort(arr);   
+ int ans = 0, count = 1;    
+ // encontrar la longitud maxima
+ // recorriendo el arreglo
+ for(int i = 1; i < n; i++) {         
+  // Si el elemento actual es
+  // igual al anterior mas 1
+  if (arr[i] == arr[i - 1] + 1)
+   count++;
+  else
+   count = 1;        
+  // Actualizar la respuesta
+  ans = Math.max(ans, count);
+ }
+ return ans;
+}
+\end{lstlisting}
+}
+
+\textbf{Si trabajas en Python}, revisa este código:
+
+{\footnotesize
+\begin{lstlisting}
+def findLongestConseqSubseq(arr, n):
+ arr.sort()
+ ans = 0 
+ count = 1
+ # encontrar la longitud maxima
+ # recorriendo el arreglo
+ for i in range (1, n): 
+  # Si el elemento actual es
+  # igual al anterior mas 1
+  if arr[i] == arr[i - 1] + 1:
+   count += 1;
+  else:
+   count = 1
+  # Actualizar la respuesta
+  ans = max(ans, count)
+ }
+ return ans
+}
+\end{lstlisting}
+}
+
+
+\subsection{Pregunta}
+
+\begin{enumerate}[label=\Alph*]
+
+  % Respuesta: El primero es O(n) y el segundo es O(n log n). Por esa razón, eligiría el primero, el de las tablas de hash. Y no el ingenuo, segundo, que es ordenando.
+  \item (10\% Extra) ¿Cuál es la complejidad \textbf{asintótica}, en el peor de los casos, del los algoritmos anteriores? El primero es O(.................................) y el segundo es O(.................................). Por esta razón, yo elejiría la ................................. solución.
+
+\end{enumerate}
+
+
+\end{multicols}
+\end{document}

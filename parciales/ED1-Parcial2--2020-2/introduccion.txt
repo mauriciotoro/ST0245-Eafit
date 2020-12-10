@@ -1,0 +1,28 @@
+Buenas tardes, 
+
+El martes, a las 4:05, vamos a empezar el parcial 2 de esta materia.
+El parcial tiene un porcentaje de la nota final del 25%. El 
+parcial está compuesto por 5 ejercicios obligatorios y 1
+ejercicio opcional. Si tienes problema con el manejo del
+tiempo, omite el ejercicio opcional  y ve 
+--directamente-- a los ejercicios 1, 2, 3, 4 y 5. Además, se
+recomienda leer el código en sólo uno de los dos lenguajes:
+python o java. Finalmente, es recomendado leer todo el parcial
+antes de empezar a responderlo.
+
+El parcial es individual. No se permite el uso de compiladores 
+de java ni intérpretes de python. Se recomienda solucionar los
+ejercicios, en una hoja de papel o archivo de texto, entre 4:05 y 5:20. 
+Posteriomente, de 5:20 a 5:30, se recomienda dedicar ese tiempo a pasar las
+respuestas a esta encuesta de Google Forms:
+
+https://forms.gle/WRNPfSGpGfY59idb9
+
+Por política de la universidad, no se pueden resolver preguntas
+en los parciales; no obstante, si notas un error en el código o
+enunciado, por favor, comunicalo por el chat privado.
+
+El parcial  2 se encuentra disponible en el siguiente link:
+
+https://www.dropbox.com/s/pjc8j31sct0gb2l/ED1-Parcial2-2020-2.pdf?dl=0
+
