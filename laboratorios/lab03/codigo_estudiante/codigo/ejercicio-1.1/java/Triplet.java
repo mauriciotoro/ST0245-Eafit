@@ -1,6 +1,7 @@
 
 /**
- * Write a description of class Triplet here.
+ * La clase Triplet es una tupla con 3 elementos
+ * Es como una pareja pero de 3 elementos.
  *
  * @author (your name)
  * @version (a version number or a date)
