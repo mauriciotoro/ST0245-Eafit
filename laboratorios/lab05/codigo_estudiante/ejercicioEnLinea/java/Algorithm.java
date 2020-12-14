@@ -1,12 +1,10 @@
+package CodigoLinea;
+
 public class Algorithm {
-
-
-
-    public static boolean DFSColorFC(Tree tree) {
-        return DFSColorFCAux(tree.getFirst(), 1);
+    public static boolean DFSColorFC(DigraphAM am) {
+        return DFSColorFCAux(_______);
     }
-
-    private static boolean DFSColorFCAux(Node first, int color) {
-
-       ...
+    private static boolean DFSColorFCAux(DigraphAM am, int nodo, int[]lista, int color) {
+       
+    }
 }
