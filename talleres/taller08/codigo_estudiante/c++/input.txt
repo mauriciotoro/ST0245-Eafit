@@ -1,0 +1,7 @@
+3 3
+12 pepito al
+14 ama ala
+30 sula aca
+homecenter 1
+akatronix 2
+alcomprar 1
