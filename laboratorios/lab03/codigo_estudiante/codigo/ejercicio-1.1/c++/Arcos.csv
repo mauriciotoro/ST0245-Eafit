@@ -1,0 +1,17 @@
+ID,ID1,Distancia,Nombre
+1,2,10,Calle 1
+1,4,14,Desconocido
+1,5,10,Desconocido
+2,1,10,Calle 2A
+2,3,7,Desconocido
+2,4,12,Desconocido
+2,5,15,Desconocido
+3,2,7,Desconocido
+3,4,20,Desconocido
+4,1,14,Desconocido
+4,2,12,Desconocido
+4,3,20,Desconocido
+4,5,8,Desconocido
+5,1,10,Desconocido
+5,2,15,Desconocido
+5,4,8,Desconocido
