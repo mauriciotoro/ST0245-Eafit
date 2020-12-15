@@ -82,9 +82,9 @@ public class Reader
         double midD=(minlat-maxlat)/2;
         double midW=(maxlon-minlon)/2;
         double midH=(maxalt-minalt)/2;
-        double ph=Math.sqrt(Math.pow((midD)*111325,2)+Math.pow((midW)*111325,2));
-        double diagonal=Math.sqrt(Math.pow(ph,2)+Math.pow((midH),2));
-        if (diagonal>100) {
+	// We suposse that 1 degree is equal to 111325 meters.
+        double diagonal=Math.sqrt(Math.pow((midD)*111325,2)+Math.pow((midW)*111325,2)+Math.pow((midH),2));
+        if (diagonal>100) { // is the length of the diagonal is greater than 100 meters then...
             Octree octree=new Octree();
             octree.octree(bees,mins,midD,midW,midH);
         } else {
