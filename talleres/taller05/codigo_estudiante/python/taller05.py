@@ -6,36 +6,15 @@ import time
 def array_generator(len):
     """List generator"""
 
+def array_sum(array):
+    """Add the elements in the array"""
 
-def array_sum(array, sum = 0):
-    """Add the elements in the list"""
-
+def insertion_sort(array):
 
 def multiplication_tables(n):
 
 
-def insertion_sort(list):
-
-
-def arrayMax(arr):
-    return arrayMax_aux(arr, 0, 0)
-
-def arrayMax_aux(arr, i, max):
-
-
-#-----------------------------GroupSum----------------------------------#
-
-def groupSum_aux(list, start, target):
-
-def groupSum(list, target):
-
-
-#----------------------------Fibonacci---------------------------------#
-
-def fib_r(n):                             #Fibonacci recursivo
-
-
-#------------------------------Graphycs--------------------------------#
+#------------------------------Graphics--------------------------------#
 
 def graph(function, n, name, color, X = [],Y = [],Z = []):
     #Enter the function to test in attribute "function"
@@ -61,20 +40,19 @@ tiempo = []
 iteraciones = []
 res = []
 
-for i in range(20):
+for i in range(1,20000000,100000):
     array = array_generator(i)
     iteraciones.append(i)
     t = time.time()
-    res.append(arrayMax(array))
+    res.append(arraySum(array))
     tiempo.append(time.time() - t)
 
 print res
 pl.xlabel("n array")
 pl.ylabel("Tiempo de ejecucion")
-pl.title("ArrayMax")
-pl.plot(iteraciones, tiempo, 'r', label = "ArrayMax")
+pl.title("ArraySum")
+pl.plot(iteraciones, tiempo, 'r', label = "ArraySum")
 pl.legend((''))
-pl.savefig("ArrayMax.png")
+pl.savefig("ArraySum.png")
 pl.show
 
-graph(fib_i, 20, "fibonacci Iterativo", 'b')
