@@ -45,7 +45,7 @@ public int size()
 }
 
 // Inserta un dato en la posición index
-public void insert(int data, int index)
+public void add(int data, int index)
 {
 	...
 }
