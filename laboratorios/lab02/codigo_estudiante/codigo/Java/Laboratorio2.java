@@ -11,7 +11,17 @@ import java.util.Arrays;
 public class Laboratorio2
 {
 
-  
+  /**
+   * Generates a random array for testing
+   */
+  public static int [] generateArray(int size) {
+    int [] arr = new int[size];
+    for (int i = 0; i < size; i++) {
+        arr[i] = (int) Math.round(Math.random()*10);
+    }
+    return arr;
+  }
+
   // Sorts an array using Insertion Sort
   public static void InsertionSort(int[] A)
   {
