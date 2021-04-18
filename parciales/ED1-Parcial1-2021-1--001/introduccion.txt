@@ -1,0 +1,28 @@
+Buenas tardes grupo 001, 
+
+A las 9:05, vamos a empezar el parcial 1 de esta materia.
+El parcial tiene un porcentaje de la nota final del 20%. El 
+parcial está compuesto por 5 ejercicios obligatorios y 2
+ejercicios opcionales. Si tienes problema con el manejo del
+tiempo, omite los ejercicios opcionales (1 y 2) y ve 
+--directamente-- a los ejercicios 3,4,5,6 y 7. Además, se
+recomienda leer el código en sólo uno de los dos lenguajes:
+python o java. Finalmente, es recomendado leer todo el parcial
+antes de empezar a responderlo.
+
+El parcial es individual. No se permite el uso de compiladores 
+de java ni intérpretes de python. Se recomienda solucionar los
+ejercicios, en una hoja de papel, entre 9:05 y 10:20. Posteriomente,
+de 10:20 a 10:30 se recomienda dedicar ese tiempo a pasar las
+respuestas a esta encuesta de Google Forms:
+
+https://forms.gle/4FHWgkfXmumeqH5r9
+
+Por política de la universidad, no se pueden resolver preguntas
+en los parciales; no obstante, si notas un error en el código o
+enunciado, por favor, comunicalo por el chat privado.
+
+El parcial se encuentra disponible en el siguiente link:
+
+https://www.dropbox.com/s/dzfp4oyjyqxiofu/ED1-Parcial1-2021-1--001.pdf?dl=0
+

@@ -1,0 +1,68 @@
+1. 1 f, 2 e, 3 b, 4 c, 5 d, 6 a 
+
+2.
+
+A)
+     Solución JAVA: Math.max(a[i] - solve(a, i + 1, j), a[j] - solve(a, i, j - 1))
+     Solución PYTHON: max(a[i] - solveAUX(a, i + 1, j), a[j] - solveAUX(a, i, j - 1))
+
+B)
+     Solución: 30
+
+C)
+     T(n) = T(n-1) + T(n-1) + c, que es O(2^n)
+
+3.
+
+A) Respuesta: Tiempo es O(n*m) por el doble ciclo
+
+B) Respuesta: Memoria es O(n*m) por la creación de una matriz de n*m
+
+
+4.
+
+A)
+
+  Completa la línea 6  ..............
+   Solución: En Java: s.add(ei)  En Python: s.append(ei)
+
+  Y Completa la línea 11 .............. 
+   Solución: En Java: s.remove(s.size()-1) o también s.pop() y en Python: s.pop()
+
+B)
+   Solución: O(|e|)
+
+5.
+
+A) 
+
+  Respuesta en Java: sol.add(l);  Respuesta en Python: sol.append(l) 
+
+B)
+  Respuesta en Java: tmp(l + k, s, i + 1, j, sol);   Respuesta en Python: tmp(l + k, s, i + 1, j, sol)
+  
+6. 
+
+A)
+  Respuesta: O(n)
+
+B)
+  Respuesta: O(1)
+
+7. OPCIONAL
+
+A)
+
+Mejor
+
+Respuesta: En el caso mejor, el primer algoritmo tiene una complejidad asintótica de O(Q * n log n); el segundo algoritmo tiene una complejidad asintótica O(Q * n). Me quedo con el segundo algoritmo.
+
+Peor
+
+Respuesta: En el peor caso, el primer algoritmo tiene una complejidad asintótica de O(Q * n log n); el segundo algoritmo tiene una complejidad asintótica O(Q * n^2), me quedo con el primer algoritmo.
+
+
+
+
+
+

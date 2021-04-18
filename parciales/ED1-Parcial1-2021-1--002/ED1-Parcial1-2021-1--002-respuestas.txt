@@ -1,0 +1,59 @@
+1. 1 d, 2 e, 3 b, 4 f,  5 a, 6 c
+
+2. 
+A)
+Solución: 
+1 + solve(s, t, i - 1, j - 1)
+
+B)
+Solución:
+Java: Math.max(solve(s, t, i, j - 1), solve(s, t, i - 1, j))
+Python: max(solve(s, t, i, j - 1), solve(s, t, i - 1, j))
+
+Python otra: Si ponen cosas como s[:i-1] o t[:j-1], está bien,
+pero entonces la complejidad sería T(n) = T(n-1) + T(n-1) + n
+, que es O(n.2^n) porque s[:i-1] es O(n).
+
+C)
+Solución: 
+T(n) = T(n-1) + T(n-1) + c, que es O(2^n)
+
+
+3.
+A) O(1)
+B) O(n)
+
+4.
+JAVA
+
+  A Solución Java: aList.add(0,t)
+
+  B Solución Java: Integer.valueOf(aList.get(0)),Integer.valueOf(aList.get(0))
+
+  B Solución Java: Integer.valueOf(last) 
+
+PYTHON
+   
+  A Solución: aList = [t] + aList
+  
+  B Solución: int(aList[0])   y   int(aList[0])
+  
+  B Solución: int(last)
+
+5. 
+Solución Java y Python: max_so_far < max_ending_here
+  
+6. 
+
+ A O(n log n)
+
+ B O(n^2)
+
+7. OPCIONAL
+
+A. 
+T(n,k) = k*T(n-k) + c$, que es $O(k^n)
+
+B. 
+Sí se podría, creando una tabla de tamaño n, donde
+quedaría la complejidad en O(nk) en tiempo y O(n) en memoria.

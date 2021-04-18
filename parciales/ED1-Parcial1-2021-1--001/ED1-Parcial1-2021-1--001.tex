@@ -1,0 +1,537 @@
+\documentclass[10 pt]{article}
+\usepackage{tikz}
+\usetikzlibrary{arrows}
+\usepackage[margin=0.5 in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{tabu}
+\usepackage{color}
+\usepackage{mathtools}
+\usepackage{amsfonts}
+\usepackage{xcolor}
+\usepackage{listings}
+\usepackage{enumitem}
+\usepackage{multicol}
+\setlength{\columnsep}{1cm} 
+\newtheorem{theorem}{Teorema}
+\usepackage{mathrsfs}
+\title{\textbf {Estructuras de Datos y Algoritmos 1 - ST0245\\Primer Parcial 001 - Jueves}}
+\author{Nombre ..............................\\
+		Departamento de Informática y Sistemas\\
+		Universidad EAFIT\\}
+\date{Marzo 25 de 2021}
+\begin{document}
+% \lstdefinestyle{customc}{
+% 	language=Java, 
+% 	numbers=left, 
+% 	showspaces=false,
+%     showstringspaces=false, 
+%     tabsize=2, 
+%     breaklines=true,
+%     xleftmargin=5.0ex,
+% }
+%\lstset{escapechar=@,style=customc, numbers=left, stepnumber = 1} 
+\lstset{language=Java,frame=none, breaklines=true, numbers = left, stepnumber = 1, xleftmargin=5.0ex, showstringspaces=false, showspaces=false }
+\lstset{language=Python,frame=none, breaklines=true, numbers = left, stepnumber = 1, xleftmargin=5.0ex, showstringspaces=false,showspaces=false }
+\maketitle
+
+\section{Mujeres en Ingeniería (2\% extra)}
+ Varios estudios argumentan que muchas mujeres deciden NO estudiar ingeniería porque creen en los estereotipos sobre el tipo de personas que trabajan en el campo, y no se ven a sí mismas encajando en esos estereotipos. De esta manera, incorrectas percepciones pueden dar forma a las trayectorias profesionales. Una forma de desmentir dichos estereotipos es reconociendo mujeres exitosas en ingeniería de sistemas y matemática --tanto a nivel nacional como mundial. Para lograr esto, relaciona las siguientes mujeres con su contribución:
+
+
+ \hspace{1cm}
+
+% ANTERIORES
+% 1. Marrisa Meyer &  a. Primera de Eafit en pasar a Google\\
+% 2. María C. Choucair &  b. Primera gerente general de Yahoo \\
+% 3. Ana Echavarría &  c. Primera de Eafit en pasar a Facebook \\
+% 4. Kathie Bouman &  d. Código para el Apolo 11\\
+% 5. Margaret Hamilton  & e. Primera foto de un agujero negro\\
+% 6. Luisa M. Vásquez  &  f. Dueña de la empresa de \emph{testing} \\
+% & más grande de Colombia
+
+%1. Ada Lovelace &  a. Creadora de los procesadores ARM \\
+%2. Rózsa Péter &  b. Youtuber de algoritmos más vista\\
+%3. Gayle McDowell &  c. Primera en ganar un premio Turing\\
+%4. Dorothy Vaughan &  d. Primera persona en programar\\
+%5. Sophie Wilson &  e. Teoría de las funciones recursivas \\
+%6. Barbara Liskov &  f. Primera jefa de un equipo de computación en NASA \\
+
+\begin{tabular}{l l}
+1. Adriana Noreña &  a. Primera en pasar a Práctica en Facebook \\
+2. Hilda Geiringer &  b. Primera en Eafit en Generación de Código \\
+3. Paola Vallejo &  c. Primera en Colombia en Transparencia de Software  \\
+4. Elizabeth Suescún &  d. Primera en ir a una Conferencia Internacional en Semestre II \\
+5. Luisa Toro &  e. Primera en enseñar Matemáticas Aplicadas en Alemania \\
+6. Luisa Vásquez &  f. Primera Vicepresidente de Google para Latinoamérica \\
+\\
+ \end{tabular}
+ 
+
+
+
+
+%Respuesta: 1 f, 2 e, 3 b, 4 c, 5 d, 6 a 
+1..., 2..., 3..., 4..., 5..., 6...
+
+
+\newpage
+
+\section{Recursión 30\%}
+
+ Para las grandes empresas son de suma importancia los juegos; como un ejemplo, IBM desarrolló el sistema  \textit{Deep  Blue} que venció al campeón mundial de Ajedrez en 1996 y  Google desarrolló el sistema \emph{Alpha Go} que venció al campeón mundial de Go en 2016. Considera el siguiente juego. Dos amigos de primaria están jugando con un arreglito de $n$ enteros $a = {a_1, a_2, \cdots, a_n}$. El juego consiste en remover un elemento del principio o del fin del arreglito y sumarlo al conjunto de enteros que cada uno tiene en ese momento. El juego es alternado e --inicialmente-- empieza a tomar el primer entero el amigo 1; después es el turno del amigo 2, y así sucesivamente. El juego finaliza cuando no quedan más enteros en el arreglito $a$. Inicialmente, ninguno de los dos amigos tiene un entero en su poder. Al final del juego, cada uno de los dos amigos tiene una suma total de $X_1$ y $X_2$, respectivamente. El objetivo del amigo 1 es hacer que $X_1 - X_2$ sea lo más grande posible; mientras que, para el amigo 2, es hacer que $X_1 - X_2$ sea lo más pequeño posible. Encuentra el valor de $X_1 - X_2$, al final del juego, si ambos amigos juegan de manera óptima. 
+
+  Como un ejemplo, dada la entrada $a = [10, 80, 90, 30]$, la respuesta es $10$ porque la secuencia sería la siguiente: El amigo 1 toma el $30$, luego el amigo 2 toma el $10$, luego el amigo 1 toma el $80$ y, por último, el amigo 2 toma el $90$. De esa forma, $X_1 = 30 + 80 = 110$ y $X_2 = 10 + 90 = 100$, luego $X_1 - X_2 = 10$.
+
+\hspace{1cm}
+
+\textbf{Si trabajas en Java}, revisa este código:
+
+  \begin{lstlisting}[language=Java]
+  int solve(int[] a, int i, int j){
+    if(i == j) 
+      return a[i];
+    return ...........................;
+  }
+  int solve(int[] a){
+    return solve(a, 0, a.length -1); 
+  }
+  \end{lstlisting}
+
+
+\textbf{Si trabajas en Python}, revisa este código:
+
+  \begin{lstlisting}[language=Python]
+  def solveAUX(a, i, j):
+    if i == j: 
+      return a[i]
+    return ...........................
+  
+  def solve(a):
+    return solve(a, 0, len(a) - 1)
+  
+  \end{lstlisting}
+
+
+
+  \begin{enumerate}[label=(\Alph*)]
+    % Solución JAVA: Math.max(a[i] - solve(a, i + 1, j), a[j] - solve(a, i, j - 1))
+    % Solución PYTHON: max(a[i] - solveAUX(a, i + 1, j), a[j] - solveAUX(a, i, j - 1))
+    \item (10\%) Completa la línea 4 \\ \\
+    \line(1, 0){230} 
+    % Solución: 30
+    \item (10\%) ¿Qué retorna al algoritmo \texttt{solve(a)} para $a = [10,20,30,50]$ \\ \\
+    \line(1, 0){230} 
+    % T(n) = T(n-1) + T(n-1)
+    \item (10\%) ¿Cuál es la ecuación de recurrencia que representa la complejidad para el peor de los casos?\\ \\
+    T(n) = \line(1, 0){210} 
+  \end{enumerate}
+
+\textbf{Pista:} En Java, el máximo de dos números se calcula con \texttt{Math.max(a,b)} y en Python con \texttt{max(a,b)}.
+
+\newpage
+
+
+
+
+\section{Notación O 20\%}
+El problema de la subsecuencia común más larga es de importancia en biología informática; por ejemplo, para encontrar la explicación de los cánceres que son causados
+por desórdenes genéticos. Además, este problema es común en entrevistas de \emph{Amazon}, según el portal \emph{Geeks for Geeks}. El problema es el siguiente. 
+Dadas dos secuencias --una llamada $X$ de longitud $m$ y otra llamada $Y$ de longitud $n$--, el siguiente algoritmo encuentra la longitud de la subsecuencia más larga presente en ambas. Una subsecuencia es una secuencia que aparece en el mismo orden relativo, pero no necesariamente contiguo. Por ejemplo, "abc", "abg", "bdf", "aeg" y "acefg" son subsecuencias de "abcdefg". Como otro ejemplo, la cadena "ADH" es la subsecuencia común más larga (en inglés, \emph{LCS}) de “ABCDGH” y “AEDFHR”, y su longitud es 3. 
+
+\hspace{1cm}
+
+\textbf{Si trabajas en Java}, considera este código:
+
+
+\begin{lstlisting}[language=Java]
+/* Retorna la longitud de la LCS de X[0..m-1] y Y[0..n-1] */
+int lcs( char[] X, char[] Y, int m, int n ) { 
+    int L[][] = new int[m+1][n+1]; 
+  
+    /* L[i][j] es la longitud de la LCS de X[0..i-1] y Y[0..j-1] */
+    for (int i=0; i<=m; i++) { 
+      for (int j=0; j<=n; j++) { 
+        if (i == 0 || j == 0) 
+            L[i][j] = 0; 
+        else if (X[i-1] == Y[j-1]) 
+            L[i][j] = L[i-1][j-1] + 1; 
+        else
+            L[i][j] = max(L[i-1][j], L[i][j-1]); 
+      } 
+    } 
+  return L[m][n]; 
+} 
+\end{lstlisting}
+
+
+\hspace{1cm}
+
+\textbf{Si trabajas en Python}, considera este código:
+
+
+\begin{lstlisting}[language=Python]
+# Retorna la longitud de la LCS de X[0..m-1] y Y[0..n-1]
+def lcs(X , Y, m, n): 
+    L = [[None]*(n+1) for i in range(m+1)] 
+  
+    #L[i][j] es la longitud de LCS de X[0..i-1] y Y[0..j-1]
+    for i in range(m+1): 
+        for j in range(n+1): 
+            if i == 0 or j == 0 : 
+                L[i][j] = 0
+            elif X[i-1] == Y[j-1]: 
+                L[i][j] = L[i-1][j-1]+1
+            else: 
+                L[i][j] = max(L[i-1][j] , L[i][j-1]) 
+  
+    return L[m][n] 
+\end{lstlisting}
+
+ 
+
+\begin{enumerate}[label=(\Alph*)]
+	% Respuesta: Tiempo es O(n*m) por el doble ciclo
+	\item (10\%) ¿Cuál es la complejidad asintótica, en \textbf{tiempo}, en el peor de los casos, en términos de $n$ y de $m$? O(..........................)
+	% Respuesta: Memoria es O(n*m) por la creación de una matriz de n*m
+	\item (10\%) ¿Cuál es la complejidad asintótica, en \textbf{memoria}, en el peor de los casos, en términos de $n$ y de $m$? O(..........................)
+\end{enumerate}
+
+\textbf{Pista:} La complejidad en memoria quiere decir cuántos números nuevos crea el algoritmo, fuera de los que ya existían.
+
+\newpage
+
+
+\section{Listas enlazadas 20\%}
+
+En la vida real, determinar si una cadena con paréntesis, llaves y corchetes es válida es de interés para grandes empresas como \emph{Microsoft} (creador del lenguaje C\#) u \emph{Oracle } (dueño del lenguaje Java). Además, es un ejercicio muy común en entrevistas para estas empresas según el portal \emph{Geeks for Geeks}. Veamos el problema. 
+Dada una cadena que contiene únicamente los caractéres ``('', ``\{'', ``['', ``)'', ``\}'', ``]'', determina si ésta es válida. La cadena es válida si para cada caractér que abre, siempre hay uno que cierra en el orden correcto. Como un ejemplo ``([ ])'' es válida, pero ``[({}])'' no es válida porque el paréntesis ``)'' debe cerrar antes que el corchete ``]''.
+
+\hspace{1cm}
+
+\textbf{Si trabajas en Java}, considera este código:
+
+\begin{lstlisting}[language=Java]
+boolean solve(String exp) {
+  LinkedList<Character> s = new LinkedList();
+  for(int i=0;i<exp.length();++i){
+    char ei = exp.charAt(i);
+    if(ei == '(' | ei == '{' | ei == '[')
+      ..........................;
+    if(ei == ')' | ei == '}' | ei == ']'){
+      if(s.size() == 0 | !valid(s.get(s.size()-1), ei))
+        return false;
+      else{
+        ..........................;
+  } } }
+  return s.size() == 0;
+}
+boolean valid(char o, char c) {
+  return (o == '(' && c == ')') |
+         (o == '[' && c == ']') |
+         (o == '{' && c == '}');
+}
+\end{lstlisting}
+
+En Java, la librería \texttt{LinkedList} es una lista
+doblemente enlazada. En esa librería, \texttt{add(e,i)}
+agrega $e$ en la posición $i$, \texttt{add(e)} agrega
+a $e$ al final, \texttt{remove(i)} elimina el elemento
+en la posición $i$ y \texttt{get(i)} retorna el elemento
+en la posición $i$.
+
+
+\hspace{1cm}
+
+\textbf{Si trabajas en Python}, considera este código:
+
+\begin{lstlisting}[language=Python]
+def solve(exp):
+  s = deque()
+  for i in range(0, len(exp)):
+    ei = exp[i]
+    if ei == "(" or ei == "{" or ei == "[":
+      ..........................
+    if ei == ")" or ei == "}" or ei == "]":
+      if len(s) == 0 or not valid(s[len(s)-1], ei):
+        return False
+      else:
+        ..........................
+  return len(s) == 0
+
+def valid(o, c):
+  return (o == "(" and c == ")") or \
+         (o == "[" and c == "]") or \
+         (o == "{" and c == "}")
+\end{lstlisting}
+
+En Python, la librería \texttt{deque} es una lista doblemente enlazada.
+En deque, \texttt{append()} agrega al final, \texttt{appendLeft()} agrega
+al inicio, \texttt{pop()} elimina el último elemento y \texttt{popleft()}
+elimina el primer elemento.
+
+
+\begin{enumerate}[label=(\Alph*)]
+  % Solución: En Java: s.add(ei)  En Python: s.append(ei)
+  \item (10\%) Completa la línea 6  ..............\\ \\
+  % Solución: En Java: s.remove(s.size()-1) o también s.pop() y en Python: s.pop()
+  Y Completa la línea 11 ..............
+  % Solución: O(|e|)
+  \item (10\%) Cuál es la complejidad asintótica, en el peor de los casos, del algoritmo anterior. \\ \\
+  O(\line(1, 0){230}) , donde $e$ es el número de caracteres de \texttt{exp}.
+\end{enumerate}
+
+\newpage
+
+\section{Vectores dinámicos 10\%}
+En seguridad informática, las permutaciones de una cadena se utilizan para realizar un ataque por fuerza
+bruta a un sistema informático. Consideremos el siguiente problema de permutaciones. 
+Dada una cadena de letras y números, es necesario encontrar todas las posibles permutaciones de ésta cadena al usar solo letras minúsculas y mayúsculas. Por ejemplo, 
+\begin{itemize}
+\item ``as22b''. \textbf{Respuesta: } {As22b, aS22b, as22b, AS22b, As22B, aS22B, as22BB, AS22B}.
+\item ``123''. \textbf{Respuesta: } {123}
+\item ``1B4''. \textbf{Respuesta: } {1b4, 1b4}
+\end{itemize}
+El siguiente código resuelve el problema, pero es necesario completar algunas lineas.
+
+\hspace{1cm}
+
+\textbf{Si trabajas en Java}, considera este código:
+
+\begin{lstlisting}[language=Java]
+ArrayList<String> solve(String s) {
+  ArrayList<String> sol = new ArrayList();
+  tmp("", s, 0, s.length() - 1, sol);
+  return sol;
+}
+void tmp(String l,String s,int i,int j, ArrayList<String> sol)
+{
+  if (i > j) {
+    ..........................
+    return;
+  }
+  String c = "" + s.charAt(i);
+  c = c.toLowerCase(); // Convierte c a minusculas
+  tmp(l + c, s, i + 1, j, sol);
+  String k = "" + s.charAt(i);
+  k = k.toUpperCase(); // Convierte k a mayusculas
+  if (!c.equals(k)) {
+    ...........................
+  }
+}
+\end{lstlisting}
+
+\hspace{1cm}
+
+\textbf{Si trabajas en Python}, considera este código:
+
+\begin{lstlisting}[language=Python]
+def solve(s):
+  sol = [];
+  tmp("", s, 0, len(s) - 1, sol)
+  return sol
+
+def tmp( l, s, i, j, sol):
+
+  if i > j:
+    ..........................
+    return
+
+  c = "" + s[i]
+  c = c.lower() # Convierte c a minusculas
+  tmp(l + c, s, i + 1, j, sol)
+  k = "" + s[i]
+  k = k.upper() # Convierte k a mayusculas
+  if not c == k:
+    ...........................
+\end{lstlisting}
+
+
+\begin{enumerate}[label=\alph*]
+% Respuesta en Java: sol.add(l);  Respuesta en Python: sol.append(l)
+\item (10\%) Completa la línea 9 .................................
+% Respuesta en Java: tmp(l + k, s, i + 1, j, sol);   Respuesta en Python: tmp(l + k, s, i + 1, j, sol)
+\item (10\%) Completa la línea 17 ................................
+\end{enumerate}
+
+\newpage
+
+\section{Complejidad 20\%}
+En la vida real las sub-cadenas son súper importantes para empresas como \emph{Google} y \emph{Microsoft} para mejorar sus
+motores de búsqueda \emph{Google} y \emph{Bing}, respectivamente. 
+Dado una cadena de caracteres en minúsculas $s$ de tamaño $n$ y un entero $k$, es necesario contar el numero de sub-cadenas de $s$ de tamaño $k \leq n$, tal que cada cada una de estas sub-cadenas no tiene caracteres repetidos. \textbf{Ejemplo:} \textit{``andamasqueyo''}, $k = 5$. \textbf{Respuesta}: 4 (\textit{{masqu, asque, squey, queyo}}). \textbf{Ejemplo:} \textit{``casa''}, $k = 5$. \textbf{Respuesta}: $0$.
+\\
+Lo que tienes que hacer es construir un algoritmo para resolver este problema. Ya algunas líneas se han implementado, entonces sólo debes implementar el resto. Para lograrlo se crea un arreglo \texttt{count} que contiene las ocurrencias de cada letra, enumeradas de la $0$ a la $26$. Cuando se hace la operación $c - 97$ --donde $c$ es un caracter-- lo que se hace es asignar a la letra $a$ la posición 0, a la letra $b$ la posición 1, y así sucesivamente. Esto sucede porque los números del 97 al 122 se usan para representar las letras de la $a$ a la $z$. Para lograr eso en Python, se debe convertir el caracter con \texttt{ord()}.
+
+\hspace{1cm}
+
+\textbf{Si trabajas en Java}, considera este código:
+
+{\small
+\begin{lstlisting}[language = Java]
+int solve(String s, int k){
+  if(s.length() < k) return 0;
+  int[] count = new int[26];
+  for(int i = 0; i < k; ++i){
+    count[s.charAt(i) - 97]++;
+  }
+  int ans = check(count) ? 1: 0;
+  for(int i = k; i < s.length(); ++i){
+    count[s.charAt(i - k) - 97] --;
+    count[s.charAt(i) - 97] = count[s.charAt(i) - 97] + 1;
+    if(check(count)){
+      ans++;
+    }
+  }
+  return ans;
+}
+boolean check(int[] count){
+  for(int i = 0; i < 26; ++i){
+    if(count[i] > 1) return false;
+  }
+  return true;
+}
+\end{lstlisting}
+}
+
+\hspace{1cm}
+
+\textbf{Si trabajas en Python}, considera este código:
+
+{\small
+\begin{lstlisting}[language = Python]
+def solve(s, k):
+  if(len(s) < k): 
+    return 0
+  count = np.zeros(26) # arreglo de 26 elementos
+  for i in range (0,k):
+    count[ord(s[i]) - 97] += 1
+  ans = 1 if check(count) else 0
+  for i in range (k, len(s)): 
+    count[ord(s[i - k]) - 97] -= 1
+    count[ord(s[i]) - 97] = count[ord(s[i]) - 97] + 1
+    if check(count):
+      ans += 1
+  return ans
+
+def check(count):
+  for i in range(0,26):
+    if count[i] > 1:
+     return False
+  return True
+\end{lstlisting}
+}
+
+\begin{enumerate}[label=(\Alph*)]
+% Respuesta: O(n)
+\item (10\%) ¿Cuál es la complejidad asintótica \textbf{en tiempo} para el peor de los casos?
+% Respuesta: O(1)
+\item (10\%) ¿Cuál es la complejidad asintótica \textbf{en memoria} para el peor de los casos?
+
+\end{enumerate}
+
+\section{Complejidad (10\% EXTRA)}
+Te entregan un entero $Q \geq 1$. Luego, te entregan $Q$ consultas, cada una de las cuales se compone de una tripleta $(a, n, k)$; donde $a$ es un arreglo de enteros, $n$ es el tamaño de $a$ y $k$ es un entero $1 \leq k \leq n$. La idea es responder en el menor tiempo posible las $Q$ consultas: Al ordenar los elementos de $a$ de forma creciente, ¿cuál es el elemento que queda en la posición $k$?
+
+\hspace{1cm}
+
+\textbf{Si trabajas en Java}, considera este código:
+
+
+ Se propone un algoritmo usando el algoritmo de ordenamiento \emph{Merge Sort}. El siguiente es el algoritmo que se está usando:
+   \begin{lstlisting}[language = Java]
+  int[] solve(int Q, int[][] aq, int[] k){
+    int[] result = new int[Q];
+    for(int i = 0; i < Q; ++i){
+      Arrays.sort(aq[i]); // Este usa Merge Sort
+      result[i] = aq[i][k[i]];
+    }
+    return result;
+  }
+  \end{lstlisting}
+
+
+Se cree que el algoritmo anterior se puede mejorar. Entonces, se propone el siguiente algoritmo.
+\begin{lstlisting}[language = Java]
+ int[] solve(int Q, int[][] aq, int[] k){
+    int[] result = new int[Q];
+    for(int i = 0; i < Q; ++i){      
+      insertionSort(aq[i]); //Este es insertion sort
+      result[i] = aq[i][k[i]];
+    }
+    return result;
+  }
+
+ void insertionSort(int arr[]) {
+        int n = arr.length;
+        for (int i = 1; i < n; ++i) {
+            int key = arr[i];
+            int j = i - 1;
+            while (j >= 0 && arr[j] > key) {
+                arr[j + 1] = arr[j];
+                j = j - 1;
+            }
+            arr[j + 1] = key;
+        }
+  }
+\end{lstlisting}
+
+\hspace{1cm}
+
+\textbf{Si trabajas en Python}, considera este código:
+
+
+ Se propone un algoritmo usando el algoritmo de ordenamiento \emph{Merge Sort}. El siguiente es el algoritmo que se está usando:
+\begin{lstlisting}[language = Python]
+  def solve( Q, aq,  k):
+    result = np.zeros(Q)
+    for i in range(0, Q):
+      aq[i].sort() # Este usa Merge Sort
+      result[i] = aq[i][k[i]]
+    return result
+\end{lstlisting}
+
+\newpage
+Se cree que el algoritmo anterior se puede mejorar. Entonces, se propone el siguiente algoritmo.
+
+\begin{lstlisting}[language = Python]
+  def solve(Q,  aq,  k):
+    result = np.zeros(Q)
+    for i in range(0, Q):
+      insertionSort(aq[i]) # Este es Insertion Sort
+      result[i] = aq[i][k[i]]
+    return result
+
+  def insertionSort(arr):
+    for i in range(1, len(arr)):
+        key = arr[i]
+        j = i-1
+        while j >= 0 and key < arr[j]:
+                arr[j + 1] = arr[j]
+                j -= 1
+        arr[j + 1] = key
+\end{lstlisting}
+
+
+\begin{enumerate}[label=(\Alph*)]
+  \item (10\%) En el mejor caso, ¿cuál de los dos algoritmos usaría y por qué? Justifica tu respuesta usando la notación \textbf{O}.
+  \\ \\
+  \line(1,0){230}
+  \\ \\
+  \line(1,0){230}
+  \\ \\
+  \line(1,0){230}\\ \\
+  % Respuesta: En el caso mejor, el primer algoritmo tiene una complejidad asintótica de O(Q * n log n); el segundo algoritmo tiene una complejidad asintótica O(Q * n). Me quedo con el segundo algoritmo.
+  Y En el peor caso, ¿cuál de los dos algoritmos usaría y por qué? Justifica tu respuesta usando la notación \textbf{O}.
+  \\ \\
+  \line(1,0){230}
+  \\ \\
+  \line(1,0){230}
+  \\ \\
+  \line(1,0){230}
+  % Respuesta: En el peor caso, el primer algoritmo tiene una complejidad asintótica de O(Q * n log n); el segundo algoritmo tiene una complejidad asintótica O(Q * n^2), me quedo con el primer algoritmo.
+\end{enumerate}
+
+
+
+
+\end{document}
