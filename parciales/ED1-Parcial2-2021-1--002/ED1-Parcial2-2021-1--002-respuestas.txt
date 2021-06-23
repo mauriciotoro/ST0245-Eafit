@@ -1,0 +1,54 @@
+1. 
+A)  JAVA l.sum + r.sum + root.val
+    PYTHON l[theSum] + r[theSum] + root.val o l[0] + r[0] + root.val
+
+B)  sum * 1.0 / sz... medio punto si no ponen *1.0
+    porque queda división entera, ojo!
+
+C)  T(n) = 2T(n/2) + c o T(n) = T(n-1) + c que, en ambos casos, es O(n)
+
+
+2.
+A)
+   Solución: En Java: s.push(ei)  En Python: s.append(ei)
+   Solución: En Java: s.pop() o también s.remove(s.size()-1) y en Python: s.pop()
+
+B) 
+   Solución: O(|e|), no hay n en este problema.
+
+
+3.
+A)
+  Solución:  En Java:   rear = (rear + 1) % size; 
+  Solución:  En Python: self.rear = (self.rear + 1) % self.size
+B)
+  Solución: O(1)
+
+
+4.
+A)
+Java return false; Python return False
+
+B)
+O(l)
+
+
+5.
+A) iii - O(V^2)
+
+
+6. OPCIONAL -- Meme
+
+La complejidad de imprimir los elementos
+de un árbol es O(2^n).
+
+Ajam, pero si tomas que n es la altura del
+árbol. Porque si consideras que n es el número
+de nodos, sería O(n).
+
+
+7. OPCIONAL
+A) ii - O(n)
+
+B) Respuesta en Java y en Python: d[i] > d[u], f[i] > f[w]
+

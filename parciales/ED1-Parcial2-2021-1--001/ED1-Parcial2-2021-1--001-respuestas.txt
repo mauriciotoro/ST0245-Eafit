@@ -1,0 +1,61 @@
+1.
+
+A)
+ Respuesta: solve(a, l, m - 1) en Java o solveAux(a, l, m - 1) en Python
+
+B)
+ Respuesta: solve(a, m + 1, r) en Java o solveAux(a, l, m - 1) en Python
+
+C)
+ T(n) = 2*T(n/2) + c, que es O(n)
+
+
+2.
+
+A)
+   Solución Java: aStack.push(t)
+   Solución Python: aStack.append(t)
+B)
+   Solución Java: Integer.valueOf(aStack.pop()),Integer.valueOf(aStack.pop())
+   Solución Python: int(aStack.pop())   y   int(aStack.pop())
+
+   Solución Java: Integer.valueOf(aStack.pop())
+   Solución Python: int(aStack.pop())
+
+
+3.
+
+A)
+  O(1) enqueue
+B)
+  O(n) dequeue
+
+4.
+A)
+% Java: int j = 0; j < len1; j++
+% Python: j in range(0, len1)
+
+B)
+% Java: hash_str[str.charAt(start)] > hash_pat[str.charAt(start)] || hash_pat[str.charAt(start)] == 0
+% Python:  hash_str[ord(string[start])] > hash_pat[ord(string[start])] or hash_pat[ord(string[start])] == 0
+
+
+5.
+A)
+  v - O(V^3)
+
+
+6. OPCIONAL -- Meme
+
+La complejidad de imprimir los elementos
+de un árbol es O(2^n).
+
+Ajam, pero si tomas que n es la altura del
+árbol. Porque si consideras que n es el número
+de nodos, sería O(n).
+
+
+7. OPCIONAL
+A)
+  i - O(V)
+
