@@ -4,10 +4,6 @@ import matplotlib.pyplot as plt
 from shapely import wkt
 
 #load data
-nodes = pd.read_csv('puntos_del_mapa.csv',sep=';')
-nodes['geometry'] = nodes['geometry'].apply(wkt.loads)
-nodes = gpd.GeoDataFrame(nodes)
-
 edges = pd.read_csv('calles_de_medellin.csv',sep=';')
 edges['geometry'] = edges['geometry'].apply(wkt.loads)
 edges = gpd.GeoDataFrame(edges)
